@@ -4,12 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Activity;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class ActivityController extends Controller
+class ActivityController extends Controller implements HasMiddleware
 {
     /**
      * Display a listing of the resource.
      */
+
+     public static function middleWare(){
+        return[
+        new Middleware('auth:sanctum', except: ['index', 'show'])
+        ];
+     }
     public function index()
     {
         return Activity::all();
@@ -51,7 +59,7 @@ class ActivityController extends Controller
             'time'=>'required|date_format:Y-m-d H:i:s',
         ]);
 
-        $activity->update([$useractivity]);
+        $activity->update($useractivity);
         return $activity;
     }
 
