@@ -6,6 +6,7 @@ use App\Models\Activity;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Support\Facades\Gate;
 
 class ActivityController extends Controller implements HasMiddleware
 {
@@ -52,6 +53,7 @@ class ActivityController extends Controller implements HasMiddleware
      */
     public function update(Request $request, Activity $activity)
     {
+        Gate::authorize('modify', $activity);
         $useractivity = $request->validate([
             'title'=>'required|string',
             'description'=>'required|string',
@@ -68,6 +70,7 @@ class ActivityController extends Controller implements HasMiddleware
      */
     public function destroy(Activity $activity)
     {
+        Gate::authorize('modify', $activity);
         $activity->delete();
         return [
             'message'=> 'Activity deleted successfully',
