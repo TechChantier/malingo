@@ -13,10 +13,14 @@ class Activity extends Model
     protected $fillable = [
         'title',
         'description',
+        'link',
         'location',
         'time',
     ];
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    public function joinRequest(){
+        return $this->hasMany(JoinRequest::class);
     }
 }

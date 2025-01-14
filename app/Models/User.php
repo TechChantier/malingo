@@ -50,4 +50,11 @@ class User extends Authenticatable
     public function activities(){
         return $this->hasMany(Activity::class);
     }
+
+    public function sentJoinRequest(){
+        return $this->hasMany(JoinRequest::class, 'user_id');
+    }
+    public function recievedJoinRequest(){
+        return $this->hasManyThrough(JoinRequest::class, Activity::class, 'user_id', 'activity_id');
+    }
 }
