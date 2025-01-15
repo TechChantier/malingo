@@ -17,10 +17,23 @@ class Activity extends Model
         'location',
         'time',
     ];
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
-    public function joinRequest(){
+    public function joinRequest()
+    {
         return $this->hasMany(JoinRequest::class);
+    }
+
+    public function joinedUsers()
+    {
+        return $this->belongsToMany(User::class, 'join_requests', 'activity_id', 'user_id')
+            ->withPivot('status')
+            ->wherePivot('status', 'accepted'); // Only accepted users
+    }
+
+    public function leaveReques(){
+        $this->hasMany(LeaveRequest::class);
     }
 }

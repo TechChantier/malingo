@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
+use App\Models\LeaveRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
 class ActivityController extends Controller implements HasMiddleware
@@ -195,5 +197,79 @@ class ActivityController extends Controller implements HasMiddleware
         $activities = $query->get();
 
         return response()->json($activities);
+    }
+    //get joined users
+    public function getJoinedUsers($activityId){
+        //find the activity
+        $activity = Activity::find($activityId);
+        
+
+        //check if activity exists
+        if(!$activity){
+            return response()->json([
+                'message' => 'Activity not found',
+            ], 404);
+        }
+        $joinedUsers = $activity->joinedUsers;
+        return response()->json($joinedUsers);
+
+    }
+
+    public function search(Request $request){
+
+        $request->validate([
+            'title' => 'nullable|string',
+            'description' => 'nullable|string',
+            'location' => 'nullable|string',
+            'date' => 'nullable' 
+        ]);
+
+        //define the searc parameters
+        $query = Activity::query();
+
+        //filter the search parameters
+        if($request->has('title')){
+            $query->where('title', 'LIKE', '%' . $request->title . '%');
+        }
+        if($request->has('description')){
+            $query->where('description', 'LIKE', '%' . $request->description . '%');
+        }
+        if($request->has('location')){
+            $query->where('location', 'LIKE', '%' . $request->location . '%');
+        }
+        if($request->has('date')){
+            $query->whereDate('time', $request->date); //assuming time is store as date time field
+        }
+        
+        //order by date in descending order
+        $activity = $query->orderBy('time', 'desc')->get();
+
+        return response()->json($activity);
+    }
+
+
+    //leave activity request
+    public function requestLeave(Request $request, Activity $activity){
+        $user = Auth::user();
+
+        //check if user already joined activity
+
+        if(!$activity->joinRequest()->where('user_id', $user->id)->where('status', 'accepted')->exists()){
+            return response()->json([
+                'message' => 'you are not a participant in this activity',
+            ], 403);
+        }
+        
+        //create a leave request
+        $leaveRequest = LeaveRequest::create([
+            'user_id'=>$user->id,
+            'activity_id' => $activity->id,
+            'status' => 'pending',
+        ]);
+
+        return response()->json([
+            'message' => 'Leave request sent successfully',
+            'leaveRequest' => $leaveRequest,
+        ], 201);
     }
 }
