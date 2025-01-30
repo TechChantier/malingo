@@ -1,0 +1,1286 @@
+openapi: 3.0.3
+info:
+  title: 'Malingo api documentation'
+  description: "This is api documentation contains all the endpoints for the malingo project. \n    a platform where you can effortlessly find companions for your next adventure, be it a travel buddy,\n     a dining partner, or someone to join you for a stroll or a random conversation. Malingo is a solution\n      that enables individuals to connect, share experiences, and foster new relationships while splitting\n       costs or covering expenses as agreed.\n    "
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/activity:
+    get:
+      summary: "Get all activities\n\nRetrieve a list of all activities."
+      operationId: getAllActivitiesRetrieveAListOfAllActivities
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    title: 'Sample Activity'
+                    description: Description
+                    location: Location
+                    time: '2025-01-01 10:00:00'
+      tags:
+        - Activities
+      security: []
+    post:
+      summary: "Create a new activity\n\nStore a new activity created by the authenticated user."
+      operationId: createANewActivityStoreANewActivityCreatedByTheAuthenticatedUser
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  title: 'Morning Run'
+                  description: 'A group run in the park.'
+                  location: 'Central Park'
+                  time: '2025-01-01 10:00:00'
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  title:
+                    type: string
+                    example: 'Morning Run'
+                  description:
+                    type: string
+                    example: 'A group run in the park.'
+                  location:
+                    type: string
+                    example: 'Central Park'
+                  time:
+                    type: string
+                    example: '2025-01-01 10:00:00'
+      tags:
+        - Activities
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'The title of the activity.'
+                  example: 'Morning Run'
+                  nullable: false
+                description:
+                  type: string
+                  description: 'The description of the activity.'
+                  example: 'A group run in the park.'
+                  nullable: false
+                link:
+                  type: string
+                  description: 'The link to the activity (if any).'
+                  example: 'https://zoom.com/meeting'
+                  nullable: false
+                location:
+                  type: string
+                  description: 'The location of the activity.'
+                  example: 'Central Park'
+                  nullable: false
+                time:
+                  type: datetime
+                  description: 'The date and time of the activity. Format: Y-m-d H:i:s.'
+                  example: '2025-01-01 10:00:00'
+                  nullable: false
+              required:
+                - title
+                - description
+                - link
+                - location
+                - time
+      security: []
+  '/api/activity/{id}':
+    get:
+      summary: "Get activity details\n\nRetrieve details of a specific activity."
+      operationId: getActivityDetailsRetrieveDetailsOfASpecificActivity
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  title: 'Morning Run'
+                  description: 'A group run in the park.'
+                  location: 'Central Park'
+                  time: '2025-01-01 10:00:00'
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  title:
+                    type: string
+                    example: 'Morning Run'
+                  description:
+                    type: string
+                    example: 'A group run in the park.'
+                  location:
+                    type: string
+                    example: 'Central Park'
+                  time:
+                    type: string
+                    example: '2025-01-01 10:00:00'
+      tags:
+        - Activities
+      security: []
+    put:
+      summary: "Update an activity\n\nUpdate the details of an existing activity."
+      operationId: updateAnActivityUpdateTheDetailsOfAnExistingActivity
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  title: 'Evening Walk'
+                  description: 'A peaceful evening walk.'
+                  location: 'Riverside Park'
+                  time: '2025-01-02 18:00:00'
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  title:
+                    type: string
+                    example: 'Evening Walk'
+                  description:
+                    type: string
+                    example: 'A peaceful evening walk.'
+                  location:
+                    type: string
+                    example: 'Riverside Park'
+                  time:
+                    type: string
+                    example: '2025-01-02 18:00:00'
+      tags:
+        - Activities
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'The updated title of the activity.'
+                  example: 'Evening Walk'
+                  nullable: false
+                description:
+                  type: string
+                  description: 'The updated description.'
+                  example: 'A peaceful evening walk.'
+                  nullable: false
+                location:
+                  type: string
+                  description: 'The updated location.'
+                  example: 'Riverside Park'
+                  nullable: false
+                time:
+                  type: datetime
+                  description: 'The updated date and time. Format: Y-m-d H:i:s.'
+                  example: '2025-01-02 18:00:00'
+                  nullable: false
+              required:
+                - title
+                - description
+                - location
+                - time
+      security: []
+    delete:
+      summary: "Delete an activity\n\nDelete an activity created by the authenticated user."
+      operationId: deleteAnActivityDeleteAnActivityCreatedByTheAuthenticatedUser
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Activity deleted successfully'
+                properties:
+                  message:
+                    type: string
+                    example: 'Activity deleted successfully'
+      tags:
+        - Activities
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the activity.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: activity
+        description: 'The ID of the activity.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/register:
+    post:
+      summary: 'Register a new user'
+      operationId: registerANewUser
+      description: 'Create a new user account and generate an authentication token.'
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  user:
+                    id: 1
+                    name: 'John Doe'
+                    email: john@example.com
+                    created_at: '2025-01-21T10:00:00'
+                    updated_at: '2025-01-21T10:00:00'
+                  token: 1|laravel_sanctum_token_string_here
+                properties:
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'John Doe'
+                      email:
+                        type: string
+                        example: john@example.com
+                      created_at:
+                        type: string
+                        example: '2025-01-21T10:00:00'
+                      updated_at:
+                        type: string
+                        example: '2025-01-21T10:00:00'
+                  token:
+                    type: string
+                    example: 1|laravel_sanctum_token_string_here
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The given data was invalid.'
+                  errors:
+                    email:
+                      - 'The email has already been taken.'
+                    password:
+                      - 'The password confirmation does not match.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The given data was invalid.'
+                  errors:
+                    type: object
+                    properties:
+                      email:
+                        type: array
+                        example:
+                          - 'The email has already been taken.'
+                        items:
+                          type: string
+                      password:
+                        type: array
+                        example:
+                          - 'The password confirmation does not match.'
+                        items:
+                          type: string
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "The user's full name."
+                  example: 'John Doe'
+                  nullable: false
+                email:
+                  type: string
+                  description: "The user's email address."
+                  example: john@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: "The user's password (minimum 6 characters)."
+                  example: secretpassword
+                  nullable: false
+                password_confirmation:
+                  type: string
+                  description: 'The confirmation of the password.'
+                  example: secretpassword
+                  nullable: false
+              required:
+                - name
+                - email
+                - password
+                - password_confirmation
+      security: []
+  /api/login:
+    post:
+      summary: 'Log in an existing user'
+      operationId: logInAnExistingUser
+      description: 'Authenticate a user using email and password, and generate an authentication token.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  user:
+                    id: 1
+                    name: 'John Doe'
+                    email: john@example.com
+                    created_at: '2025-01-21T10:00:00'
+                    updated_at: '2025-01-21T10:00:00'
+                  token: 1|laravel_sanctum_token_string_here
+                properties:
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'John Doe'
+                      email:
+                        type: string
+                        example: john@example.com
+                      created_at:
+                        type: string
+                        example: '2025-01-21T10:00:00'
+                      updated_at:
+                        type: string
+                        example: '2025-01-21T10:00:00'
+                  token:
+                    type: string
+                    example: 1|laravel_sanctum_token_string_here
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Invalid credentials'
+                properties:
+                  message:
+                    type: string
+                    example: 'Invalid credentials'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The given data was invalid.'
+                  errors:
+                    email:
+                      - 'The selected email is invalid.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The given data was invalid.'
+                  errors:
+                    type: object
+                    properties:
+                      email:
+                        type: array
+                        example:
+                          - 'The selected email is invalid.'
+                        items:
+                          type: string
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: "The user's email address."
+                  example: john@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: "The user's password."
+                  example: secretpassword
+                  nullable: false
+              required:
+                - email
+                - password
+      security: []
+  /api/logout:
+    post:
+      summary: 'Log out the current user'
+      operationId: logOutTheCurrentUser
+      description: "Revoke all of the user's tokens to log them out."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Successfully logged out'
+                properties:
+                  message:
+                    type: string
+                    example: 'Successfully logged out'
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+      tags:
+        - Authentication
+  '/api/users/{id}':
+    get:
+      summary: 'Show user details by ID'
+      operationId: showUserDetailsByID
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  name: 'John Doe'
+                  email: john@example.com
+                  created_at: '2021-01-01T00:00:00Z'
+                  updated_at: '2021-01-01T00:00:00Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: 'John Doe'
+                  email:
+                    type: string
+                    example: john@example.com
+                  created_at:
+                    type: string
+                    example: '2021-01-01T00:00:00Z'
+                  updated_at:
+                    type: string
+                    example: '2021-01-01T00:00:00Z'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'User not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'User not found'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/activities/{activity_id}/join':
+    post:
+      summary: 'Join an activity'
+      operationId: joinAnActivity
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Join request sent successfully.'
+                  join_request:
+                    id: 1
+                    user_id: 1
+                    activity_id: 2
+                    status: pending
+                properties:
+                  message:
+                    type: string
+                    example: 'Join request sent successfully.'
+                  join_request:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      user_id:
+                        type: integer
+                        example: 1
+                      activity_id:
+                        type: integer
+                        example: 2
+                      status:
+                        type: string
+                        example: pending
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You have already requested to join this activity.'
+                properties:
+                  message:
+                    type: string
+                    example: 'You have already requested to join this activity.'
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                activity_id:
+                  type: integer
+                  description: 'The ID of the activity to join.'
+                  example: 16
+                  nullable: false
+              required:
+                - activity_id
+    parameters:
+      -
+        in: path
+        name: activity_id
+        description: 'The ID of the activity.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/join-request/{joinRequest_id}/accept':
+    post:
+      summary: 'Accept a join request'
+      operationId: acceptAJoinRequest
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Join request accepted'
+                  whatsapp_link: 'https://wa.me/1234567890'
+                properties:
+                  message:
+                    type: string
+                    example: 'Join request accepted'
+                  whatsapp_link:
+                    type: string
+                    example: 'https://wa.me/1234567890'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthorized
+                properties:
+                  message:
+                    type: string
+                    example: Unauthorized
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                joinRequest_id:
+                  type: integer
+                  description: 'The ID of the join request to accept.'
+                  example: 1
+                  nullable: false
+              required:
+                - joinRequest_id
+    parameters:
+      -
+        in: path
+        name: joinRequest_id
+        description: 'The ID of the joinRequest.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/join-request/{joinRequest_id}/decline':
+    post:
+      summary: 'Decline a join request'
+      operationId: declineAJoinRequest
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Your request to join this activity has been declined'
+                properties:
+                  message:
+                    type: string
+                    example: 'Your request to join this activity has been declined'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthorized
+                properties:
+                  message:
+                    type: string
+                    example: Unauthorized
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                joinRequest_id:
+                  type: integer
+                  description: 'The ID of the join request to decline.'
+                  example: 1
+                  nullable: false
+              required:
+                - joinRequest_id
+    parameters:
+      -
+        in: path
+        name: joinRequest_id
+        description: 'The ID of the joinRequest.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/activities/user:
+    get:
+      summary: 'Get user activities'
+      operationId: getUserActivities
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  created_activities:
+                    -
+                      id: 1
+                      title: 'Activity 1'
+                      time: '2025-01-21T10:00:00'
+                      location: 'Location 1'
+                  pending_activities:
+                    -
+                      id: 2
+                      title: 'Activity 2'
+                      status: pending
+                  accepted_activities:
+                    -
+                      id: 3
+                      title: 'Activity 3'
+                      status: accepted
+                  declined_activities:
+                    -
+                      id: 4
+                      title: 'Activity 4'
+                      status: declined
+                properties:
+                  created_activities:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        title: 'Activity 1'
+                        time: '2025-01-21T10:00:00'
+                        location: 'Location 1'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        title:
+                          type: string
+                          example: 'Activity 1'
+                        time:
+                          type: string
+                          example: '2025-01-21T10:00:00'
+                        location:
+                          type: string
+                          example: 'Location 1'
+                  pending_activities:
+                    type: array
+                    example:
+                      -
+                        id: 2
+                        title: 'Activity 2'
+                        status: pending
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 2
+                        title:
+                          type: string
+                          example: 'Activity 2'
+                        status:
+                          type: string
+                          example: pending
+                  accepted_activities:
+                    type: array
+                    example:
+                      -
+                        id: 3
+                        title: 'Activity 3'
+                        status: accepted
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 3
+                        title:
+                          type: string
+                          example: 'Activity 3'
+                        status:
+                          type: string
+                          example: accepted
+                  declined_activities:
+                    type: array
+                    example:
+                      -
+                        id: 4
+                        title: 'Activity 4'
+                        status: declined
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 4
+                        title:
+                          type: string
+                          example: 'Activity 4'
+                        status:
+                          type: string
+                          example: declined
+      tags:
+        - Endpoints
+  /api/activities/filter:
+    get:
+      summary: 'Filter activities by title, description, date, and location'
+      operationId: filterActivitiesByTitleDescriptionDateAndLocation
+      description: 'Retrieve activities based on specified filters.'
+      parameters:
+        -
+          in: query
+          name: title
+          description: 'optional Filter by title.'
+          example: perferendis
+          required: false
+          schema:
+            type: string
+            description: 'optional Filter by title.'
+            example: perferendis
+            nullable: false
+        -
+          in: query
+          name: description
+          description: 'optional Filter by description.'
+          example: 'Itaque vel quaerat enim.'
+          required: false
+          schema:
+            type: string
+            description: 'optional Filter by description.'
+            example: 'Itaque vel quaerat enim.'
+            nullable: false
+        -
+          in: query
+          name: date
+          description: 'optional Filter by date (format: y-m-d).'
+          example: explicabo
+          required: false
+          schema:
+            type: string
+            description: 'optional Filter by date (format: y-m-d).'
+            example: explicabo
+            nullable: false
+        -
+          in: query
+          name: location
+          description: 'optional Filter by location.'
+          example: velit
+          required: false
+          schema:
+            type: string
+            description: 'optional Filter by location.'
+            example: velit
+            nullable: false
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    title: 'Filtered Activity'
+                    description: 'Activity description'
+                    time: '2025-01-21T10:00:00'
+                    location: 'Location 1'
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Invalid date format, please use a valid date'
+                properties:
+                  message:
+                    type: string
+                    example: 'Invalid date format, please use a valid date'
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: sed
+                  nullable: true
+                description:
+                  type: string
+                  description: ''
+                  example: 'Quisquam omnis architecto omnis excepturi et rem sed nihil.'
+                  nullable: true
+                date:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: true
+                location:
+                  type: string
+                  description: ''
+                  example: molestiae
+                  nullable: true
+      security: []
+  /api/activities/search:
+    get:
+      summary: 'Search activities by title, description, location, or date'
+      operationId: searchActivitiesByTitleDescriptionLocationOrDate
+      description: 'Search for activities based on the provided parameters.'
+      parameters:
+        -
+          in: query
+          name: title
+          description: 'optional Filter by title.'
+          example: nam
+          required: false
+          schema:
+            type: string
+            description: 'optional Filter by title.'
+            example: nam
+            nullable: false
+        -
+          in: query
+          name: description
+          description: 'optional Filter by description.'
+          example: 'Vel doloremque sint architecto voluptatibus sit est numquam.'
+          required: false
+          schema:
+            type: string
+            description: 'optional Filter by description.'
+            example: 'Vel doloremque sint architecto voluptatibus sit est numquam.'
+            nullable: false
+        -
+          in: query
+          name: location
+          description: 'optional Filter by location.'
+          example: possimus
+          required: false
+          schema:
+            type: string
+            description: 'optional Filter by location.'
+            example: possimus
+            nullable: false
+        -
+          in: query
+          name: date
+          description: 'optional Filter by date (format: y-m-d).'
+          example: omnis
+          required: false
+          schema:
+            type: string
+            description: 'optional Filter by date (format: y-m-d).'
+            example: omnis
+            nullable: false
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    title: 'Activity 1'
+                    time: '2025-01-21T10:00:00'
+                    location: 'Location 1'
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: iusto
+                  nullable: true
+                description:
+                  type: string
+                  description: ''
+                  example: 'Voluptas consequuntur consequatur voluptatem veritatis praesentium quo.'
+                  nullable: true
+                location:
+                  type: string
+                  description: ''
+                  example: quaerat
+                  nullable: true
+                date:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: true
+      security: []
+  '/api/activities/{id}/joined-users':
+    get:
+      summary: 'Get users who joined a specific activity'
+      operationId: getUsersWhoJoinedASpecificActivity
+      description: 'Retrieve a list of users who have joined a particular activity.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    name: 'User 1'
+                    email: user1@example.com
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Activity not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'Activity not found'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the activity.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: activityId
+        description: 'The ID of the activity.'
+        example: 18
+        required: true
+        schema:
+          type: integer
+  '/api/activity/{activity_id}/leave':
+    post:
+      summary: 'Request leave from an activity'
+      operationId: requestLeaveFromAnActivity
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Leave request sent successfully'
+                  leaveRequest:
+                    id: 1
+                    user_id: 1
+                    activity_id: 2
+                    status: pending
+                properties:
+                  message:
+                    type: string
+                    example: 'Leave request sent successfully'
+                  leaveRequest:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      user_id:
+                        type: integer
+                        example: 1
+                      activity_id:
+                        type: integer
+                        example: 2
+                      status:
+                        type: string
+                        example: pending
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You are not a participant in this activity'
+                properties:
+                  message:
+                    type: string
+                    example: 'You are not a participant in this activity'
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                activity_id:
+                  type: integer
+                  description: 'The ID of the activity.'
+                  example: 16
+                  nullable: false
+              required:
+                - activity_id
+    parameters:
+      -
+        in: path
+        name: activity_id
+        description: 'The ID of the activity.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/leave-requests/{leaveRequest_id}/approve':
+    post:
+      summary: 'Approve a leave request'
+      operationId: approveALeaveRequest
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The leave request has been approved'
+                properties:
+                  message:
+                    type: string
+                    example: 'The leave request has been approved'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You are not authorized to approve this request'
+                properties:
+                  message:
+                    type: string
+                    example: 'You are not authorized to approve this request'
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                leaveRequest_id:
+                  type: integer
+                  description: 'The ID of the leave request to approve.'
+                  example: 1
+                  nullable: false
+              required:
+                - leaveRequest_id
+    parameters:
+      -
+        in: path
+        name: leaveRequest_id
+        description: 'The ID of the leaveRequest.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+tags:
+  -
+    name: Activities
+    description: ''
+  -
+    name: Authentication
+    description: "\nEndpoints for user registration, login, and logout."
+  -
+    name: Endpoints
+    description: ''
