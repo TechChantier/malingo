@@ -10,6 +10,7 @@ use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Log;
 
 class ActivityController extends Controller implements HasMiddleware
 {
@@ -56,17 +57,25 @@ class ActivityController extends Controller implements HasMiddleware
     {
         $useractivity = $request->validate([
             'title' => 'required|string',
-            'ActivtyPhoto' => 'file|mimes:jpg,jpeg,png|max:512',
+            'ActivityPhoto' => 'required|file|mimes:jpg,jpeg,png|max:10240',
             'description' => 'required|string',
             'link' => 'required|string',
-            'numberOfMembers' => 'required|integer',
+            'numberOfMembers' => 'required',
             'location' => 'required|string',
             'time' => 'required|date_format:Y-m-d H:i:s',
         ]);
 
         // Store the file and get the path
+        // if ($request->hasFile('ActivityPhoto')) {
+        //     $useractivity['ActivityPhoto'] = $request->file('ActivityPhoto')->store('activity_photos', 'public');
+        // }
         if ($request->hasFile('ActivityPhoto')) {
-            $useractivity['ActivityPhoto'] = $request->file('ActivityPhoto')->store('activity_photos', 'public');
+            Log::info('File present in request');
+            $path = $request->file('ActivityPhoto')->store('activity_photos', 'public');
+            Log::info('Stored file path: ' . $path);
+            $useractivity['ActivityPhoto'] = $path;
+        } else {
+            Log::info('No file in request');
         }
 
         $post = $request->user()->activities()->create($useractivity);

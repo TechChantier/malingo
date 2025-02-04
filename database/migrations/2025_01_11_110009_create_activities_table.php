@@ -15,13 +15,17 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('title');
+            $table->string('ActivityPhoto')->nullable(); // Added ActivityPhoto column
             $table->string('description');
             $table->string('link');
+            $table->integer('numberOfMembers'); // Added numberOfMembers column
             $table->string('location');
             $table->dateTime('time');
             $table->timestamps();
         });
     }
+
+
 
     /**
      * Reverse the migrations.
