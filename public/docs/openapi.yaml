@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: 'Malingo api documentation'
-  description: "This is api documentation contains all the endpoints for the malingo project. \n    a platform where you can effortlessly find companions for your next adventure, be it a travel buddy,\n     a dining partner, or someone to join you for a stroll or a random conversation. Malingo is a solution\n      that enables individuals to connect, share experiences, and foster new relationships while splitting\n       costs or covering expenses as agreed.\n    "
+  description: "This api documentation contains all the endpoints for the malingo project. \n    a platform where you can effortlessly find companions for your next adventure, be it a travel buddy,\n     a dining partner, or someone to join you for a stroll or a random conversation. Malingo is a solution\n      that enables individuals to connect, share experiences, and foster new relationships while splitting\n       costs or covering expenses as agreed.\n    "
   version: 1.0.0
 servers:
   -
@@ -9,8 +9,8 @@ servers:
 paths:
   /api/activity:
     get:
-      summary: "Get all activities\n\nRetrieve a list of all activities."
-      operationId: getAllActivitiesRetrieveAListOfAllActivities
+      summary: 'Get all activities'
+      operationId: getAllActivities
       description: ''
       parameters: []
       responses:
@@ -19,22 +19,234 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
+                type: object
                 example:
-                  -
-                    id: 1
-                    title: 'Sample Activity'
-                    description: Description
-                    location: Location
-                    time: '2025-01-01 10:00:00'
+                  created_activities:
+                    -
+                      id: 1
+                      user_id: 1
+                      title: 'Hiking Adventure'
+                      ActivityPhoto: null
+                      description: 'A thrilling hike to the mountain peak.'
+                      link: 'https://example.com/hiking-event'
+                      numberOfMembers: 10
+                      location: 'Mount Fako, Cameroon'
+                      time: '2025-02-15 08:00:00'
+                      created_at: '2025-02-04T08:19:02.000000Z'
+                      updated_at: '2025-02-04T08:19:02.000000Z'
+                    -
+                      id: 2
+                      user_id: 1
+                      title: 'Hiking Adventure'
+                      ActivityPhoto: null
+                      description: 'A thrilling hike to the mountain peak.'
+                      link: 'https://example.com/hiking-event'
+                      numberOfMembers: 10
+                      location: 'Mount Fako, Cameroon'
+                      time: '2025-02-15 08:00:00'
+                      created_at: '2025-02-04T08:25:56.000000Z'
+                      updated_at: '2025-02-04T08:25:56.000000Z'
+                    -
+                      id: 3
+                      user_id: 1
+                      title: 'Hiking Adventure'
+                      ActivityPhoto: null
+                      description: 'A thrilling hike to the mountain peak.'
+                      link: 'https://example.com/hiking-event'
+                      numberOfMembers: 10
+                      location: 'Mount Fako, Cameroon'
+                      time: '2025-02-15 08:00:00'
+                      created_at: '2025-02-04T08:36:04.000000Z'
+                      updated_at: '2025-02-04T08:36:04.000000Z'
+                    -
+                      id: 4
+                      user_id: 1
+                      title: 'Hiking Adventure'
+                      ActivityPhoto: activity_photos/rj6fjePPJweFYZf07s9dCtAjL84pKv12XGzWIW81.jpg
+                      description: 'A thrilling hike to the mountain peak.'
+                      link: 'https://example.com/hiking-event'
+                      numberOfMembers: 10
+                      location: 'Mount Fako, Cameroon'
+                      time: '2025-02-15 08:00:00'
+                      created_at: '2025-02-04T09:07:10.000000Z'
+                      updated_at: '2025-02-04T09:07:10.000000Z'
+                    -
+                      id: 5
+                      user_id: 1
+                      title: 'Join me at Tech Chantier'
+                      ActivityPhoto: activity_photos/2bAlnxzYIELlyfUW02fyNbLIobPMGzrUj8DLtchk.jpg
+                      description: 'A thrilling hike to the mountain peak.'
+                      link: 'https://example.com/hiking-event'
+                      numberOfMembers: 10
+                      location: 'Mount Fako, Cameroon'
+                      time: '2025-02-15 08:00:00'
+                      created_at: '2025-02-04T09:11:42.000000Z'
+                      updated_at: '2025-02-04T09:11:42.000000Z'
+                    -
+                      id: 6
+                      user_id: 1
+                      title: 'Join me at Tech Chantier'
+                      ActivityPhoto: activity_photos/OfdYJQsOrGOnYCKFtPDrhhv2Kp7PP5zZ40Q08Exk.jpg
+                      description: 'A thrilling hike to the mountain peak.'
+                      link: 'https://example.com/hiking-event'
+                      numberOfMembers: 10
+                      location: 'Mount Fako, Cameroon'
+                      time: '2025-02-15 08:00:00'
+                      created_at: '2025-02-04T09:13:20.000000Z'
+                      updated_at: '2025-02-04T09:13:20.000000Z'
+                    -
+                      id: 7
+                      user_id: 1
+                      title: 'Join me at Tech Chantier'
+                      ActivityPhoto: activity_photos/wvnmS2UuVkm1pfcNbhqcq6ouYonmj3G5Qd2KL69x.jpg
+                      description: 'A thrilling hike to the mountain peak.'
+                      link: 'https://example.com/hiking-event'
+                      numberOfMembers: 40
+                      location: 'Mount Fako, Cameroon'
+                      time: '2025-02-15 08:00:00'
+                      created_at: '2025-02-04T09:18:46.000000Z'
+                      updated_at: '2025-02-04T09:18:46.000000Z'
+                  pending_activities: []
+                  accepted_activities: []
+                  declined_activities: []
+                properties:
+                  created_activities:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        user_id: 1
+                        title: 'Hiking Adventure'
+                        ActivityPhoto: null
+                        description: 'A thrilling hike to the mountain peak.'
+                        link: 'https://example.com/hiking-event'
+                        numberOfMembers: 10
+                        location: 'Mount Fako, Cameroon'
+                        time: '2025-02-15 08:00:00'
+                        created_at: '2025-02-04T08:19:02.000000Z'
+                        updated_at: '2025-02-04T08:19:02.000000Z'
+                      -
+                        id: 2
+                        user_id: 1
+                        title: 'Hiking Adventure'
+                        ActivityPhoto: null
+                        description: 'A thrilling hike to the mountain peak.'
+                        link: 'https://example.com/hiking-event'
+                        numberOfMembers: 10
+                        location: 'Mount Fako, Cameroon'
+                        time: '2025-02-15 08:00:00'
+                        created_at: '2025-02-04T08:25:56.000000Z'
+                        updated_at: '2025-02-04T08:25:56.000000Z'
+                      -
+                        id: 3
+                        user_id: 1
+                        title: 'Hiking Adventure'
+                        ActivityPhoto: null
+                        description: 'A thrilling hike to the mountain peak.'
+                        link: 'https://example.com/hiking-event'
+                        numberOfMembers: 10
+                        location: 'Mount Fako, Cameroon'
+                        time: '2025-02-15 08:00:00'
+                        created_at: '2025-02-04T08:36:04.000000Z'
+                        updated_at: '2025-02-04T08:36:04.000000Z'
+                      -
+                        id: 4
+                        user_id: 1
+                        title: 'Hiking Adventure'
+                        ActivityPhoto: activity_photos/rj6fjePPJweFYZf07s9dCtAjL84pKv12XGzWIW81.jpg
+                        description: 'A thrilling hike to the mountain peak.'
+                        link: 'https://example.com/hiking-event'
+                        numberOfMembers: 10
+                        location: 'Mount Fako, Cameroon'
+                        time: '2025-02-15 08:00:00'
+                        created_at: '2025-02-04T09:07:10.000000Z'
+                        updated_at: '2025-02-04T09:07:10.000000Z'
+                      -
+                        id: 5
+                        user_id: 1
+                        title: 'Join me at Tech Chantier'
+                        ActivityPhoto: activity_photos/2bAlnxzYIELlyfUW02fyNbLIobPMGzrUj8DLtchk.jpg
+                        description: 'A thrilling hike to the mountain peak.'
+                        link: 'https://example.com/hiking-event'
+                        numberOfMembers: 10
+                        location: 'Mount Fako, Cameroon'
+                        time: '2025-02-15 08:00:00'
+                        created_at: '2025-02-04T09:11:42.000000Z'
+                        updated_at: '2025-02-04T09:11:42.000000Z'
+                      -
+                        id: 6
+                        user_id: 1
+                        title: 'Join me at Tech Chantier'
+                        ActivityPhoto: activity_photos/OfdYJQsOrGOnYCKFtPDrhhv2Kp7PP5zZ40Q08Exk.jpg
+                        description: 'A thrilling hike to the mountain peak.'
+                        link: 'https://example.com/hiking-event'
+                        numberOfMembers: 10
+                        location: 'Mount Fako, Cameroon'
+                        time: '2025-02-15 08:00:00'
+                        created_at: '2025-02-04T09:13:20.000000Z'
+                        updated_at: '2025-02-04T09:13:20.000000Z'
+                      -
+                        id: 7
+                        user_id: 1
+                        title: 'Join me at Tech Chantier'
+                        ActivityPhoto: activity_photos/wvnmS2UuVkm1pfcNbhqcq6ouYonmj3G5Qd2KL69x.jpg
+                        description: 'A thrilling hike to the mountain peak.'
+                        link: 'https://example.com/hiking-event'
+                        numberOfMembers: 40
+                        location: 'Mount Fako, Cameroon'
+                        time: '2025-02-15 08:00:00'
+                        created_at: '2025-02-04T09:18:46.000000Z'
+                        updated_at: '2025-02-04T09:18:46.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        user_id:
+                          type: integer
+                          example: 1
+                        title:
+                          type: string
+                          example: 'Hiking Adventure'
+                        ActivityPhoto:
+                          type: string
+                          example: null
+                        description:
+                          type: string
+                          example: 'A thrilling hike to the mountain peak.'
+                        link:
+                          type: string
+                          example: 'https://example.com/hiking-event'
+                        numberOfMembers:
+                          type: integer
+                          example: 10
+                        location:
+                          type: string
+                          example: 'Mount Fako, Cameroon'
+                        time:
+                          type: string
+                          example: '2025-02-15 08:00:00'
+                        created_at:
+                          type: string
+                          example: '2025-02-04T08:19:02.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2025-02-04T08:19:02.000000Z'
+                  pending_activities:
+                    type: array
+                    example: []
+                  accepted_activities:
+                    type: array
+                    example: []
+                  declined_activities:
+                    type: array
+                    example: []
       tags:
         - Activities
-      security: []
     post:
-      summary: "Create a new activity\n\nStore a new activity created by the authenticated user."
-      operationId: createANewActivityStoreANewActivityCreatedByTheAuthenticatedUser
+      summary: 'Create a new activity'
+      operationId: createANewActivity
       description: ''
       parameters: []
       responses:
@@ -45,35 +257,51 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 1
-                  title: 'Morning Run'
-                  description: 'A group run in the park.'
+                  title: 'Join me at Tech Chantier'
+                  ActivityPhoto: activity_photos/wvnmS2UuVkm1pfcNbhqcq6ouYonmj3G5Qd2KL69x.jpg
+                  description: 'A thrilling hike to the mountain peak.'
                   link: 'https://example.com/hiking-event'
-                  numberOfMembers: '10'
-                  location: 'Central Park'
-                  time: '2025-01-01 10:00:00'
+                  numberOfMembers: '40'
+                  location: 'Mount Fako, Cameroon'
+                  time: '2025-02-15 08:00:00'
+                  user_id: 1
+                  updated_at: '2025-02-04T09:18:46.000000Z'
+                  created_at: '2025-02-04T09:18:46.000000Z'
+                  id: 7
                 properties:
-                  id:
-                    type: integer
-                    example: 1
                   title:
                     type: string
-                    example: 'Morning Run'
+                    example: 'Join me at Tech Chantier'
+                  ActivityPhoto:
+                    type: string
+                    example: activity_photos/wvnmS2UuVkm1pfcNbhqcq6ouYonmj3G5Qd2KL69x.jpg
                   description:
                     type: string
-                    example: 'A group run in the park.'
+                    example: 'A thrilling hike to the mountain peak.'
                   link:
                     type: string
                     example: 'https://example.com/hiking-event'
                   numberOfMembers:
                     type: string
-                    example: '10'
+                    example: '40'
                   location:
                     type: string
-                    example: 'Central Park'
+                    example: 'Mount Fako, Cameroon'
                   time:
                     type: string
-                    example: '2025-01-01 10:00:00'
+                    example: '2025-02-15 08:00:00'
+                  user_id:
+                    type: integer
+                    example: 1
+                  updated_at:
+                    type: string
+                    example: '2025-02-04T09:18:46.000000Z'
+                  created_at:
+                    type: string
+                    example: '2025-02-04T09:18:46.000000Z'
+                  id:
+                    type: integer
+                    example: 7
       tags:
         - Activities
       requestBody:
@@ -91,7 +319,7 @@ paths:
                 ActivityPhoto:
                   type: 'file:'
                   description: 'The photo of the activity. type: [png, jpeg]'
-                  example: natus
+                  example: accusamus
                   nullable: false
                 description:
                   type: string
@@ -106,7 +334,7 @@ paths:
                 numberOfMembers:
                   type: integer
                   description: 'the number of member to the activity is required'
-                  example: 12
+                  example: 6
                   nullable: false
                 location:
                   type: string
@@ -120,7 +348,6 @@ paths:
                   nullable: false
               required:
                 - ActivityPhoto
-      security: []
   '/api/activity/{id}':
     get:
       summary: "Get activity details\n\nRetrieve details of a specific activity."
@@ -135,27 +362,51 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 1
-                  title: 'Morning Run'
-                  description: 'A group run in the park.'
-                  location: 'Central Park'
-                  time: '2025-01-01 10:00:00'
+                  id: 5
+                  user_id: 1
+                  title: 'Join me at Tech Chantier'
+                  ActivityPhoto: activity_photos/2bAlnxzYIELlyfUW02fyNbLIobPMGzrUj8DLtchk.jpg
+                  description: 'A thrilling hike to the mountain peak.'
+                  link: 'https://example.com/hiking-event'
+                  numberOfMembers: 10
+                  location: 'Mount Fako, Cameroon'
+                  time: '2025-02-15 08:00:00'
+                  created_at: '2025-02-04T09:11:42.000000Z'
+                  updated_at: '2025-02-04T09:11:42.000000Z'
                 properties:
                   id:
+                    type: integer
+                    example: 5
+                  user_id:
                     type: integer
                     example: 1
                   title:
                     type: string
-                    example: 'Morning Run'
+                    example: 'Join me at Tech Chantier'
+                  ActivityPhoto:
+                    type: string
+                    example: activity_photos/2bAlnxzYIELlyfUW02fyNbLIobPMGzrUj8DLtchk.jpg
                   description:
                     type: string
-                    example: 'A group run in the park.'
+                    example: 'A thrilling hike to the mountain peak.'
+                  link:
+                    type: string
+                    example: 'https://example.com/hiking-event'
+                  numberOfMembers:
+                    type: integer
+                    example: 10
                   location:
                     type: string
-                    example: 'Central Park'
+                    example: 'Mount Fako, Cameroon'
                   time:
                     type: string
-                    example: '2025-01-01 10:00:00'
+                    example: '2025-02-15 08:00:00'
+                  created_at:
+                    type: string
+                    example: '2025-02-04T09:11:42.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2025-02-04T09:11:42.000000Z'
       tags:
         - Activities
       security: []
@@ -281,34 +532,34 @@ paths:
                 type: object
                 example:
                   user:
+                    name: 'Nkuma Confident'
+                    email: nsem@gmail.com
+                    updated_at: '2025-02-04T08:18:33.000000Z'
+                    created_at: '2025-02-04T08:18:33.000000Z'
                     id: 1
-                    name: 'John Doe'
-                    email: john@example.com
-                    created_at: '2025-01-21T10:00:00'
-                    updated_at: '2025-01-21T10:00:00'
-                  token: 1|laravel_sanctum_token_string_here
+                  token: 1|zoNArNwtRQijtSUA8qLUAFctGhOI1W1OUnVRm0GZcc1b2217
                 properties:
                   user:
                     type: object
                     properties:
+                      name:
+                        type: string
+                        example: 'Nkuma Confident'
+                      email:
+                        type: string
+                        example: nsem@gmail.com
+                      updated_at:
+                        type: string
+                        example: '2025-02-04T08:18:33.000000Z'
+                      created_at:
+                        type: string
+                        example: '2025-02-04T08:18:33.000000Z'
                       id:
                         type: integer
                         example: 1
-                      name:
-                        type: string
-                        example: 'John Doe'
-                      email:
-                        type: string
-                        example: john@example.com
-                      created_at:
-                        type: string
-                        example: '2025-01-21T10:00:00'
-                      updated_at:
-                        type: string
-                        example: '2025-01-21T10:00:00'
                   token:
                     type: string
-                    example: 1|laravel_sanctum_token_string_here
+                    example: 1|zoNArNwtRQijtSUA8qLUAFctGhOI1W1OUnVRm0GZcc1b2217
         422:
           description: ''
           content:
@@ -316,16 +567,16 @@ paths:
               schema:
                 type: object
                 example:
-                  message: 'The given data was invalid.'
+                  message: 'The email has already been taken. (and 1 more error)'
                   errors:
                     email:
                       - 'The email has already been taken.'
                     password:
-                      - 'The password confirmation does not match.'
+                      - 'The password field confirmation does not match.'
                 properties:
                   message:
                     type: string
-                    example: 'The given data was invalid.'
+                    example: 'The email has already been taken. (and 1 more error)'
                   errors:
                     type: object
                     properties:
@@ -338,7 +589,7 @@ paths:
                       password:
                         type: array
                         example:
-                          - 'The password confirmation does not match.'
+                          - 'The password field confirmation does not match.'
                         items:
                           type: string
       tags:
@@ -632,7 +883,7 @@ paths:
                 activity_id:
                   type: integer
                   description: 'The ID of the activity to join.'
-                  example: 3
+                  example: 9
                   nullable: false
               required:
                 - activity_id
@@ -701,7 +952,7 @@ paths:
         in: path
         name: joinRequest_id
         description: 'The ID of the joinRequest.'
-        example: 20
+        example: 8
         required: true
         schema:
           type: integer
@@ -757,7 +1008,7 @@ paths:
         in: path
         name: joinRequest_id
         description: 'The ID of the joinRequest.'
-        example: 8
+        example: 20
         required: true
         schema:
           type: integer
@@ -889,45 +1140,45 @@ paths:
           in: query
           name: title
           description: 'optional Filter by title.'
-          example: dolorem
+          example: sed
           required: false
           schema:
             type: string
             description: 'optional Filter by title.'
-            example: dolorem
+            example: sed
             nullable: false
         -
           in: query
           name: description
           description: 'optional Filter by description.'
-          example: 'Commodi ea ipsum ab dignissimos non distinctio dolore.'
+          example: 'Est unde atque eum aut aspernatur.'
           required: false
           schema:
             type: string
             description: 'optional Filter by description.'
-            example: 'Commodi ea ipsum ab dignissimos non distinctio dolore.'
+            example: 'Est unde atque eum aut aspernatur.'
             nullable: false
         -
           in: query
           name: date
           description: 'optional Filter by date (format: y-m-d).'
-          example: explicabo
+          example: rerum
           required: false
           schema:
             type: string
             description: 'optional Filter by date (format: y-m-d).'
-            example: explicabo
+            example: rerum
             nullable: false
         -
           in: query
           name: location
           description: 'optional Filter by location.'
-          example: natus
+          example: sunt
           required: false
           schema:
             type: string
             description: 'optional Filter by location.'
-            example: natus
+            example: sunt
             nullable: false
       responses:
         200:
@@ -969,12 +1220,12 @@ paths:
                 title:
                   type: string
                   description: ''
-                  example: mollitia
+                  example: voluptatum
                   nullable: true
                 description:
                   type: string
                   description: ''
-                  example: 'Ex dolor quia aut illum aspernatur repudiandae voluptatibus sit.'
+                  example: 'Eius rerum dolorum tempore minima ut magni.'
                   nullable: true
                 date:
                   type: string
@@ -984,7 +1235,7 @@ paths:
                 location:
                   type: string
                   description: ''
-                  example: et
+                  example: necessitatibus
                   nullable: true
       security: []
   /api/activities/search:
@@ -997,45 +1248,45 @@ paths:
           in: query
           name: title
           description: 'optional Filter by title.'
-          example: repudiandae
+          example: perspiciatis
           required: false
           schema:
             type: string
             description: 'optional Filter by title.'
-            example: repudiandae
+            example: perspiciatis
             nullable: false
         -
           in: query
           name: description
           description: 'optional Filter by description.'
-          example: 'Distinctio quis deserunt recusandae qui at porro dolorem.'
+          example: 'Ducimus et eum necessitatibus aut quis eveniet.'
           required: false
           schema:
             type: string
             description: 'optional Filter by description.'
-            example: 'Distinctio quis deserunt recusandae qui at porro dolorem.'
+            example: 'Ducimus et eum necessitatibus aut quis eveniet.'
             nullable: false
         -
           in: query
           name: location
           description: 'optional Filter by location.'
-          example: neque
+          example: placeat
           required: false
           schema:
             type: string
             description: 'optional Filter by location.'
-            example: neque
+            example: placeat
             nullable: false
         -
           in: query
           name: date
           description: 'optional Filter by date (format: y-m-d).'
-          example: sint
+          example: quaerat
           required: false
           schema:
             type: string
             description: 'optional Filter by date (format: y-m-d).'
-            example: sint
+            example: quaerat
             nullable: false
       responses:
         200:
@@ -1064,17 +1315,17 @@ paths:
                 title:
                   type: string
                   description: ''
-                  example: vel
+                  example: voluptatem
                   nullable: true
                 description:
                   type: string
                   description: ''
-                  example: 'Et voluptatibus enim dolore et.'
+                  example: 'Facilis iure velit expedita et quia aperiam nesciunt dolor.'
                   nullable: true
                 location:
                   type: string
                   description: ''
-                  example: cupiditate
+                  example: animi
                   nullable: true
                 date:
                   type: string
@@ -1130,7 +1381,7 @@ paths:
         in: path
         name: activityId
         description: 'The ID of the activity.'
-        example: 20
+        example: 18
         required: true
         schema:
           type: integer
@@ -1197,7 +1448,7 @@ paths:
                 activity_id:
                   type: integer
                   description: 'The ID of the activity.'
-                  example: 13
+                  example: 18
                   nullable: false
               required:
                 - activity_id
@@ -1262,7 +1513,7 @@ paths:
         in: path
         name: leaveRequest_id
         description: 'The ID of the leaveRequest.'
-        example: 10
+        example: 19
         required: true
         schema:
           type: integer

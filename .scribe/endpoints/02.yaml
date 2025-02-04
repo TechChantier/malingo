@@ -102,14 +102,14 @@ endpoints:
         name: activity_id
         description: 'The ID of the activity to join.'
         required: true
-        example: 3
+        example: 9
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      activity_id: 3
+      activity_id: 9
     fileParameters: []
     responses:
       -
@@ -164,14 +164,14 @@ endpoints:
         name: joinRequest_id
         description: 'The ID of the joinRequest.'
         required: true
-        example: 20
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      joinRequest_id: 20
+      joinRequest_id: 8
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -236,14 +236,14 @@ endpoints:
         name: joinRequest_id
         description: 'The ID of the joinRequest.'
         required: true
-        example: 8
+        example: 20
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      joinRequest_id: 8
+      joinRequest_id: 20
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -376,7 +376,7 @@ endpoints:
         name: title
         description: 'optional Filter by title.'
         required: false
-        example: dolorem
+        example: sed
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -386,7 +386,7 @@ endpoints:
         name: description
         description: 'optional Filter by description.'
         required: false
-        example: 'Commodi ea ipsum ab dignissimos non distinctio dolore.'
+        example: 'Est unde atque eum aut aspernatur.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -396,7 +396,7 @@ endpoints:
         name: date
         description: 'optional Filter by date (format: y-m-d).'
         required: false
-        example: explicabo
+        example: rerum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -406,23 +406,23 @@ endpoints:
         name: location
         description: 'optional Filter by location.'
         required: false
-        example: natus
+        example: sunt
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanQueryParameters:
-      title: dolorem
-      description: 'Commodi ea ipsum ab dignissimos non distinctio dolore.'
-      date: explicabo
-      location: natus
+      title: sed
+      description: 'Est unde atque eum aut aspernatur.'
+      date: rerum
+      location: sunt
     bodyParameters:
       title:
         name: title
         description: ''
         required: false
-        example: mollitia
+        example: voluptatum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -432,7 +432,7 @@ endpoints:
         name: description
         description: ''
         required: false
-        example: 'Ex dolor quia aut illum aspernatur repudiandae voluptatibus sit.'
+        example: 'Eius rerum dolorum tempore minima ut magni.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -452,16 +452,16 @@ endpoints:
         name: location
         description: ''
         required: false
-        example: et
+        example: necessitatibus
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      title: mollitia
-      description: 'Ex dolor quia aut illum aspernatur repudiandae voluptatibus sit.'
-      location: et
+      title: voluptatum
+      description: 'Eius rerum dolorum tempore minima ut magni.'
+      location: necessitatibus
     fileParameters: []
     responses:
       -
@@ -517,7 +517,7 @@ endpoints:
         name: title
         description: 'optional Filter by title.'
         required: false
-        example: repudiandae
+        example: perspiciatis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -527,7 +527,7 @@ endpoints:
         name: description
         description: 'optional Filter by description.'
         required: false
-        example: 'Distinctio quis deserunt recusandae qui at porro dolorem.'
+        example: 'Ducimus et eum necessitatibus aut quis eveniet.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -537,7 +537,7 @@ endpoints:
         name: location
         description: 'optional Filter by location.'
         required: false
-        example: neque
+        example: placeat
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -547,23 +547,23 @@ endpoints:
         name: date
         description: 'optional Filter by date (format: y-m-d).'
         required: false
-        example: sint
+        example: quaerat
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanQueryParameters:
-      title: repudiandae
-      description: 'Distinctio quis deserunt recusandae qui at porro dolorem.'
-      location: neque
-      date: sint
+      title: perspiciatis
+      description: 'Ducimus et eum necessitatibus aut quis eveniet.'
+      location: placeat
+      date: quaerat
     bodyParameters:
       title:
         name: title
         description: ''
         required: false
-        example: vel
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -573,7 +573,7 @@ endpoints:
         name: description
         description: ''
         required: false
-        example: 'Et voluptatibus enim dolore et.'
+        example: 'Facilis iure velit expedita et quia aperiam nesciunt dolor.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -583,7 +583,7 @@ endpoints:
         name: location
         description: ''
         required: false
-        example: cupiditate
+        example: animi
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -600,9 +600,9 @@ endpoints:
         nullable: true
         custom: []
     cleanBodyParameters:
-      title: vel
-      description: 'Et voluptatibus enim dolore et.'
-      location: cupiditate
+      title: voluptatem
+      description: 'Facilis iure velit expedita et quia aperiam nesciunt dolor.'
+      location: animi
     fileParameters: []
     responses:
       -
@@ -656,7 +656,7 @@ endpoints:
         name: activityId
         description: 'The ID of the activity.'
         required: true
-        example: 20
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -664,7 +664,7 @@ endpoints:
         custom: []
     cleanUrlParameters:
       id: 1
-      activityId: 20
+      activityId: 18
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -736,14 +736,14 @@ endpoints:
         name: activity_id
         description: 'The ID of the activity.'
         required: true
-        example: 13
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      activity_id: 13
+      activity_id: 18
     fileParameters: []
     responses:
       -
@@ -798,14 +798,14 @@ endpoints:
         name: leaveRequest_id
         description: 'The ID of the leaveRequest.'
         required: true
-        example: 10
+        example: 19
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      leaveRequest_id: 10
+      leaveRequest_id: 19
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:

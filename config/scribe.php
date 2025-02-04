@@ -7,7 +7,7 @@ return [
     'title' => 'Malingo api documentation',
 
     // A short description of your API. Will be included in the docs webpage, Postman collection and OpenAPI spec.
-    'description' => 'This is api documentation contains all the endpoints for the malingo project. 
+    'description' => 'This api documentation contains all the endpoints for the malingo project. 
     a platform where you can effortlessly find companions for your next adventure, be it a travel buddy,
      a dining partner, or someone to join you for a stroll or a random conversation. Malingo is a solution
       that enables individuals to connect, share experiences, and foster new relationships while splitting

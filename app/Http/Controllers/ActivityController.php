@@ -28,7 +28,7 @@ class ActivityController extends Controller implements HasMiddleware
     /**
      * @group Activities
      * Get all activities
-     *
+     *@authenticated
      * Retrieve a list of all activities.
      *
      * @response 200 {"created_activities":[{"id":1,"user_id":1,"title":"Hiking Adventure","ActivityPhoto":null,"description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":10,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T08:19:02.000000Z","updated_at":"2025-02-04T08:19:02.000000Z"},{"id":2,"user_id":1,"title":"Hiking Adventure","ActivityPhoto":null,"description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":10,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T08:25:56.000000Z","updated_at":"2025-02-04T08:25:56.000000Z"},{"id":3,"user_id":1,"title":"Hiking Adventure","ActivityPhoto":null,"description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":10,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T08:36:04.000000Z","updated_at":"2025-02-04T08:36:04.000000Z"},{"id":4,"user_id":1,"title":"Hiking Adventure","ActivityPhoto":"activity_photos\/rj6fjePPJweFYZf07s9dCtAjL84pKv12XGzWIW81.jpg","description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":10,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T09:07:10.000000Z","updated_at":"2025-02-04T09:07:10.000000Z"},{"id":5,"user_id":1,"title":"Join me at Tech Chantier","ActivityPhoto":"activity_photos\/2bAlnxzYIELlyfUW02fyNbLIobPMGzrUj8DLtchk.jpg","description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":10,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T09:11:42.000000Z","updated_at":"2025-02-04T09:11:42.000000Z"},{"id":6,"user_id":1,"title":"Join me at Tech Chantier","ActivityPhoto":"activity_photos\/OfdYJQsOrGOnYCKFtPDrhhv2Kp7PP5zZ40Q08Exk.jpg","description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":10,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T09:13:20.000000Z","updated_at":"2025-02-04T09:13:20.000000Z"},{"id":7,"user_id":1,"title":"Join me at Tech Chantier","ActivityPhoto":"activity_photos\/wvnmS2UuVkm1pfcNbhqcq6ouYonmj3G5Qd2KL69x.jpg","description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":40,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T09:18:46.000000Z","updated_at":"2025-02-04T09:18:46.000000Z"}],"pending_activities":[],"accepted_activities":[],"declined_activities":[]}
@@ -41,7 +41,7 @@ class ActivityController extends Controller implements HasMiddleware
     /**
      * @group Activities
      * Create a new activity
-     *
+     *@authenticated
      * Store a new activity created by the authenticated user.
      *
      * @bodyParam title string required: The title of the activity. Example: Morning Run
@@ -52,7 +52,19 @@ class ActivityController extends Controller implements HasMiddleware
      * @bodyParam location string required: The location of the activity. Example: Central Park
      * @bodyParam time datetime required: The date and time of the activity. Format: Y-m-d H:i:s. Example: 2025-01-01 10:00:00
      * 
-     * @response 201 {"id": 1, "title": "Morning Run", "description": "A group run in the park.","link": "https://example.com/hiking-event","numberOfMembers": "10", "location": "Central Park", "time": "2025-01-01 10:00:00"}
+     * @response 201 {
+     *"title": "Join me at Tech Chantier",
+     *"ActivityPhoto": "activity_photos/wvnmS2UuVkm1pfcNbhqcq6ouYonmj3G5Qd2KL69x.jpg",
+     *"description": "A thrilling hike to the mountain peak.",
+     *"link": "https://example.com/hiking-event",
+     *"numberOfMembers": "40",
+     *"location": "Mount Fako, Cameroon",
+     *"time": "2025-02-15 08:00:00",
+     *"user_id": 1,
+     *"updated_at": "2025-02-04T09:18:46.000000Z",
+     *"created_at": "2025-02-04T09:18:46.000000Z",
+     *"id": 7
+     *}
      */
     public function store(Request $request)
     {
@@ -87,7 +99,19 @@ class ActivityController extends Controller implements HasMiddleware
      *
      * @urlParam activity int required The ID of the activity. Example: 1
      * 
-     * @response 200 {"id": 1, "title": "Morning Run", "description": "A group run in the park.", "location": "Central Park", "time": "2025-01-01 10:00:00"}
+     * @response 200 {
+     *"id": 5,
+     *"user_id": 1,
+     *"title": "Join me at Tech Chantier",
+     *"ActivityPhoto": "activity_photos/2bAlnxzYIELlyfUW02fyNbLIobPMGzrUj8DLtchk.jpg",
+     *"description": "A thrilling hike to the mountain peak.",
+     *"link": "https://example.com/hiking-event",
+     *"numberOfMembers": 10,
+     *"location": "Mount Fako, Cameroon",
+     *"time": "2025-02-15 08:00:00",
+     *"created_at": "2025-02-04T09:11:42.000000Z",
+     *"updated_at": "2025-02-04T09:11:42.000000Z"
+     *}
      */
     public function show(Activity $activity)
     {
@@ -101,25 +125,55 @@ class ActivityController extends Controller implements HasMiddleware
      * Update the details of an existing activity.
      *
      * @urlParam activity int required The ID of the activity to update. Example: 1
-     * @bodyParam title string required The updated title of the activity. Example: Evening Walk
-     * @bodyParam description string required The updated description. Example: A peaceful evening walk.
-     * @bodyParam location string required The updated location. Example: Riverside Park
-     * @bodyParam time datetime required The updated date and time. Format: Y-m-d H:i:s. Example: 2025-01-02 18:00:00
+     * @bodyParam title string required: The title of the activity. Example: Morning Run
+     * @bodyParam ActivityPhoto file: required The photo of the activity. type: [png, jpeg]
+     * @bodyParam description string required:  The description of the activity. Example: A group run in the park.
+     * @bodyParam link string required: The link to the activity (if any). Example: https://zoom.com/meeting
+     * @bodyParam numberOfMembers integer the number of member to the activity is required
+     * @bodyParam location string required: The location of the activity. Example: Central Park
+     * @bodyParam time datetime required: The date and time of the activity. Format: Y-m-d H:i:s. Example: 2025-01-01 10:00:00
      * 
-     * @response 200 {"id": 1, "title": "Evening Walk", "description": "A peaceful evening walk.", "location": "Riverside Park", "time": "2025-01-02 18:00:00"}
+     * @response 200 {
+     *"id": 5,
+     *"user_id": 1,
+     *"title": "Hiking go and hike with me",
+     *"ActivityPhoto": "activity_photos/uNughpq7aXWNcUTYFOgFBFEFxqcr3DeY60PuOwNu.jpg",
+     *"description": "this is a good activity",
+     *"link": "https//wa.me/237672474539",
+     *"numberOfMembers": "10",
+     *"location": "buea",
+     *"time": "2025-02-15 08:00:00",
+     *"created_at": "2025-02-04T09:11:42.000000Z",
+     *"updated_at": "2025-02-04T11:35:10.000000Z"
+     *}
      */
     public function update(Request $request, Activity $activity)
     {
         Gate::authorize('modify', $activity);
+
         $useractivity = $request->validate([
-            'title' => 'required|string',
-            'description' => 'required|string',
-            'location' => 'required|string',
-            'time' => 'required|date_format:Y-m-d H:i:s',
+            'title' => 'sometimes|string',
+            'ActivityPhoto' => 'sometimes|file|mimes:jpg,jpeg,png|max:10240',
+            'description' => 'sometimes|string',
+            'link' => 'sometimes|string',
+            'numberOfMembers' => 'sometimes',
+            'location' => 'sometimes|string',
+            'time' => 'sometimes|date_format:Y-m-d H:i:s',
         ]);
 
-        $activity->update($useractivity);
-        return $activity;
+        try {
+            if ($request->hasFile('ActivityPhoto')) {
+                Log::info('Updating file');
+                $path = $request->file('ActivityPhoto')->store('activity_photos', 'public');
+                $useractivity['ActivityPhoto'] = $path;
+            }
+
+            $activity->update($useractivity);
+            return $activity;
+        } catch (\Exception $e) {
+            Log::error('Error updating activity: ' . $e->getMessage());
+            return response()->json(['error' => 'Error updating activity'], 500);
+        }
     }
 
     /**

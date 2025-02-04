@@ -10,8 +10,8 @@
     ],
     "info": {
         "name": "Malingo api documentation",
-        "_postman_id": "3d29e618-4213-40a0-9e89-585390154a58",
-        "description": "This is api documentation contains all the endpoints for the malingo project. \n    a platform where you can effortlessly find companions for your next adventure, be it a travel buddy,\n     a dining partner, or someone to join you for a stroll or a random conversation. Malingo is a solution\n      that enables individuals to connect, share experiences, and foster new relationships while splitting\n       costs or covering expenses as agreed.\n    ",
+        "_postman_id": "32699eb5-2b66-44eb-b0a9-1bd2b264102e",
+        "description": "This api documentation contains all the endpoints for the malingo project. \n    a platform where you can effortlessly find companions for your next adventure, be it a travel buddy,\n     a dining partner, or someone to join you for a stroll or a random conversation. Malingo is a solution\n      that enables individuals to connect, share experiences, and foster new relationships while splitting\n       costs or covering expenses as agreed.\n    ",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
@@ -20,7 +20,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "Get all activities\n\nRetrieve a list of all activities.",
+                    "name": "Get all activities",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -40,22 +40,19 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
                             "header": [],
                             "code": 200,
-                            "body": "[{\"id\": 1, \"title\": \"Sample Activity\", \"description\": \"Description\", \"location\": \"Location\", \"time\": \"2025-01-01 10:00:00\"}]",
+                            "body": "{\"created_activities\":[{\"id\":1,\"user_id\":1,\"title\":\"Hiking Adventure\",\"ActivityPhoto\":null,\"description\":\"A thrilling hike to the mountain peak.\",\"link\":\"https:\\\/\\\/example.com\\\/hiking-event\",\"numberOfMembers\":10,\"location\":\"Mount Fako, Cameroon\",\"time\":\"2025-02-15 08:00:00\",\"created_at\":\"2025-02-04T08:19:02.000000Z\",\"updated_at\":\"2025-02-04T08:19:02.000000Z\"},{\"id\":2,\"user_id\":1,\"title\":\"Hiking Adventure\",\"ActivityPhoto\":null,\"description\":\"A thrilling hike to the mountain peak.\",\"link\":\"https:\\\/\\\/example.com\\\/hiking-event\",\"numberOfMembers\":10,\"location\":\"Mount Fako, Cameroon\",\"time\":\"2025-02-15 08:00:00\",\"created_at\":\"2025-02-04T08:25:56.000000Z\",\"updated_at\":\"2025-02-04T08:25:56.000000Z\"},{\"id\":3,\"user_id\":1,\"title\":\"Hiking Adventure\",\"ActivityPhoto\":null,\"description\":\"A thrilling hike to the mountain peak.\",\"link\":\"https:\\\/\\\/example.com\\\/hiking-event\",\"numberOfMembers\":10,\"location\":\"Mount Fako, Cameroon\",\"time\":\"2025-02-15 08:00:00\",\"created_at\":\"2025-02-04T08:36:04.000000Z\",\"updated_at\":\"2025-02-04T08:36:04.000000Z\"},{\"id\":4,\"user_id\":1,\"title\":\"Hiking Adventure\",\"ActivityPhoto\":\"activity_photos\\\/rj6fjePPJweFYZf07s9dCtAjL84pKv12XGzWIW81.jpg\",\"description\":\"A thrilling hike to the mountain peak.\",\"link\":\"https:\\\/\\\/example.com\\\/hiking-event\",\"numberOfMembers\":10,\"location\":\"Mount Fako, Cameroon\",\"time\":\"2025-02-15 08:00:00\",\"created_at\":\"2025-02-04T09:07:10.000000Z\",\"updated_at\":\"2025-02-04T09:07:10.000000Z\"},{\"id\":5,\"user_id\":1,\"title\":\"Join me at Tech Chantier\",\"ActivityPhoto\":\"activity_photos\\\/2bAlnxzYIELlyfUW02fyNbLIobPMGzrUj8DLtchk.jpg\",\"description\":\"A thrilling hike to the mountain peak.\",\"link\":\"https:\\\/\\\/example.com\\\/hiking-event\",\"numberOfMembers\":10,\"location\":\"Mount Fako, Cameroon\",\"time\":\"2025-02-15 08:00:00\",\"created_at\":\"2025-02-04T09:11:42.000000Z\",\"updated_at\":\"2025-02-04T09:11:42.000000Z\"},{\"id\":6,\"user_id\":1,\"title\":\"Join me at Tech Chantier\",\"ActivityPhoto\":\"activity_photos\\\/OfdYJQsOrGOnYCKFtPDrhhv2Kp7PP5zZ40Q08Exk.jpg\",\"description\":\"A thrilling hike to the mountain peak.\",\"link\":\"https:\\\/\\\/example.com\\\/hiking-event\",\"numberOfMembers\":10,\"location\":\"Mount Fako, Cameroon\",\"time\":\"2025-02-15 08:00:00\",\"created_at\":\"2025-02-04T09:13:20.000000Z\",\"updated_at\":\"2025-02-04T09:13:20.000000Z\"},{\"id\":7,\"user_id\":1,\"title\":\"Join me at Tech Chantier\",\"ActivityPhoto\":\"activity_photos\\\/wvnmS2UuVkm1pfcNbhqcq6ouYonmj3G5Qd2KL69x.jpg\",\"description\":\"A thrilling hike to the mountain peak.\",\"link\":\"https:\\\/\\\/example.com\\\/hiking-event\",\"numberOfMembers\":40,\"location\":\"Mount Fako, Cameroon\",\"time\":\"2025-02-15 08:00:00\",\"created_at\":\"2025-02-04T09:18:46.000000Z\",\"updated_at\":\"2025-02-04T09:18:46.000000Z\"}],\"pending_activities\":[],\"accepted_activities\":[],\"declined_activities\":[]}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Create a new activity\n\nStore a new activity created by the authenticated user.",
+                    "name": "Create a new activity",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -76,18 +73,15 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Morning Run\",\"ActivityPhoto\":\"natus\",\"description\":\"A group run in the park.\",\"link\":\"https:\\\/\\\/zoom.com\\\/meeting\",\"numberOfMembers\":12,\"location\":\"Central Park\",\"time\":\"2025-01-01 10:00:00\"}"
+                            "raw": "{\"title\":\"Morning Run\",\"ActivityPhoto\":\"accusamus\",\"description\":\"A group run in the park.\",\"link\":\"https:\\\/\\\/zoom.com\\\/meeting\",\"numberOfMembers\":6,\"location\":\"Central Park\",\"time\":\"2025-01-01 10:00:00\"}"
                         },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
                             "header": [],
                             "code": 201,
-                            "body": "{\"id\": 1, \"title\": \"Morning Run\", \"description\": \"A group run in the park.\",\"link\": \"https:\/\/example.com\/hiking-event\",\"numberOfMembers\": \"10\", \"location\": \"Central Park\", \"time\": \"2025-01-01 10:00:00\"}",
+                            "body": "{\n\"title\": \"Join me at Tech Chantier\",\n\"ActivityPhoto\": \"activity_photos\/wvnmS2UuVkm1pfcNbhqcq6ouYonmj3G5Qd2KL69x.jpg\",\n\"description\": \"A thrilling hike to the mountain peak.\",\n\"link\": \"https:\/\/example.com\/hiking-event\",\n\"numberOfMembers\": \"40\",\n\"location\": \"Mount Fako, Cameroon\",\n\"time\": \"2025-02-15 08:00:00\",\n\"user_id\": 1,\n\"updated_at\": \"2025-02-04T09:18:46.000000Z\",\n\"created_at\": \"2025-02-04T09:18:46.000000Z\",\n\"id\": 7\n}",
                             "name": ""
                         }
                     ]
@@ -136,7 +130,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\": 1, \"title\": \"Morning Run\", \"description\": \"A group run in the park.\", \"location\": \"Central Park\", \"time\": \"2025-01-01 10:00:00\"}",
+                            "body": "{\n\"id\": 5,\n\"user_id\": 1,\n\"title\": \"Join me at Tech Chantier\",\n\"ActivityPhoto\": \"activity_photos\/2bAlnxzYIELlyfUW02fyNbLIobPMGzrUj8DLtchk.jpg\",\n\"description\": \"A thrilling hike to the mountain peak.\",\n\"link\": \"https:\/\/example.com\/hiking-event\",\n\"numberOfMembers\": 10,\n\"location\": \"Mount Fako, Cameroon\",\n\"time\": \"2025-02-15 08:00:00\",\n\"created_at\": \"2025-02-04T09:11:42.000000Z\",\n\"updated_at\": \"2025-02-04T09:11:42.000000Z\"\n}",
                             "name": ""
                         }
                     ]
@@ -281,13 +275,13 @@
                         {
                             "header": [],
                             "code": 201,
-                            "body": "{\n  \"user\": {\n    \"id\": 1,\n    \"name\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"created_at\": \"2025-01-21T10:00:00\",\n    \"updated_at\": \"2025-01-21T10:00:00\"\n  },\n  \"token\": \"1|laravel_sanctum_token_string_here\"\n}",
+                            "body": "{\n\"user\": {\n  \"name\": \"Nkuma Confident\",\n  \"email\": \"nsem@gmail.com\",\n  \"updated_at\": \"2025-02-04T08:18:33.000000Z\",\n  \"created_at\": \"2025-02-04T08:18:33.000000Z\",\n  \"id\": 1\n},\n\"token\": \"1|zoNArNwtRQijtSUA8qLUAFctGhOI1W1OUnVRm0GZcc1b2217\"\n}",
                             "name": ""
                         },
                         {
                             "header": [],
                             "code": 422,
-                            "body": "{\n  \"message\": \"The given data was invalid.\",\n  \"errors\": {\n    \"email\": [\"The email has already been taken.\"],\n    \"password\": [\"The password confirmation does not match.\"]\n  }\n}",
+                            "body": "{\n\"message\": \"The email has already been taken. (and 1 more error)\",\n\"errors\": {\n  \"email\": [\n      \"The email has already been taken.\"\n   ],\n  \"password\": [\n      \"The password field confirmation does not match.\"\n  ]\n}\n}",
                             "name": ""
                         }
                     ]
@@ -470,7 +464,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"activity_id\":3}"
+                            "raw": "{\"activity_id\":9}"
                         },
                         "description": ""
                     },
@@ -501,7 +495,7 @@
                                 {
                                     "id": "joinRequest_id",
                                     "key": "joinRequest_id",
-                                    "value": "20",
+                                    "value": "8",
                                     "description": "The ID of the joinRequest."
                                 }
                             ]
@@ -554,7 +548,7 @@
                                 {
                                     "id": "joinRequest_id",
                                     "key": "joinRequest_id",
-                                    "value": "8",
+                                    "value": "20",
                                     "description": "The ID of the joinRequest."
                                 }
                             ]
@@ -640,30 +634,30 @@
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "dolorem",
+                                    "value": "sed",
                                     "description": "optional Filter by title.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "Commodi+ea+ipsum+ab+dignissimos+non+distinctio+dolore.",
+                                    "value": "Est+unde+atque+eum+aut+aspernatur.",
                                     "description": "optional Filter by description.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "date",
-                                    "value": "explicabo",
+                                    "value": "rerum",
                                     "description": "optional Filter by date (format: y-m-d).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "location",
-                                    "value": "natus",
+                                    "value": "sunt",
                                     "description": "optional Filter by location.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/activities\/filter?title=dolorem&description=Commodi+ea+ipsum+ab+dignissimos+non+distinctio+dolore.&date=explicabo&location=natus"
+                            "raw": "{{baseUrl}}\/api\/activities\/filter?title=sed&description=Est+unde+atque+eum+aut+aspernatur.&date=rerum&location=sunt"
                         },
                         "method": "GET",
                         "header": [
@@ -678,7 +672,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"mollitia\",\"description\":\"Ex dolor quia aut illum aspernatur repudiandae voluptatibus sit.\",\"location\":\"et\"}"
+                            "raw": "{\"title\":\"voluptatum\",\"description\":\"Eius rerum dolorum tempore minima ut magni.\",\"location\":\"necessitatibus\"}"
                         },
                         "description": "Retrieve activities based on specified filters.",
                         "auth": {
@@ -709,30 +703,30 @@
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "repudiandae",
+                                    "value": "perspiciatis",
                                     "description": "optional Filter by title.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "Distinctio+quis+deserunt+recusandae+qui+at+porro+dolorem.",
+                                    "value": "Ducimus+et+eum+necessitatibus+aut+quis+eveniet.",
                                     "description": "optional Filter by description.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "location",
-                                    "value": "neque",
+                                    "value": "placeat",
                                     "description": "optional Filter by location.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "date",
-                                    "value": "sint",
+                                    "value": "quaerat",
                                     "description": "optional Filter by date (format: y-m-d).",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/activities\/search?title=repudiandae&description=Distinctio+quis+deserunt+recusandae+qui+at+porro+dolorem.&location=neque&date=sint"
+                            "raw": "{{baseUrl}}\/api\/activities\/search?title=perspiciatis&description=Ducimus+et+eum+necessitatibus+aut+quis+eveniet.&location=placeat&date=quaerat"
                         },
                         "method": "GET",
                         "header": [
@@ -747,7 +741,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"vel\",\"description\":\"Et voluptatibus enim dolore et.\",\"location\":\"cupiditate\"}"
+                            "raw": "{\"title\":\"voluptatem\",\"description\":\"Facilis iure velit expedita et quia aperiam nesciunt dolor.\",\"location\":\"animi\"}"
                         },
                         "description": "Search for activities based on the provided parameters.",
                         "auth": {
@@ -781,7 +775,7 @@
                                 {
                                     "id": "activityId",
                                     "key": "activityId",
-                                    "value": "20",
+                                    "value": "18",
                                     "description": "The ID of the activity."
                                 }
                             ]
@@ -852,7 +846,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"activity_id\":13}"
+                            "raw": "{\"activity_id\":18}"
                         },
                         "description": ""
                     },
@@ -883,7 +877,7 @@
                                 {
                                     "id": "leaveRequest_id",
                                     "key": "leaveRequest_id",
-                                    "value": "10",
+                                    "value": "19",
                                     "description": "The ID of the leaveRequest."
                                 }
                             ]

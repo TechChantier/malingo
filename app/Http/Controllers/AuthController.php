@@ -28,22 +28,26 @@ class AuthController extends Controller
      * @bodyParam password_confirmation string required The confirmation of the password. Example: secretpassword
      *
      * @response 201 {
-     *   "user": {
-     *     "id": 1,
-     *     "name": "John Doe",
-     *     "email": "john@example.com",
-     *     "created_at": "2025-01-21T10:00:00",
-     *     "updated_at": "2025-01-21T10:00:00"
-     *   },
-     *   "token": "1|laravel_sanctum_token_string_here"
-     * }
+     *"user": {
+     *   "name": "Nkuma Confident",
+     *   "email": "nsem@gmail.com",
+     *   "updated_at": "2025-02-04T08:18:33.000000Z",
+     *   "created_at": "2025-02-04T08:18:33.000000Z",
+     *   "id": 1
+     *},
+     *"token": "1|zoNArNwtRQijtSUA8qLUAFctGhOI1W1OUnVRm0GZcc1b2217"
+     *}
      * @response 422 {
-     *   "message": "The given data was invalid.",
-     *   "errors": {
-     *     "email": ["The email has already been taken."],
-     *     "password": ["The password confirmation does not match."]
-     *   }
-     * }
+     *"message": "The email has already been taken. (and 1 more error)",
+     *"errors": {
+     *   "email": [
+     *       "The email has already been taken."
+     *    ],
+     *   "password": [
+     *       "The password field confirmation does not match."
+     *   ]
+     *}
+     *}
      */
     public function register(Request $request)
     {
@@ -102,7 +106,7 @@ class AuthController extends Controller
         ]);
 
         $user = User::where('email', $request->email)->first();
-        
+
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json([
                 'message' => 'Invalid credentials',
@@ -123,7 +127,6 @@ class AuthController extends Controller
      * Revoke all of the user's tokens to log them out.
      * 
      * @authenticated
-     *
      * @response 200 {
      *   "message": "Successfully logged out"
      * }

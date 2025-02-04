@@ -10,12 +10,9 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: |-
-        Get all activities
-
-        Retrieve a list of all activities.
+      title: 'Get all activities'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -30,7 +27,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '[{"id": 1, "title": "Sample Activity", "description": "Description", "location": "Location", "time": "2025-01-01 10:00:00"}]'
+        content: '{"created_activities":[{"id":1,"user_id":1,"title":"Hiking Adventure","ActivityPhoto":null,"description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":10,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T08:19:02.000000Z","updated_at":"2025-02-04T08:19:02.000000Z"},{"id":2,"user_id":1,"title":"Hiking Adventure","ActivityPhoto":null,"description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":10,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T08:25:56.000000Z","updated_at":"2025-02-04T08:25:56.000000Z"},{"id":3,"user_id":1,"title":"Hiking Adventure","ActivityPhoto":null,"description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":10,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T08:36:04.000000Z","updated_at":"2025-02-04T08:36:04.000000Z"},{"id":4,"user_id":1,"title":"Hiking Adventure","ActivityPhoto":"activity_photos\/rj6fjePPJweFYZf07s9dCtAjL84pKv12XGzWIW81.jpg","description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":10,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T09:07:10.000000Z","updated_at":"2025-02-04T09:07:10.000000Z"},{"id":5,"user_id":1,"title":"Join me at Tech Chantier","ActivityPhoto":"activity_photos\/2bAlnxzYIELlyfUW02fyNbLIobPMGzrUj8DLtchk.jpg","description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":10,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T09:11:42.000000Z","updated_at":"2025-02-04T09:11:42.000000Z"},{"id":6,"user_id":1,"title":"Join me at Tech Chantier","ActivityPhoto":"activity_photos\/OfdYJQsOrGOnYCKFtPDrhhv2Kp7PP5zZ40Q08Exk.jpg","description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":10,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T09:13:20.000000Z","updated_at":"2025-02-04T09:13:20.000000Z"},{"id":7,"user_id":1,"title":"Join me at Tech Chantier","ActivityPhoto":"activity_photos\/wvnmS2UuVkm1pfcNbhqcq6ouYonmj3G5Qd2KL69x.jpg","description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":40,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T09:18:46.000000Z","updated_at":"2025-02-04T09:18:46.000000Z"}],"pending_activities":[],"accepted_activities":[],"declined_activities":[]}'
         headers: []
         description: ''
         custom: []
@@ -49,12 +46,9 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: |-
-        Create a new activity
-
-        Store a new activity created by the authenticated user.
+      title: 'Create a new activity'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -78,7 +72,7 @@ endpoints:
         name: ActivityPhoto
         description: 'The photo of the activity. type: [png, jpeg]'
         required: true
-        example: natus
+        example: accusamus
         type: 'file:'
         enumValues: []
         exampleWasSpecified: false
@@ -108,7 +102,7 @@ endpoints:
         name: numberOfMembers
         description: 'the number of member to the activity is required'
         required: false
-        example: 12
+        example: 6
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -136,17 +130,30 @@ endpoints:
         custom: []
     cleanBodyParameters:
       title: 'Morning Run'
-      ActivityPhoto: natus
+      ActivityPhoto: accusamus
       description: 'A group run in the park.'
       link: 'https://zoom.com/meeting'
-      numberOfMembers: 12
+      numberOfMembers: 6
       location: 'Central Park'
       time: '2025-01-01 10:00:00'
     fileParameters: []
     responses:
       -
         status: 201
-        content: '{"id": 1, "title": "Morning Run", "description": "A group run in the park.","link": "https://example.com/hiking-event","numberOfMembers": "10", "location": "Central Park", "time": "2025-01-01 10:00:00"}'
+        content: |-
+          {
+          "title": "Join me at Tech Chantier",
+          "ActivityPhoto": "activity_photos/wvnmS2UuVkm1pfcNbhqcq6ouYonmj3G5Qd2KL69x.jpg",
+          "description": "A thrilling hike to the mountain peak.",
+          "link": "https://example.com/hiking-event",
+          "numberOfMembers": "40",
+          "location": "Mount Fako, Cameroon",
+          "time": "2025-02-15 08:00:00",
+          "user_id": 1,
+          "updated_at": "2025-02-04T09:18:46.000000Z",
+          "created_at": "2025-02-04T09:18:46.000000Z",
+          "id": 7
+          }
         headers: []
         description: ''
         custom: []
@@ -207,7 +214,20 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id": 1, "title": "Morning Run", "description": "A group run in the park.", "location": "Central Park", "time": "2025-01-01 10:00:00"}'
+        content: |-
+          {
+          "id": 5,
+          "user_id": 1,
+          "title": "Join me at Tech Chantier",
+          "ActivityPhoto": "activity_photos/2bAlnxzYIELlyfUW02fyNbLIobPMGzrUj8DLtchk.jpg",
+          "description": "A thrilling hike to the mountain peak.",
+          "link": "https://example.com/hiking-event",
+          "numberOfMembers": 10,
+          "location": "Mount Fako, Cameroon",
+          "time": "2025-02-15 08:00:00",
+          "created_at": "2025-02-04T09:11:42.000000Z",
+          "updated_at": "2025-02-04T09:11:42.000000Z"
+          }
         headers: []
         description: ''
         custom: []

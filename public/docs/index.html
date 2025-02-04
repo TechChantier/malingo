@@ -72,14 +72,10 @@
                 </li>
                                     <ul id="tocify-subheader-activities" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="activities-GETapi-activity">
-                                <a href="#activities-GETapi-activity">Get all activities
-
-Retrieve a list of all activities.</a>
+                                <a href="#activities-GETapi-activity">Get all activities</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="activities-POSTapi-activity">
-                                <a href="#activities-POSTapi-activity">Create a new activity
-
-Store a new activity created by the authenticated user.</a>
+                                <a href="#activities-POSTapi-activity">Create a new activity</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="activities-GETapi-activity--id-">
                                 <a href="#activities-GETapi-activity--id-">Get activity details
@@ -171,7 +167,7 @@ Delete an activity created by the authenticated user.</a>
     <div class="dark-box"></div>
     <div class="content">
         <h1 id="introduction">Introduction</h1>
-<p>This is api documentation contains all the endpoints for the malingo project.
+<p>This api documentation contains all the endpoints for the malingo project.
 a platform where you can effortlessly find companions for your next adventure, be it a travel buddy,
 a dining partner, or someone to join you for a stroll or a random conversation. Malingo is a solution
 that enables individuals to connect, share experiences, and foster new relationships while splitting
@@ -190,11 +186,10 @@ You can switch the language used with the tabs at the top right (or from the nav
 
     
 
-                                <h2 id="activities-GETapi-activity">Get all activities
-
-Retrieve a list of all activities.</h2>
+                                <h2 id="activities-GETapi-activity">Get all activities</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -233,15 +228,104 @@ fetch(url, {
         </blockquote>
                 <pre>
 
-<code class="language-json" style="max-height: 300px;">[
-    {
-        &quot;id&quot;: 1,
-        &quot;title&quot;: &quot;Sample Activity&quot;,
-        &quot;description&quot;: &quot;Description&quot;,
-        &quot;location&quot;: &quot;Location&quot;,
-        &quot;time&quot;: &quot;2025-01-01 10:00:00&quot;
-    }
-]</code>
+<code class="language-json" style="max-height: 300px;">{
+    &quot;created_activities&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;user_id&quot;: 1,
+            &quot;title&quot;: &quot;Hiking Adventure&quot;,
+            &quot;ActivityPhoto&quot;: null,
+            &quot;description&quot;: &quot;A thrilling hike to the mountain peak.&quot;,
+            &quot;link&quot;: &quot;https://example.com/hiking-event&quot;,
+            &quot;numberOfMembers&quot;: 10,
+            &quot;location&quot;: &quot;Mount Fako, Cameroon&quot;,
+            &quot;time&quot;: &quot;2025-02-15 08:00:00&quot;,
+            &quot;created_at&quot;: &quot;2025-02-04T08:19:02.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-02-04T08:19:02.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;user_id&quot;: 1,
+            &quot;title&quot;: &quot;Hiking Adventure&quot;,
+            &quot;ActivityPhoto&quot;: null,
+            &quot;description&quot;: &quot;A thrilling hike to the mountain peak.&quot;,
+            &quot;link&quot;: &quot;https://example.com/hiking-event&quot;,
+            &quot;numberOfMembers&quot;: 10,
+            &quot;location&quot;: &quot;Mount Fako, Cameroon&quot;,
+            &quot;time&quot;: &quot;2025-02-15 08:00:00&quot;,
+            &quot;created_at&quot;: &quot;2025-02-04T08:25:56.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-02-04T08:25:56.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;user_id&quot;: 1,
+            &quot;title&quot;: &quot;Hiking Adventure&quot;,
+            &quot;ActivityPhoto&quot;: null,
+            &quot;description&quot;: &quot;A thrilling hike to the mountain peak.&quot;,
+            &quot;link&quot;: &quot;https://example.com/hiking-event&quot;,
+            &quot;numberOfMembers&quot;: 10,
+            &quot;location&quot;: &quot;Mount Fako, Cameroon&quot;,
+            &quot;time&quot;: &quot;2025-02-15 08:00:00&quot;,
+            &quot;created_at&quot;: &quot;2025-02-04T08:36:04.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-02-04T08:36:04.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;user_id&quot;: 1,
+            &quot;title&quot;: &quot;Hiking Adventure&quot;,
+            &quot;ActivityPhoto&quot;: &quot;activity_photos/rj6fjePPJweFYZf07s9dCtAjL84pKv12XGzWIW81.jpg&quot;,
+            &quot;description&quot;: &quot;A thrilling hike to the mountain peak.&quot;,
+            &quot;link&quot;: &quot;https://example.com/hiking-event&quot;,
+            &quot;numberOfMembers&quot;: 10,
+            &quot;location&quot;: &quot;Mount Fako, Cameroon&quot;,
+            &quot;time&quot;: &quot;2025-02-15 08:00:00&quot;,
+            &quot;created_at&quot;: &quot;2025-02-04T09:07:10.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-02-04T09:07:10.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;user_id&quot;: 1,
+            &quot;title&quot;: &quot;Join me at Tech Chantier&quot;,
+            &quot;ActivityPhoto&quot;: &quot;activity_photos/2bAlnxzYIELlyfUW02fyNbLIobPMGzrUj8DLtchk.jpg&quot;,
+            &quot;description&quot;: &quot;A thrilling hike to the mountain peak.&quot;,
+            &quot;link&quot;: &quot;https://example.com/hiking-event&quot;,
+            &quot;numberOfMembers&quot;: 10,
+            &quot;location&quot;: &quot;Mount Fako, Cameroon&quot;,
+            &quot;time&quot;: &quot;2025-02-15 08:00:00&quot;,
+            &quot;created_at&quot;: &quot;2025-02-04T09:11:42.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-02-04T09:11:42.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;user_id&quot;: 1,
+            &quot;title&quot;: &quot;Join me at Tech Chantier&quot;,
+            &quot;ActivityPhoto&quot;: &quot;activity_photos/OfdYJQsOrGOnYCKFtPDrhhv2Kp7PP5zZ40Q08Exk.jpg&quot;,
+            &quot;description&quot;: &quot;A thrilling hike to the mountain peak.&quot;,
+            &quot;link&quot;: &quot;https://example.com/hiking-event&quot;,
+            &quot;numberOfMembers&quot;: 10,
+            &quot;location&quot;: &quot;Mount Fako, Cameroon&quot;,
+            &quot;time&quot;: &quot;2025-02-15 08:00:00&quot;,
+            &quot;created_at&quot;: &quot;2025-02-04T09:13:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-02-04T09:13:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;user_id&quot;: 1,
+            &quot;title&quot;: &quot;Join me at Tech Chantier&quot;,
+            &quot;ActivityPhoto&quot;: &quot;activity_photos/wvnmS2UuVkm1pfcNbhqcq6ouYonmj3G5Qd2KL69x.jpg&quot;,
+            &quot;description&quot;: &quot;A thrilling hike to the mountain peak.&quot;,
+            &quot;link&quot;: &quot;https://example.com/hiking-event&quot;,
+            &quot;numberOfMembers&quot;: 40,
+            &quot;location&quot;: &quot;Mount Fako, Cameroon&quot;,
+            &quot;time&quot;: &quot;2025-02-15 08:00:00&quot;,
+            &quot;created_at&quot;: &quot;2025-02-04T09:18:46.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-02-04T09:18:46.000000Z&quot;
+        }
+    ],
+    &quot;pending_activities&quot;: [],
+    &quot;accepted_activities&quot;: [],
+    &quot;declined_activities&quot;: []
+}</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-activity" hidden>
@@ -261,7 +345,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-GETapi-activity" data-method="GET"
       data-path="api/activity"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -315,11 +399,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="activities-POSTapi-activity">Create a new activity
-
-Store a new activity created by the authenticated user.</h2>
+                    <h2 id="activities-POSTapi-activity">Create a new activity</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -335,10 +418,10 @@ Store a new activity created by the authenticated user.</h2>
     --header "Accept: application/json" \
     --data "{
     \"title\": \"Morning Run\",
-    \"ActivityPhoto\": \"natus\",
+    \"ActivityPhoto\": \"accusamus\",
     \"description\": \"A group run in the park.\",
     \"link\": \"https:\\/\\/zoom.com\\/meeting\",
-    \"numberOfMembers\": 12,
+    \"numberOfMembers\": 6,
     \"location\": \"Central Park\",
     \"time\": \"2025-01-01 10:00:00\"
 }"
@@ -357,10 +440,10 @@ const headers = {
 
 let body = {
     "title": "Morning Run",
-    "ActivityPhoto": "natus",
+    "ActivityPhoto": "accusamus",
     "description": "A group run in the park.",
     "link": "https:\/\/zoom.com\/meeting",
-    "numberOfMembers": 12,
+    "numberOfMembers": 6,
     "location": "Central Park",
     "time": "2025-01-01 10:00:00"
 };
@@ -380,13 +463,17 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 1,
-    &quot;title&quot;: &quot;Morning Run&quot;,
-    &quot;description&quot;: &quot;A group run in the park.&quot;,
+    &quot;title&quot;: &quot;Join me at Tech Chantier&quot;,
+    &quot;ActivityPhoto&quot;: &quot;activity_photos/wvnmS2UuVkm1pfcNbhqcq6ouYonmj3G5Qd2KL69x.jpg&quot;,
+    &quot;description&quot;: &quot;A thrilling hike to the mountain peak.&quot;,
     &quot;link&quot;: &quot;https://example.com/hiking-event&quot;,
-    &quot;numberOfMembers&quot;: &quot;10&quot;,
-    &quot;location&quot;: &quot;Central Park&quot;,
-    &quot;time&quot;: &quot;2025-01-01 10:00:00&quot;
+    &quot;numberOfMembers&quot;: &quot;40&quot;,
+    &quot;location&quot;: &quot;Mount Fako, Cameroon&quot;,
+    &quot;time&quot;: &quot;2025-02-15 08:00:00&quot;,
+    &quot;user_id&quot;: 1,
+    &quot;updated_at&quot;: &quot;2025-02-04T09:18:46.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2025-02-04T09:18:46.000000Z&quot;,
+    &quot;id&quot;: 7
 }</code>
  </pre>
     </span>
@@ -407,7 +494,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-POSTapi-activity" data-method="POST"
       data-path="api/activity"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -477,10 +564,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="ActivityPhoto"                data-endpoint="POSTapi-activity"
-               value="natus"
+               value="accusamus"
                data-component="body">
     <br>
-<p>The photo of the activity. type: [png, jpeg] Example: <code>natus</code></p>
+<p>The photo of the activity. type: [png, jpeg] Example: <code>accusamus</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -510,10 +597,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="numberOfMembers"                data-endpoint="POSTapi-activity"
-               value="12"
+               value="6"
                data-component="body">
     <br>
-<p>the number of member to the activity is required Example: <code>12</code></p>
+<p>the number of member to the activity is required Example: <code>6</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>location</code></b>&nbsp;&nbsp;
@@ -583,11 +670,17 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 1,
-    &quot;title&quot;: &quot;Morning Run&quot;,
-    &quot;description&quot;: &quot;A group run in the park.&quot;,
-    &quot;location&quot;: &quot;Central Park&quot;,
-    &quot;time&quot;: &quot;2025-01-01 10:00:00&quot;
+    &quot;id&quot;: 5,
+    &quot;user_id&quot;: 1,
+    &quot;title&quot;: &quot;Join me at Tech Chantier&quot;,
+    &quot;ActivityPhoto&quot;: &quot;activity_photos/2bAlnxzYIELlyfUW02fyNbLIobPMGzrUj8DLtchk.jpg&quot;,
+    &quot;description&quot;: &quot;A thrilling hike to the mountain peak.&quot;,
+    &quot;link&quot;: &quot;https://example.com/hiking-event&quot;,
+    &quot;numberOfMembers&quot;: 10,
+    &quot;location&quot;: &quot;Mount Fako, Cameroon&quot;,
+    &quot;time&quot;: &quot;2025-02-15 08:00:00&quot;,
+    &quot;created_at&quot;: &quot;2025-02-04T09:11:42.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2025-02-04T09:11:42.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -1099,13 +1192,13 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;user&quot;: {
-        &quot;id&quot;: 1,
-        &quot;name&quot;: &quot;John Doe&quot;,
-        &quot;email&quot;: &quot;john@example.com&quot;,
-        &quot;created_at&quot;: &quot;2025-01-21T10:00:00&quot;,
-        &quot;updated_at&quot;: &quot;2025-01-21T10:00:00&quot;
+        &quot;name&quot;: &quot;Nkuma Confident&quot;,
+        &quot;email&quot;: &quot;nsem@gmail.com&quot;,
+        &quot;updated_at&quot;: &quot;2025-02-04T08:18:33.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2025-02-04T08:18:33.000000Z&quot;,
+        &quot;id&quot;: 1
     },
-    &quot;token&quot;: &quot;1|laravel_sanctum_token_string_here&quot;
+    &quot;token&quot;: &quot;1|zoNArNwtRQijtSUA8qLUAFctGhOI1W1OUnVRm0GZcc1b2217&quot;
 }</code>
  </pre>
             <blockquote>
@@ -1114,13 +1207,13 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;The given data was invalid.&quot;,
+    &quot;message&quot;: &quot;The email has already been taken. (and 1 more error)&quot;,
     &quot;errors&quot;: {
         &quot;email&quot;: [
             &quot;The email has already been taken.&quot;
         ],
         &quot;password&quot;: [
-            &quot;The password confirmation does not match.&quot;
+            &quot;The password field confirmation does not match.&quot;
         ]
     }
 }</code>
@@ -1729,7 +1822,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"activity_id\": 3
+    \"activity_id\": 9
 }"
 </code></pre></div>
 
@@ -1746,7 +1839,7 @@ const headers = {
 };
 
 let body = {
-    "activity_id": 3
+    "activity_id": 9
 };
 
 fetch(url, {
@@ -1882,10 +1975,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="activity_id"                data-endpoint="POSTapi-activities--activity_id--join"
-               value="3"
+               value="9"
                data-component="body">
     <br>
-<p>The ID of the activity to join. Example: <code>3</code></p>
+<p>The ID of the activity to join. Example: <code>9</code></p>
         </div>
         </form>
 
@@ -1903,7 +1996,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/join-request/20/accept" \
+    "http://localhost/api/join-request/8/accept" \
     --header "Authorization: string required The authentication token. Example: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -1915,7 +2008,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/join-request/20/accept"
+    "http://localhost/api/join-request/8/accept"
 );
 
 const headers = {
@@ -2044,10 +2137,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="joinRequest_id"                data-endpoint="POSTapi-join-request--joinRequest_id--accept"
-               value="20"
+               value="8"
                data-component="url">
     <br>
-<p>The ID of the joinRequest. Example: <code>20</code></p>
+<p>The ID of the joinRequest. Example: <code>8</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2077,7 +2170,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/join-request/8/decline" \
+    "http://localhost/api/join-request/20/decline" \
     --header "Authorization: string required The authentication token. Example: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -2089,7 +2182,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/join-request/8/decline"
+    "http://localhost/api/join-request/20/decline"
 );
 
 const headers = {
@@ -2217,10 +2310,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="joinRequest_id"                data-endpoint="POSTapi-join-request--joinRequest_id--decline"
-               value="8"
+               value="20"
                data-component="url">
     <br>
-<p>The ID of the joinRequest. Example: <code>8</code></p>
+<p>The ID of the joinRequest. Example: <code>20</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2408,13 +2501,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/activities/filter?title=dolorem&amp;description=Commodi+ea+ipsum+ab+dignissimos+non+distinctio+dolore.&amp;date=explicabo&amp;location=natus" \
+    --get "http://localhost/api/activities/filter?title=sed&amp;description=Est+unde+atque+eum+aut+aspernatur.&amp;date=rerum&amp;location=sunt" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"mollitia\",
-    \"description\": \"Ex dolor quia aut illum aspernatur repudiandae voluptatibus sit.\",
-    \"location\": \"et\"
+    \"title\": \"voluptatum\",
+    \"description\": \"Eius rerum dolorum tempore minima ut magni.\",
+    \"location\": \"necessitatibus\"
 }"
 </code></pre></div>
 
@@ -2425,10 +2518,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const params = {
-    "title": "dolorem",
-    "description": "Commodi ea ipsum ab dignissimos non distinctio dolore.",
-    "date": "explicabo",
-    "location": "natus",
+    "title": "sed",
+    "description": "Est unde atque eum aut aspernatur.",
+    "date": "rerum",
+    "location": "sunt",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2439,9 +2532,9 @@ const headers = {
 };
 
 let body = {
-    "title": "mollitia",
-    "description": "Ex dolor quia aut illum aspernatur repudiandae voluptatibus sit.",
-    "location": "et"
+    "title": "voluptatum",
+    "description": "Eius rerum dolorum tempore minima ut magni.",
+    "location": "necessitatibus"
 };
 
 fetch(url, {
@@ -2554,10 +2647,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="GETapi-activities-filter"
-               value="dolorem"
+               value="sed"
                data-component="query">
     <br>
-<p>optional Filter by title. Example: <code>dolorem</code></p>
+<p>optional Filter by title. Example: <code>sed</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -2565,10 +2658,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="GETapi-activities-filter"
-               value="Commodi ea ipsum ab dignissimos non distinctio dolore."
+               value="Est unde atque eum aut aspernatur."
                data-component="query">
     <br>
-<p>optional Filter by description. Example: <code>Commodi ea ipsum ab dignissimos non distinctio dolore.</code></p>
+<p>optional Filter by description. Example: <code>Est unde atque eum aut aspernatur.</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -2576,10 +2669,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="GETapi-activities-filter"
-               value="explicabo"
+               value="rerum"
                data-component="query">
     <br>
-<p>optional Filter by date (format: y-m-d). Example: <code>explicabo</code></p>
+<p>optional Filter by date (format: y-m-d). Example: <code>rerum</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>location</code></b>&nbsp;&nbsp;
@@ -2587,10 +2680,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="location"                data-endpoint="GETapi-activities-filter"
-               value="natus"
+               value="sunt"
                data-component="query">
     <br>
-<p>optional Filter by location. Example: <code>natus</code></p>
+<p>optional Filter by location. Example: <code>sunt</code></p>
             </div>
                         <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2599,10 +2692,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="GETapi-activities-filter"
-               value="mollitia"
+               value="voluptatum"
                data-component="body">
     <br>
-<p>Example: <code>mollitia</code></p>
+<p>Example: <code>voluptatum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -2610,10 +2703,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="GETapi-activities-filter"
-               value="Ex dolor quia aut illum aspernatur repudiandae voluptatibus sit."
+               value="Eius rerum dolorum tempore minima ut magni."
                data-component="body">
     <br>
-<p>Example: <code>Ex dolor quia aut illum aspernatur repudiandae voluptatibus sit.</code></p>
+<p>Example: <code>Eius rerum dolorum tempore minima ut magni.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -2632,10 +2725,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="location"                data-endpoint="GETapi-activities-filter"
-               value="et"
+               value="necessitatibus"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>necessitatibus</code></p>
         </div>
         </form>
 
@@ -2652,13 +2745,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/activities/search?title=repudiandae&amp;description=Distinctio+quis+deserunt+recusandae+qui+at+porro+dolorem.&amp;location=neque&amp;date=sint" \
+    --get "http://localhost/api/activities/search?title=perspiciatis&amp;description=Ducimus+et+eum+necessitatibus+aut+quis+eveniet.&amp;location=placeat&amp;date=quaerat" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"vel\",
-    \"description\": \"Et voluptatibus enim dolore et.\",
-    \"location\": \"cupiditate\"
+    \"title\": \"voluptatem\",
+    \"description\": \"Facilis iure velit expedita et quia aperiam nesciunt dolor.\",
+    \"location\": \"animi\"
 }"
 </code></pre></div>
 
@@ -2669,10 +2762,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const params = {
-    "title": "repudiandae",
-    "description": "Distinctio quis deserunt recusandae qui at porro dolorem.",
-    "location": "neque",
-    "date": "sint",
+    "title": "perspiciatis",
+    "description": "Ducimus et eum necessitatibus aut quis eveniet.",
+    "location": "placeat",
+    "date": "quaerat",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2683,9 +2776,9 @@ const headers = {
 };
 
 let body = {
-    "title": "vel",
-    "description": "Et voluptatibus enim dolore et.",
-    "location": "cupiditate"
+    "title": "voluptatem",
+    "description": "Facilis iure velit expedita et quia aperiam nesciunt dolor.",
+    "location": "animi"
 };
 
 fetch(url, {
@@ -2788,10 +2881,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="GETapi-activities-search"
-               value="repudiandae"
+               value="perspiciatis"
                data-component="query">
     <br>
-<p>optional Filter by title. Example: <code>repudiandae</code></p>
+<p>optional Filter by title. Example: <code>perspiciatis</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -2799,10 +2892,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="GETapi-activities-search"
-               value="Distinctio quis deserunt recusandae qui at porro dolorem."
+               value="Ducimus et eum necessitatibus aut quis eveniet."
                data-component="query">
     <br>
-<p>optional Filter by description. Example: <code>Distinctio quis deserunt recusandae qui at porro dolorem.</code></p>
+<p>optional Filter by description. Example: <code>Ducimus et eum necessitatibus aut quis eveniet.</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>location</code></b>&nbsp;&nbsp;
@@ -2810,10 +2903,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="location"                data-endpoint="GETapi-activities-search"
-               value="neque"
+               value="placeat"
                data-component="query">
     <br>
-<p>optional Filter by location. Example: <code>neque</code></p>
+<p>optional Filter by location. Example: <code>placeat</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -2821,10 +2914,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="GETapi-activities-search"
-               value="sint"
+               value="quaerat"
                data-component="query">
     <br>
-<p>optional Filter by date (format: y-m-d). Example: <code>sint</code></p>
+<p>optional Filter by date (format: y-m-d). Example: <code>quaerat</code></p>
             </div>
                         <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2833,10 +2926,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="GETapi-activities-search"
-               value="vel"
+               value="voluptatem"
                data-component="body">
     <br>
-<p>Example: <code>vel</code></p>
+<p>Example: <code>voluptatem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -2844,10 +2937,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="GETapi-activities-search"
-               value="Et voluptatibus enim dolore et."
+               value="Facilis iure velit expedita et quia aperiam nesciunt dolor."
                data-component="body">
     <br>
-<p>Example: <code>Et voluptatibus enim dolore et.</code></p>
+<p>Example: <code>Facilis iure velit expedita et quia aperiam nesciunt dolor.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>location</code></b>&nbsp;&nbsp;
@@ -2855,10 +2948,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="location"                data-endpoint="GETapi-activities-search"
-               value="cupiditate"
+               value="animi"
                data-component="body">
     <br>
-<p>Example: <code>cupiditate</code></p>
+<p>Example: <code>animi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -3019,10 +3112,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="activityId"                data-endpoint="GETapi-activities--id--joined-users"
-               value="20"
+               value="18"
                data-component="url">
     <br>
-<p>The ID of the activity. Example: <code>20</code></p>
+<p>The ID of the activity. Example: <code>18</code></p>
             </div>
                     </form>
 
@@ -3045,7 +3138,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"activity_id\": 13
+    \"activity_id\": 18
 }"
 </code></pre></div>
 
@@ -3062,7 +3155,7 @@ const headers = {
 };
 
 let body = {
-    "activity_id": 13
+    "activity_id": 18
 };
 
 fetch(url, {
@@ -3198,10 +3291,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="activity_id"                data-endpoint="POSTapi-activity--activity_id--leave"
-               value="13"
+               value="18"
                data-component="body">
     <br>
-<p>The ID of the activity. Example: <code>13</code></p>
+<p>The ID of the activity. Example: <code>18</code></p>
         </div>
         </form>
 
@@ -3219,7 +3312,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/leave-requests/10/approve" \
+    "http://localhost/api/leave-requests/19/approve" \
     --header "Authorization: string required The authentication token. Example: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -3231,7 +3324,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/leave-requests/10/approve"
+    "http://localhost/api/leave-requests/19/approve"
 );
 
 const headers = {
@@ -3359,10 +3452,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="leaveRequest_id"                data-endpoint="POSTapi-leave-requests--leaveRequest_id--approve"
-               value="10"
+               value="19"
                data-component="url">
     <br>
-<p>The ID of the leaveRequest. Example: <code>10</code></p>
+<p>The ID of the leaveRequest. Example: <code>19</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
