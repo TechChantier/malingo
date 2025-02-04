@@ -70,12 +70,8 @@ class ActivityController extends Controller implements HasMiddleware
         //     $useractivity['ActivityPhoto'] = $request->file('ActivityPhoto')->store('activity_photos', 'public');
         // }
         if ($request->hasFile('ActivityPhoto')) {
-            Log::info('File present in request');
             $path = $request->file('ActivityPhoto')->store('activity_photos', 'public');
-            Log::info('Stored file path: ' . $path);
             $useractivity['ActivityPhoto'] = $path;
-        } else {
-            Log::info('No file in request');
         }
 
         $post = $request->user()->activities()->create($useractivity);
