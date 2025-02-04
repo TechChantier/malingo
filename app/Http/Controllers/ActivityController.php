@@ -45,13 +45,14 @@ class ActivityController extends Controller implements HasMiddleware
      * Store a new activity created by the authenticated user.
      *
      * @bodyParam title string required: The title of the activity. Example: Morning Run
-     * @bodyParam ActivityPhoto file: not required The photo of the activity. type: [png, jpeg]
+     * @bodyParam ActivityPhoto file: required The photo of the activity. type: [png, jpeg]
      * @bodyParam description string required:  The description of the activity. Example: A group run in the park.
      * @bodyParam link string required: The link to the activity (if any). Example: https://zoom.com/meeting
+     * @bodyParam numberOfMembers integer the number of member to the activity is required
      * @bodyParam location string required: The location of the activity. Example: Central Park
      * @bodyParam time datetime required: The date and time of the activity. Format: Y-m-d H:i:s. Example: 2025-01-01 10:00:00
      * 
-     * @response 201 {"id": 1, "title": "Morning Run", "description": "A group run in the park.", "location": "Central Park", "time": "2025-01-01 10:00:00"}
+     * @response 201 {"id": 1, "title": "Morning Run", "description": "A group run in the park.","link": "https://example.com/hiking-event","numberOfMembers": "10", "location": "Central Park", "time": "2025-01-01 10:00:00"}
      */
     public function store(Request $request)
     {

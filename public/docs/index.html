@@ -163,7 +163,7 @@ Delete an activity created by the authenticated user.</a>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: January 21, 2025</li>
+        <li>Last updated: February 4, 2025</li>
     </ul>
 </div>
 
@@ -335,8 +335,10 @@ Store a new activity created by the authenticated user.</h2>
     --header "Accept: application/json" \
     --data "{
     \"title\": \"Morning Run\",
+    \"ActivityPhoto\": \"natus\",
     \"description\": \"A group run in the park.\",
     \"link\": \"https:\\/\\/zoom.com\\/meeting\",
+    \"numberOfMembers\": 12,
     \"location\": \"Central Park\",
     \"time\": \"2025-01-01 10:00:00\"
 }"
@@ -355,8 +357,10 @@ const headers = {
 
 let body = {
     "title": "Morning Run",
+    "ActivityPhoto": "natus",
     "description": "A group run in the park.",
     "link": "https:\/\/zoom.com\/meeting",
+    "numberOfMembers": 12,
     "location": "Central Park",
     "time": "2025-01-01 10:00:00"
 };
@@ -379,6 +383,8 @@ fetch(url, {
     &quot;id&quot;: 1,
     &quot;title&quot;: &quot;Morning Run&quot;,
     &quot;description&quot;: &quot;A group run in the park.&quot;,
+    &quot;link&quot;: &quot;https://example.com/hiking-event&quot;,
+    &quot;numberOfMembers&quot;: &quot;10&quot;,
     &quot;location&quot;: &quot;Central Park&quot;,
     &quot;time&quot;: &quot;2025-01-01 10:00:00&quot;
 }</code>
@@ -457,57 +463,79 @@ You can check the Dev Tools console for debugging information.</code></pre>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="POSTapi-activity"
                value="Morning Run"
                data-component="body">
     <br>
-<p>The title of the activity. Example: <code>Morning Run</code></p>
+<p>required: The title of the activity. Example: <code>Morning Run</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>ActivityPhoto</code></b>&nbsp;&nbsp;
+<small>file:</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="ActivityPhoto"                data-endpoint="POSTapi-activity"
+               value="natus"
+               data-component="body">
+    <br>
+<p>The photo of the activity. type: [png, jpeg] Example: <code>natus</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="POSTapi-activity"
                value="A group run in the park."
                data-component="body">
     <br>
-<p>The description of the activity. Example: <code>A group run in the park.</code></p>
+<p>required:  The description of the activity. Example: <code>A group run in the park.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>link</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="link"                data-endpoint="POSTapi-activity"
                value="https://zoom.com/meeting"
                data-component="body">
     <br>
-<p>The link to the activity (if any). Example: <code>https://zoom.com/meeting</code></p>
+<p>required: The link to the activity (if any). Example: <code>https://zoom.com/meeting</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>numberOfMembers</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="numberOfMembers"                data-endpoint="POSTapi-activity"
+               value="12"
+               data-component="body">
+    <br>
+<p>the number of member to the activity is required Example: <code>12</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>location</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="location"                data-endpoint="POSTapi-activity"
                value="Central Park"
                data-component="body">
     <br>
-<p>The location of the activity. Example: <code>Central Park</code></p>
+<p>required: The location of the activity. Example: <code>Central Park</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>time</code></b>&nbsp;&nbsp;
 <small>datetime</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="time"                data-endpoint="POSTapi-activity"
                value="2025-01-01 10:00:00"
                data-component="body">
     <br>
-<p>The date and time of the activity. Format: Y-m-d H:i:s. Example: <code>2025-01-01 10:00:00</code></p>
+<p>required: The date and time of the activity. Format: Y-m-d H:i:s. Example: <code>2025-01-01 10:00:00</code></p>
         </div>
         </form>
 
@@ -1701,7 +1729,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"activity_id\": 16
+    \"activity_id\": 3
 }"
 </code></pre></div>
 
@@ -1718,7 +1746,7 @@ const headers = {
 };
 
 let body = {
-    "activity_id": 16
+    "activity_id": 3
 };
 
 fetch(url, {
@@ -1854,10 +1882,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="activity_id"                data-endpoint="POSTapi-activities--activity_id--join"
-               value="16"
+               value="3"
                data-component="body">
     <br>
-<p>The ID of the activity to join. Example: <code>16</code></p>
+<p>The ID of the activity to join. Example: <code>3</code></p>
         </div>
         </form>
 
@@ -1875,7 +1903,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/join-request/1/accept" \
+    "http://localhost/api/join-request/20/accept" \
     --header "Authorization: string required The authentication token. Example: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -1887,7 +1915,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/join-request/1/accept"
+    "http://localhost/api/join-request/20/accept"
 );
 
 const headers = {
@@ -2016,10 +2044,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="joinRequest_id"                data-endpoint="POSTapi-join-request--joinRequest_id--accept"
-               value="1"
+               value="20"
                data-component="url">
     <br>
-<p>The ID of the joinRequest. Example: <code>1</code></p>
+<p>The ID of the joinRequest. Example: <code>20</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2049,7 +2077,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/join-request/1/decline" \
+    "http://localhost/api/join-request/8/decline" \
     --header "Authorization: string required The authentication token. Example: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -2061,7 +2089,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/join-request/1/decline"
+    "http://localhost/api/join-request/8/decline"
 );
 
 const headers = {
@@ -2189,10 +2217,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="joinRequest_id"                data-endpoint="POSTapi-join-request--joinRequest_id--decline"
-               value="1"
+               value="8"
                data-component="url">
     <br>
-<p>The ID of the joinRequest. Example: <code>1</code></p>
+<p>The ID of the joinRequest. Example: <code>8</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2380,13 +2408,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/activities/filter?title=perferendis&amp;description=Itaque+vel+quaerat+enim.&amp;date=explicabo&amp;location=velit" \
+    --get "http://localhost/api/activities/filter?title=dolorem&amp;description=Commodi+ea+ipsum+ab+dignissimos+non+distinctio+dolore.&amp;date=explicabo&amp;location=natus" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"sed\",
-    \"description\": \"Quisquam omnis architecto omnis excepturi et rem sed nihil.\",
-    \"location\": \"molestiae\"
+    \"title\": \"mollitia\",
+    \"description\": \"Ex dolor quia aut illum aspernatur repudiandae voluptatibus sit.\",
+    \"location\": \"et\"
 }"
 </code></pre></div>
 
@@ -2397,10 +2425,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const params = {
-    "title": "perferendis",
-    "description": "Itaque vel quaerat enim.",
+    "title": "dolorem",
+    "description": "Commodi ea ipsum ab dignissimos non distinctio dolore.",
     "date": "explicabo",
-    "location": "velit",
+    "location": "natus",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2411,9 +2439,9 @@ const headers = {
 };
 
 let body = {
-    "title": "sed",
-    "description": "Quisquam omnis architecto omnis excepturi et rem sed nihil.",
-    "location": "molestiae"
+    "title": "mollitia",
+    "description": "Ex dolor quia aut illum aspernatur repudiandae voluptatibus sit.",
+    "location": "et"
 };
 
 fetch(url, {
@@ -2526,10 +2554,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="GETapi-activities-filter"
-               value="perferendis"
+               value="dolorem"
                data-component="query">
     <br>
-<p>optional Filter by title. Example: <code>perferendis</code></p>
+<p>optional Filter by title. Example: <code>dolorem</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -2537,10 +2565,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="GETapi-activities-filter"
-               value="Itaque vel quaerat enim."
+               value="Commodi ea ipsum ab dignissimos non distinctio dolore."
                data-component="query">
     <br>
-<p>optional Filter by description. Example: <code>Itaque vel quaerat enim.</code></p>
+<p>optional Filter by description. Example: <code>Commodi ea ipsum ab dignissimos non distinctio dolore.</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -2559,10 +2587,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="location"                data-endpoint="GETapi-activities-filter"
-               value="velit"
+               value="natus"
                data-component="query">
     <br>
-<p>optional Filter by location. Example: <code>velit</code></p>
+<p>optional Filter by location. Example: <code>natus</code></p>
             </div>
                         <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2571,10 +2599,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="GETapi-activities-filter"
-               value="sed"
+               value="mollitia"
                data-component="body">
     <br>
-<p>Example: <code>sed</code></p>
+<p>Example: <code>mollitia</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -2582,10 +2610,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="GETapi-activities-filter"
-               value="Quisquam omnis architecto omnis excepturi et rem sed nihil."
+               value="Ex dolor quia aut illum aspernatur repudiandae voluptatibus sit."
                data-component="body">
     <br>
-<p>Example: <code>Quisquam omnis architecto omnis excepturi et rem sed nihil.</code></p>
+<p>Example: <code>Ex dolor quia aut illum aspernatur repudiandae voluptatibus sit.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -2604,10 +2632,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="location"                data-endpoint="GETapi-activities-filter"
-               value="molestiae"
+               value="et"
                data-component="body">
     <br>
-<p>Example: <code>molestiae</code></p>
+<p>Example: <code>et</code></p>
         </div>
         </form>
 
@@ -2624,13 +2652,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/activities/search?title=nam&amp;description=Vel+doloremque+sint+architecto+voluptatibus+sit+est+numquam.&amp;location=possimus&amp;date=omnis" \
+    --get "http://localhost/api/activities/search?title=repudiandae&amp;description=Distinctio+quis+deserunt+recusandae+qui+at+porro+dolorem.&amp;location=neque&amp;date=sint" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"iusto\",
-    \"description\": \"Voluptas consequuntur consequatur voluptatem veritatis praesentium quo.\",
-    \"location\": \"quaerat\"
+    \"title\": \"vel\",
+    \"description\": \"Et voluptatibus enim dolore et.\",
+    \"location\": \"cupiditate\"
 }"
 </code></pre></div>
 
@@ -2641,10 +2669,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const params = {
-    "title": "nam",
-    "description": "Vel doloremque sint architecto voluptatibus sit est numquam.",
-    "location": "possimus",
-    "date": "omnis",
+    "title": "repudiandae",
+    "description": "Distinctio quis deserunt recusandae qui at porro dolorem.",
+    "location": "neque",
+    "date": "sint",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2655,9 +2683,9 @@ const headers = {
 };
 
 let body = {
-    "title": "iusto",
-    "description": "Voluptas consequuntur consequatur voluptatem veritatis praesentium quo.",
-    "location": "quaerat"
+    "title": "vel",
+    "description": "Et voluptatibus enim dolore et.",
+    "location": "cupiditate"
 };
 
 fetch(url, {
@@ -2760,10 +2788,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="GETapi-activities-search"
-               value="nam"
+               value="repudiandae"
                data-component="query">
     <br>
-<p>optional Filter by title. Example: <code>nam</code></p>
+<p>optional Filter by title. Example: <code>repudiandae</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -2771,10 +2799,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="GETapi-activities-search"
-               value="Vel doloremque sint architecto voluptatibus sit est numquam."
+               value="Distinctio quis deserunt recusandae qui at porro dolorem."
                data-component="query">
     <br>
-<p>optional Filter by description. Example: <code>Vel doloremque sint architecto voluptatibus sit est numquam.</code></p>
+<p>optional Filter by description. Example: <code>Distinctio quis deserunt recusandae qui at porro dolorem.</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>location</code></b>&nbsp;&nbsp;
@@ -2782,10 +2810,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="location"                data-endpoint="GETapi-activities-search"
-               value="possimus"
+               value="neque"
                data-component="query">
     <br>
-<p>optional Filter by location. Example: <code>possimus</code></p>
+<p>optional Filter by location. Example: <code>neque</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -2793,10 +2821,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="GETapi-activities-search"
-               value="omnis"
+               value="sint"
                data-component="query">
     <br>
-<p>optional Filter by date (format: y-m-d). Example: <code>omnis</code></p>
+<p>optional Filter by date (format: y-m-d). Example: <code>sint</code></p>
             </div>
                         <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2805,10 +2833,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="GETapi-activities-search"
-               value="iusto"
+               value="vel"
                data-component="body">
     <br>
-<p>Example: <code>iusto</code></p>
+<p>Example: <code>vel</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -2816,10 +2844,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="GETapi-activities-search"
-               value="Voluptas consequuntur consequatur voluptatem veritatis praesentium quo."
+               value="Et voluptatibus enim dolore et."
                data-component="body">
     <br>
-<p>Example: <code>Voluptas consequuntur consequatur voluptatem veritatis praesentium quo.</code></p>
+<p>Example: <code>Et voluptatibus enim dolore et.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>location</code></b>&nbsp;&nbsp;
@@ -2827,10 +2855,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="location"                data-endpoint="GETapi-activities-search"
-               value="quaerat"
+               value="cupiditate"
                data-component="body">
     <br>
-<p>Example: <code>quaerat</code></p>
+<p>Example: <code>cupiditate</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -2991,10 +3019,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="activityId"                data-endpoint="GETapi-activities--id--joined-users"
-               value="18"
+               value="20"
                data-component="url">
     <br>
-<p>The ID of the activity. Example: <code>18</code></p>
+<p>The ID of the activity. Example: <code>20</code></p>
             </div>
                     </form>
 
@@ -3017,7 +3045,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"activity_id\": 16
+    \"activity_id\": 13
 }"
 </code></pre></div>
 
@@ -3034,7 +3062,7 @@ const headers = {
 };
 
 let body = {
-    "activity_id": 16
+    "activity_id": 13
 };
 
 fetch(url, {
@@ -3170,10 +3198,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="activity_id"                data-endpoint="POSTapi-activity--activity_id--leave"
-               value="16"
+               value="13"
                data-component="body">
     <br>
-<p>The ID of the activity. Example: <code>16</code></p>
+<p>The ID of the activity. Example: <code>13</code></p>
         </div>
         </form>
 
@@ -3191,7 +3219,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/leave-requests/1/approve" \
+    "http://localhost/api/leave-requests/10/approve" \
     --header "Authorization: string required The authentication token. Example: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -3203,7 +3231,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/leave-requests/1/approve"
+    "http://localhost/api/leave-requests/10/approve"
 );
 
 const headers = {
@@ -3331,10 +3359,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="leaveRequest_id"                data-endpoint="POSTapi-leave-requests--leaveRequest_id--approve"
-               value="1"
+               value="10"
                data-component="url">
     <br>
-<p>The ID of the leaveRequest. Example: <code>1</code></p>
+<p>The ID of the leaveRequest. Example: <code>10</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">

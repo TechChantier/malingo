@@ -68,18 +68,28 @@ endpoints:
     bodyParameters:
       title:
         name: title
-        description: 'The title of the activity.'
-        required: true
+        description: 'required: The title of the activity.'
+        required: false
         example: 'Morning Run'
         type: string
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         custom: []
+      ActivityPhoto:
+        name: ActivityPhoto
+        description: 'The photo of the activity. type: [png, jpeg]'
+        required: true
+        example: natus
+        type: 'file:'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
       description:
         name: description
-        description: 'The description of the activity.'
-        required: true
+        description: 'required:  The description of the activity.'
+        required: false
         example: 'A group run in the park.'
         type: string
         enumValues: []
@@ -88,18 +98,28 @@ endpoints:
         custom: []
       link:
         name: link
-        description: 'The link to the activity (if any).'
-        required: true
+        description: 'required: The link to the activity (if any).'
+        required: false
         example: 'https://zoom.com/meeting'
         type: string
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         custom: []
+      numberOfMembers:
+        name: numberOfMembers
+        description: 'the number of member to the activity is required'
+        required: false
+        example: 12
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
       location:
         name: location
-        description: 'The location of the activity.'
-        required: true
+        description: 'required: The location of the activity.'
+        required: false
         example: 'Central Park'
         type: string
         enumValues: []
@@ -108,8 +128,8 @@ endpoints:
         custom: []
       time:
         name: time
-        description: 'The date and time of the activity. Format: Y-m-d H:i:s.'
-        required: true
+        description: 'required: The date and time of the activity. Format: Y-m-d H:i:s.'
+        required: false
         example: '2025-01-01 10:00:00'
         type: datetime
         enumValues: []
@@ -118,15 +138,17 @@ endpoints:
         custom: []
     cleanBodyParameters:
       title: 'Morning Run'
+      ActivityPhoto: natus
       description: 'A group run in the park.'
       link: 'https://zoom.com/meeting'
+      numberOfMembers: 12
       location: 'Central Park'
       time: '2025-01-01 10:00:00'
     fileParameters: []
     responses:
       -
         status: 201
-        content: '{"id": 1, "title": "Morning Run", "description": "A group run in the park.", "location": "Central Park", "time": "2025-01-01 10:00:00"}'
+        content: '{"id": 1, "title": "Morning Run", "description": "A group run in the park.","link": "https://example.com/hiking-event","numberOfMembers": "10", "location": "Central Park", "time": "2025-01-01 10:00:00"}'
         headers: []
         description: ''
         custom: []

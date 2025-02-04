@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Malingo api documentation",
-        "_postman_id": "c38a92be-3142-460f-bf42-b1cef3e12095",
+        "_postman_id": "3d29e618-4213-40a0-9e89-585390154a58",
         "description": "This is api documentation contains all the endpoints for the malingo project. \n    a platform where you can effortlessly find companions for your next adventure, be it a travel buddy,\n     a dining partner, or someone to join you for a stroll or a random conversation. Malingo is a solution\n      that enables individuals to connect, share experiences, and foster new relationships while splitting\n       costs or covering expenses as agreed.\n    ",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -76,7 +76,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Morning Run\",\"description\":\"A group run in the park.\",\"link\":\"https:\\\/\\\/zoom.com\\\/meeting\",\"location\":\"Central Park\",\"time\":\"2025-01-01 10:00:00\"}"
+                            "raw": "{\"title\":\"Morning Run\",\"ActivityPhoto\":\"natus\",\"description\":\"A group run in the park.\",\"link\":\"https:\\\/\\\/zoom.com\\\/meeting\",\"numberOfMembers\":12,\"location\":\"Central Park\",\"time\":\"2025-01-01 10:00:00\"}"
                         },
                         "description": "",
                         "auth": {
@@ -87,7 +87,7 @@
                         {
                             "header": [],
                             "code": 201,
-                            "body": "{\"id\": 1, \"title\": \"Morning Run\", \"description\": \"A group run in the park.\", \"location\": \"Central Park\", \"time\": \"2025-01-01 10:00:00\"}",
+                            "body": "{\"id\": 1, \"title\": \"Morning Run\", \"description\": \"A group run in the park.\",\"link\": \"https:\/\/example.com\/hiking-event\",\"numberOfMembers\": \"10\", \"location\": \"Central Park\", \"time\": \"2025-01-01 10:00:00\"}",
                             "name": ""
                         }
                     ]
@@ -470,7 +470,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"activity_id\":16}"
+                            "raw": "{\"activity_id\":3}"
                         },
                         "description": ""
                     },
@@ -501,7 +501,7 @@
                                 {
                                     "id": "joinRequest_id",
                                     "key": "joinRequest_id",
-                                    "value": "1",
+                                    "value": "20",
                                     "description": "The ID of the joinRequest."
                                 }
                             ]
@@ -554,7 +554,7 @@
                                 {
                                     "id": "joinRequest_id",
                                     "key": "joinRequest_id",
-                                    "value": "1",
+                                    "value": "8",
                                     "description": "The ID of the joinRequest."
                                 }
                             ]
@@ -640,13 +640,13 @@
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "perferendis",
+                                    "value": "dolorem",
                                     "description": "optional Filter by title.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "Itaque+vel+quaerat+enim.",
+                                    "value": "Commodi+ea+ipsum+ab+dignissimos+non+distinctio+dolore.",
                                     "description": "optional Filter by description.",
                                     "disabled": false
                                 },
@@ -658,12 +658,12 @@
                                 },
                                 {
                                     "key": "location",
-                                    "value": "velit",
+                                    "value": "natus",
                                     "description": "optional Filter by location.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/activities\/filter?title=perferendis&description=Itaque+vel+quaerat+enim.&date=explicabo&location=velit"
+                            "raw": "{{baseUrl}}\/api\/activities\/filter?title=dolorem&description=Commodi+ea+ipsum+ab+dignissimos+non+distinctio+dolore.&date=explicabo&location=natus"
                         },
                         "method": "GET",
                         "header": [
@@ -678,7 +678,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"sed\",\"description\":\"Quisquam omnis architecto omnis excepturi et rem sed nihil.\",\"location\":\"molestiae\"}"
+                            "raw": "{\"title\":\"mollitia\",\"description\":\"Ex dolor quia aut illum aspernatur repudiandae voluptatibus sit.\",\"location\":\"et\"}"
                         },
                         "description": "Retrieve activities based on specified filters.",
                         "auth": {
@@ -709,30 +709,30 @@
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "nam",
+                                    "value": "repudiandae",
                                     "description": "optional Filter by title.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "Vel+doloremque+sint+architecto+voluptatibus+sit+est+numquam.",
+                                    "value": "Distinctio+quis+deserunt+recusandae+qui+at+porro+dolorem.",
                                     "description": "optional Filter by description.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "location",
-                                    "value": "possimus",
+                                    "value": "neque",
                                     "description": "optional Filter by location.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "date",
-                                    "value": "omnis",
+                                    "value": "sint",
                                     "description": "optional Filter by date (format: y-m-d).",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/activities\/search?title=nam&description=Vel+doloremque+sint+architecto+voluptatibus+sit+est+numquam.&location=possimus&date=omnis"
+                            "raw": "{{baseUrl}}\/api\/activities\/search?title=repudiandae&description=Distinctio+quis+deserunt+recusandae+qui+at+porro+dolorem.&location=neque&date=sint"
                         },
                         "method": "GET",
                         "header": [
@@ -747,7 +747,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"iusto\",\"description\":\"Voluptas consequuntur consequatur voluptatem veritatis praesentium quo.\",\"location\":\"quaerat\"}"
+                            "raw": "{\"title\":\"vel\",\"description\":\"Et voluptatibus enim dolore et.\",\"location\":\"cupiditate\"}"
                         },
                         "description": "Search for activities based on the provided parameters.",
                         "auth": {
@@ -781,7 +781,7 @@
                                 {
                                     "id": "activityId",
                                     "key": "activityId",
-                                    "value": "18",
+                                    "value": "20",
                                     "description": "The ID of the activity."
                                 }
                             ]
@@ -852,7 +852,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"activity_id\":16}"
+                            "raw": "{\"activity_id\":13}"
                         },
                         "description": ""
                     },
@@ -883,7 +883,7 @@
                                 {
                                     "id": "leaveRequest_id",
                                     "key": "leaveRequest_id",
-                                    "value": "1",
+                                    "value": "10",
                                     "description": "The ID of the leaveRequest."
                                 }
                             ]
