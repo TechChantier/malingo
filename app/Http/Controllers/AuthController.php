@@ -120,8 +120,27 @@ class AuthController extends Controller
             'token' => $token->plainTextToken
         ]);
     }
+    /**
+     * @group General User Enpoints
+     * @authenticated
+     * @header reguires a toke
+     * @response 200 {
+     *"id": 2,
+     *"name": "Nkwi Cyril",
+     * "email": "nkwicyril@gmail.com",
+     * "email_verified_at": null,
+     *   "created_at": "2025-02-04T09:37:07.000000Z",
+     *   "updated_at": "2025-02-04T09:37:07.000000Z"
+     *}
+     * 
+     */
+    public function getUser(Request $request)
+    {
+        return $request->user();
+    }
 
     /**
+     * @group Authentication
      * Log out the current user
      *
      * Revoke all of the user's tokens to log them out.

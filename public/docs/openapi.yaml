@@ -319,7 +319,7 @@ paths:
                 ActivityPhoto:
                   type: 'file:'
                   description: 'The photo of the activity. type: [png, jpeg]'
-                  example: accusamus
+                  example: tempore
                   nullable: false
                 description:
                   type: string
@@ -334,7 +334,7 @@ paths:
                 numberOfMembers:
                   type: integer
                   description: 'the number of member to the activity is required'
-                  example: 6
+                  example: 20
                   nullable: false
                 location:
                   type: string
@@ -350,8 +350,8 @@ paths:
                 - ActivityPhoto
   '/api/activity/{id}':
     get:
-      summary: "Get activity details\n\nRetrieve details of a specific activity."
-      operationId: getActivityDetailsRetrieveDetailsOfASpecificActivity
+      summary: 'Get activity details'
+      operationId: getActivityDetails
       description: ''
       parameters: []
       responses:
@@ -409,10 +409,9 @@ paths:
                     example: '2025-02-04T09:11:42.000000Z'
       tags:
         - Activities
-      security: []
     put:
-      summary: "Update an activity\n\nUpdate the details of an existing activity."
-      operationId: updateAnActivityUpdateTheDetailsOfAnExistingActivity
+      summary: 'Update an activity'
+      operationId: updateAnActivity
       description: ''
       parameters: []
       responses:
@@ -423,31 +422,55 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 1
-                  title: 'Evening Walk'
-                  description: 'A peaceful evening walk.'
-                  location: 'Riverside Park'
-                  time: '2025-01-02 18:00:00'
+                  id: 5
+                  user_id: 1
+                  title: 'Hiking go and hike with me'
+                  ActivityPhoto: activity_photos/uNughpq7aXWNcUTYFOgFBFEFxqcr3DeY60PuOwNu.jpg
+                  description: 'this is a good activity'
+                  link: https//wa.me/237672474539
+                  numberOfMembers: '10'
+                  location: buea
+                  time: '2025-02-15 08:00:00'
+                  created_at: '2025-02-04T09:11:42.000000Z'
+                  updated_at: '2025-02-04T11:35:10.000000Z'
                 properties:
                   id:
+                    type: integer
+                    example: 5
+                  user_id:
                     type: integer
                     example: 1
                   title:
                     type: string
-                    example: 'Evening Walk'
+                    example: 'Hiking go and hike with me'
+                  ActivityPhoto:
+                    type: string
+                    example: activity_photos/uNughpq7aXWNcUTYFOgFBFEFxqcr3DeY60PuOwNu.jpg
                   description:
                     type: string
-                    example: 'A peaceful evening walk.'
+                    example: 'this is a good activity'
+                  link:
+                    type: string
+                    example: https//wa.me/237672474539
+                  numberOfMembers:
+                    type: string
+                    example: '10'
                   location:
                     type: string
-                    example: 'Riverside Park'
+                    example: buea
                   time:
                     type: string
-                    example: '2025-01-02 18:00:00'
+                    example: '2025-02-15 08:00:00'
+                  created_at:
+                    type: string
+                    example: '2025-02-04T09:11:42.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2025-02-04T11:35:10.000000Z'
       tags:
         - Activities
       requestBody:
-        required: true
+        required: false
         content:
           application/json:
             schema:
@@ -455,33 +478,42 @@ paths:
               properties:
                 title:
                   type: string
-                  description: 'The updated title of the activity.'
-                  example: 'Evening Walk'
+                  description: ': The title of the activity.'
+                  example: 'Morning Run'
+                  nullable: false
+                ActivityPhoto:
+                  type: 'file:'
+                  description: 'The photo of the activity. type: [png, jpeg]'
+                  example: voluptate
                   nullable: false
                 description:
-                  type: string
-                  description: 'The updated description.'
-                  example: 'A peaceful evening walk.'
+                  type: 'string:'
+                  description: 'The description of the activity.'
+                  example: 'A group run in the park.'
+                  nullable: false
+                link:
+                  type: 'string:'
+                  description: 'The link to the activity (if any).'
+                  example: 'https://zoom.com/meeting'
+                  nullable: false
+                numberOfMembers:
+                  type: integer
+                  description: 'the number of member to the activity is required'
+                  example: 14
                   nullable: false
                 location:
-                  type: string
-                  description: 'The updated location.'
-                  example: 'Riverside Park'
+                  type: 'string:'
+                  description: 'The location of the activity.'
+                  example: 'Central Park'
                   nullable: false
                 time:
-                  type: datetime
-                  description: 'The updated date and time. Format: Y-m-d H:i:s.'
-                  example: '2025-01-02 18:00:00'
+                  type: 'datetime:'
+                  description: 'The date and time of the activity. Format: Y-m-d H:i:s.'
+                  example: '2025-01-01 10:00:00'
                   nullable: false
-              required:
-                - title
-                - description
-                - location
-                - time
-      security: []
     delete:
-      summary: "Delete an activity\n\nDelete an activity created by the authenticated user."
-      operationId: deleteAnActivityDeleteAnActivityCreatedByTheAuthenticatedUser
+      summary: 'Delete an activity'
+      operationId: deleteAnActivity
       description: ''
       parameters: []
       responses:
@@ -499,7 +531,6 @@ paths:
                     example: 'Activity deleted successfully'
       tags:
         - Activities
-      security: []
     parameters:
       -
         in: path
@@ -513,6 +544,421 @@ paths:
         in: path
         name: activity
         description: 'The ID of the activity.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/activities/{activity_id}/join':
+    post:
+      summary: 'Join an activity'
+      operationId: joinAnActivity
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Join request sent successfully.'
+                  join_request:
+                    user_id: 2
+                    status: pending
+                    activity_id: 5
+                    updated_at: '2025-02-04T12:16:50.000000Z'
+                    created_at: '2025-02-04T12:16:50.000000Z'
+                    id: 1
+                properties:
+                  message:
+                    type: string
+                    example: 'Join request sent successfully.'
+                  join_request:
+                    type: object
+                    properties:
+                      user_id:
+                        type: integer
+                        example: 2
+                      status:
+                        type: string
+                        example: pending
+                      activity_id:
+                        type: integer
+                        example: 5
+                      updated_at:
+                        type: string
+                        example: '2025-02-04T12:16:50.000000Z'
+                      created_at:
+                        type: string
+                        example: '2025-02-04T12:16:50.000000Z'
+                      id:
+                        type: integer
+                        example: 1
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You have already requested to join this activity.'
+                properties:
+                  message:
+                    type: string
+                    example: 'You have already requested to join this activity.'
+      tags:
+        - 'Activity Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                activity_id:
+                  type: integer
+                  description: 'The ID of the activity to join.'
+                  example: 9
+                  nullable: false
+              required:
+                - activity_id
+    parameters:
+      -
+        in: path
+        name: activity_id
+        description: 'The ID of the activity.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/activities/user:
+    get:
+      summary: ''
+      operationId: getApiActivitiesUser
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"created_activities\": [\n   {\n       \"id\": 1,\n       \"user_id\": 1,\n       \"title\": \"Hiking Adventure\",\n       \"ActivityPhoto\": null,\n       \"description\": \"A thrilling hike to the mountain peak.\",\n       \"link\": \"https://example.com/hiking-event\",\n       \"numberOfMembers\": 10,\n       \"location\": \"Mount Fako, Cameroon\",\n       \"time\": \"2025-02-15 08:00:00\",\n       \"created_at\": \"2025-02-04T08:19:02.000000Z\",\n       \"updated_at\": \"2025-02-04T08:19:02.000000Z\"\n*    },\n   {\n       \"id\": 2,\n        \"user_id\": 1,\n       \"title\": \"Hiking Adventure\",\n        \"ActivityPhoto\": null,\n        \"description\": \"A thrilling hike to the mountain peak.\",\n     \"link\": \"https://example.com/hiking-event\",\n        \"numberOfMembers\": 10,\n        \"location\": \"Mount Fako, Cameroon\",\n       \"time\": \"2025-02-15 08:00:00\",\n       \"created_at\": \"2025-02-04T08:25:56.000000Z\",\n       \"updated_at\": \"2025-02-04T08:25:56.000000Z\"\n   },\n   {\n       \"id\": 3,\n       \"user_id\": 1,\n       \"title\": \"Hiking Adventure\",\n       \"ActivityPhoto\": null,\n       \"description\": \"A thrilling hike to the mountain peak.\",\n       \"link\": \"https://example.com/hiking-event\",\n       \"numberOfMembers\": 10,\n       \"location\": \"Mount Fako, Cameroon\",\n       \"time\": \"2025-02-15 08:00:00\",\n       \"created_at\": \"2025-02-04T08:36:04.000000Z\",\n       \"updated_at\": \"2025-02-04T08:36:04.000000Z\"\n   },\n   {\n       \"id\": 4,\n       \"user_id\": 1,\n       \"title\": \"Hiking Adventure\",\n       \"ActivityPhoto\": \"activity_photos/rj6fjePPJweFYZf07s9dCtAjL84pKv12XGzWIW81.jpg\",\n       \"description\": \"A thrilling hike to the mountain peak.\",\n       \"link\": \"https://example.com/hiking-event\",\n       \"numberOfMembers\": 10,\n       \"location\": \"Mount Fako, Cameroon\",\n       \"time\": \"2025-02-15 08:00:00\",\n       \"created_at\": \"2025-02-04T09:07:10.000000Z\",\n       \"updated_at\": \"2025-02-04T09:07:10.000000Z\"\n   },\n   {\n       \"id\": 5,\n       \"user_id\": 1,\n       \"title\": \"Join me at Tech Chantier\",\n       \"ActivityPhoto\": \"activity_photos/2bAlnxzYIELlyfUW02fyNbLIobPMGzrUj8DLtchk.jpg\",\n       \"description\": \"A thrilling hike to the mountain peak.\",\n       \"link\": \"https://example.com/hiking-event\",\n       \"numberOfMembers\": 10,\n       \"location\": \"Mount Fako, Cameroon\",\n       \"time\": \"2025-02-15 08:00:00\",\n       \"created_at\": \"2025-02-04T09:11:42.000000Z\",\n       \"updated_at\": \"2025-02-04T09:11:42.000000Z\"\n   },\n   {\n       \"id\": 6,\n       \"user_id\": 1,\n       \"title\": \"Join me at Tech Chantier\",\n        \"ActivityPhoto\": \"activity_photos/OfdYJQsOrGOnYCKFtPDrhhv2Kp7PP5zZ40Q08Exk.jpg\",\n        \"description\": \"A thrilling hike to the mountain peak.\",\n        \"link\": \"https://example.com/hiking-event\",\n       \"numberOfMembers\": 10,\n       \"location\": \"Mount Fako, Cameroon\",\n       \"time\": \"2025-02-15 08:00:00\",\n       \"created_at\": \"2025-02-04T09:13:20.000000Z\",\n       \"updated_at\": \"2025-02-04T09:13:20.000000Z\"\n   },\n   {\n       \"id\": 7,\n       \"user_id\": 1,\n       \"title\": \"Join me at Tech Chantier\",\n       \"ActivityPhoto\": \"activity_photos/wvnmS2UuVkm1pfcNbhqcq6ouYonmj3G5Qd2KL69x.jpg\",\n       \"description\": \"A thrilling hike to the mountain peak.\",\n       \"link\": \"https://example.com/hiking-event\",\n       \"numberOfMembers\": 40,\n       \"location\": \"Mount Fako, Cameroon\",\n       \"time\": \"2025-02-15 08:00:00\",\n       \"created_at\": \"2025-02-04T09:18:46.000000Z\",\n       \"updated_at\": \"2025-02-04T09:18:46.000000Z\"\n   }\n   ],\n   \"pending_activities\": [],\n   \"accepted_activities\": [],\n   \"declined_activities\": []\n}"
+      tags:
+        - 'Activity Management'
+  '/api/activities/{id}/joined-users':
+    get:
+      summary: 'Retrieve a list of users who have joined a particular activity.'
+      operationId: retrieveAListOfUsersWhoHaveJoinedAParticularActivity
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 2
+                    name: 'Nkwi Cyril'
+                    email: nkwicyril@gmail.com
+                    email_verified_at: null
+                    created_at: '2025-02-04T09:37:07.000000Z'
+                    updated_at: '2025-02-04T09:37:07.000000Z'
+                    pivot:
+                      activity_id: 9
+                      user_id: 2
+                      status: accepted
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Activity not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'Activity not found'
+      tags:
+        - 'Activity Management'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the activity.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: activityId
+        description: 'The ID of the activity.'
+        example: 11
+        required: true
+        schema:
+          type: integer
+  '/api/join-request/{joinRequest_id}/accept':
+    post:
+      summary: 'Accept a join request'
+      operationId: acceptAJoinRequest
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Join request accepted'
+                  whatsapp_link: 'https://wa.me/1234567890'
+                properties:
+                  message:
+                    type: string
+                    example: 'Join request accepted'
+                  whatsapp_link:
+                    type: string
+                    example: 'https://wa.me/1234567890'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthorized
+                properties:
+                  message:
+                    type: string
+                    example: Unauthorized
+      tags:
+        - 'Activity Request'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                joinRequest_id:
+                  type: integer
+                  description: 'The ID of the join request to accept.'
+                  example: 1
+                  nullable: false
+              required:
+                - joinRequest_id
+    parameters:
+      -
+        in: path
+        name: joinRequest_id
+        description: 'The ID of the joinRequest.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/join-request/{joinRequest_id}/decline':
+    post:
+      summary: 'Decline a join request'
+      operationId: declineAJoinRequest
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Your request to join this activity has been declined'
+                properties:
+                  message:
+                    type: string
+                    example: 'Your request to join this activity has been declined'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthorized
+                properties:
+                  message:
+                    type: string
+                    example: Unauthorized
+      tags:
+        - 'Activity Request'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                joinRequest_id:
+                  type: integer
+                  description: 'The ID of the join request to decline.'
+                  example: 1
+                  nullable: false
+              required:
+                - joinRequest_id
+    parameters:
+      -
+        in: path
+        name: joinRequest_id
+        description: 'The ID of the joinRequest.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/activity/{activity_id}/leave':
+    post:
+      summary: 'Request leave from an activity'
+      operationId: requestLeaveFromAnActivity
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Leave request sent successfully'
+                  leaveRequest:
+                    user_id: 2
+                    activity_id: 9
+                    status: pending
+                    updated_at: '2025-02-04T13:16:58.000000Z'
+                    created_at: '2025-02-04T13:16:58.000000Z'
+                    id: 1
+                properties:
+                  message:
+                    type: string
+                    example: 'Leave request sent successfully'
+                  leaveRequest:
+                    type: object
+                    properties:
+                      user_id:
+                        type: integer
+                        example: 2
+                      activity_id:
+                        type: integer
+                        example: 9
+                      status:
+                        type: string
+                        example: pending
+                      updated_at:
+                        type: string
+                        example: '2025-02-04T13:16:58.000000Z'
+                      created_at:
+                        type: string
+                        example: '2025-02-04T13:16:58.000000Z'
+                      id:
+                        type: integer
+                        example: 1
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You are not a participant in this activity'
+                properties:
+                  message:
+                    type: string
+                    example: 'You are not a participant in this activity'
+      tags:
+        - 'Activity Request'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                activity_id:
+                  type: integer
+                  description: 'The ID of the activity.'
+                  example: 4
+                  nullable: false
+              required:
+                - activity_id
+    parameters:
+      -
+        in: path
+        name: activity_id
+        description: 'The ID of the activity.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/leave-requests/{leaveRequest_id}/approve':
+    post:
+      summary: 'Approve a leave request'
+      operationId: approveALeaveRequest
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The leave request has been approved'
+                properties:
+                  message:
+                    type: string
+                    example: 'The leave request has been approved'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You are not authorized to approve this request'
+                properties:
+                  message:
+                    type: string
+                    example: 'You are not authorized to approve this request'
+      tags:
+        - 'Activity Request'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                leaveRequest_id:
+                  type: integer
+                  description: 'The ID of the leave request to approve.'
+                  example: 1
+                  nullable: false
+              required:
+                - leaveRequest_id
+    parameters:
+      -
+        in: path
+        name: leaveRequest_id
+        description: 'The ID of the leaveRequest.'
         example: 1
         required: true
         schema:
@@ -731,9 +1177,9 @@ paths:
       security: []
   /api/logout:
     post:
-      summary: 'Log out the current user'
-      operationId: logOutTheCurrentUser
-      description: "Revoke all of the user's tokens to log them out."
+      summary: "Log out the current user\n\nRevoke all of the user's tokens to log them out."
+      operationId: logOutTheCurrentUserRevokeAllOfTheUsersTokensToLogThemOut
+      description: ''
       parameters: []
       responses:
         200:
@@ -764,8 +1210,8 @@ paths:
         - Authentication
   '/api/users/{id}':
     get:
-      summary: 'Show user details by ID'
-      operationId: showUserDetailsByID
+      summary: 'get single user details by ID'
+      operationId: getSingleUserDetailsByID
       description: ''
       parameters: []
       responses:
@@ -777,26 +1223,30 @@ paths:
                 type: object
                 example:
                   id: 1
-                  name: 'John Doe'
-                  email: john@example.com
-                  created_at: '2021-01-01T00:00:00Z'
-                  updated_at: '2021-01-01T00:00:00Z'
+                  name: 'Nkuma Confident'
+                  email: nsem@gmail.com
+                  email_verified_at: null
+                  created_at: '2025-02-04T08:18:33.000000Z'
+                  updated_at: '2025-02-04T08:18:33.000000Z'
                 properties:
                   id:
                     type: integer
                     example: 1
                   name:
                     type: string
-                    example: 'John Doe'
+                    example: 'Nkuma Confident'
                   email:
                     type: string
-                    example: john@example.com
+                    example: nsem@gmail.com
+                  email_verified_at:
+                    type: string
+                    example: null
                   created_at:
                     type: string
-                    example: '2021-01-01T00:00:00Z'
+                    example: '2025-02-04T08:18:33.000000Z'
                   updated_at:
                     type: string
-                    example: '2021-01-01T00:00:00Z'
+                    example: '2025-02-04T08:18:33.000000Z'
         404:
           description: ''
           content:
@@ -810,7 +1260,7 @@ paths:
                     type: string
                     example: 'User not found'
       tags:
-        - Endpoints
+        - 'Geneneral User Endpoints'
     parameters:
       -
         in: path
@@ -820,204 +1270,19 @@ paths:
         required: true
         schema:
           type: integer
-  '/api/activities/{activity_id}/join':
-    post:
-      summary: 'Join an activity'
-      operationId: joinAnActivity
-      description: ''
-      parameters: []
-      responses:
-        201:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'Join request sent successfully.'
-                  join_request:
-                    id: 1
-                    user_id: 1
-                    activity_id: 2
-                    status: pending
-                properties:
-                  message:
-                    type: string
-                    example: 'Join request sent successfully.'
-                  join_request:
-                    type: object
-                    properties:
-                      id:
-                        type: integer
-                        example: 1
-                      user_id:
-                        type: integer
-                        example: 1
-                      activity_id:
-                        type: integer
-                        example: 2
-                      status:
-                        type: string
-                        example: pending
-        400:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'You have already requested to join this activity.'
-                properties:
-                  message:
-                    type: string
-                    example: 'You have already requested to join this activity.'
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                activity_id:
-                  type: integer
-                  description: 'The ID of the activity to join.'
-                  example: 9
-                  nullable: false
-              required:
-                - activity_id
-    parameters:
-      -
-        in: path
-        name: activity_id
-        description: 'The ID of the activity.'
-        example: 1
-        required: true
-        schema:
-          type: integer
-  '/api/join-request/{joinRequest_id}/accept':
-    post:
-      summary: 'Accept a join request'
-      operationId: acceptAJoinRequest
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'Join request accepted'
-                  whatsapp_link: 'https://wa.me/1234567890'
-                properties:
-                  message:
-                    type: string
-                    example: 'Join request accepted'
-                  whatsapp_link:
-                    type: string
-                    example: 'https://wa.me/1234567890'
-        403:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthorized
-                properties:
-                  message:
-                    type: string
-                    example: Unauthorized
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                joinRequest_id:
-                  type: integer
-                  description: 'The ID of the join request to accept.'
-                  example: 1
-                  nullable: false
-              required:
-                - joinRequest_id
-    parameters:
-      -
-        in: path
-        name: joinRequest_id
-        description: 'The ID of the joinRequest.'
-        example: 8
-        required: true
-        schema:
-          type: integer
-  '/api/join-request/{joinRequest_id}/decline':
-    post:
-      summary: 'Decline a join request'
-      operationId: declineAJoinRequest
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'Your request to join this activity has been declined'
-                properties:
-                  message:
-                    type: string
-                    example: 'Your request to join this activity has been declined'
-        403:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthorized
-                properties:
-                  message:
-                    type: string
-                    example: Unauthorized
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                joinRequest_id:
-                  type: integer
-                  description: 'The ID of the join request to decline.'
-                  example: 1
-                  nullable: false
-              required:
-                - joinRequest_id
-    parameters:
-      -
-        in: path
-        name: joinRequest_id
-        description: 'The ID of the joinRequest.'
-        example: 20
-        required: true
-        schema:
-          type: integer
-  /api/activities/user:
+  /api/user:
     get:
-      summary: 'Get user activities'
-      operationId: getUserActivities
+      summary: ''
+      operationId: getApiUser
       description: ''
-      parameters: []
+      parameters:
+        -
+          in: header
+          name: reguires
+          description: ''
+          example: 'a toke'
+          schema:
+            type: string
       responses:
         200:
           description: ''
@@ -1026,159 +1291,82 @@ paths:
               schema:
                 type: object
                 example:
-                  created_activities:
-                    -
-                      id: 1
-                      title: 'Activity 1'
-                      time: '2025-01-21T10:00:00'
-                      location: 'Location 1'
-                  pending_activities:
-                    -
-                      id: 2
-                      title: 'Activity 2'
-                      status: pending
-                  accepted_activities:
-                    -
-                      id: 3
-                      title: 'Activity 3'
-                      status: accepted
-                  declined_activities:
-                    -
-                      id: 4
-                      title: 'Activity 4'
-                      status: declined
+                  id: 2
+                  name: 'Nkwi Cyril'
+                  email: nkwicyril@gmail.com
+                  email_verified_at: null
+                  created_at: '2025-02-04T09:37:07.000000Z'
+                  updated_at: '2025-02-04T09:37:07.000000Z'
                 properties:
-                  created_activities:
-                    type: array
-                    example:
-                      -
-                        id: 1
-                        title: 'Activity 1'
-                        time: '2025-01-21T10:00:00'
-                        location: 'Location 1'
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: integer
-                          example: 1
-                        title:
-                          type: string
-                          example: 'Activity 1'
-                        time:
-                          type: string
-                          example: '2025-01-21T10:00:00'
-                        location:
-                          type: string
-                          example: 'Location 1'
-                  pending_activities:
-                    type: array
-                    example:
-                      -
-                        id: 2
-                        title: 'Activity 2'
-                        status: pending
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: integer
-                          example: 2
-                        title:
-                          type: string
-                          example: 'Activity 2'
-                        status:
-                          type: string
-                          example: pending
-                  accepted_activities:
-                    type: array
-                    example:
-                      -
-                        id: 3
-                        title: 'Activity 3'
-                        status: accepted
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: integer
-                          example: 3
-                        title:
-                          type: string
-                          example: 'Activity 3'
-                        status:
-                          type: string
-                          example: accepted
-                  declined_activities:
-                    type: array
-                    example:
-                      -
-                        id: 4
-                        title: 'Activity 4'
-                        status: declined
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: integer
-                          example: 4
-                        title:
-                          type: string
-                          example: 'Activity 4'
-                        status:
-                          type: string
-                          example: declined
+                  id:
+                    type: integer
+                    example: 2
+                  name:
+                    type: string
+                    example: 'Nkwi Cyril'
+                  email:
+                    type: string
+                    example: nkwicyril@gmail.com
+                  email_verified_at:
+                    type: string
+                    example: null
+                  created_at:
+                    type: string
+                    example: '2025-02-04T09:37:07.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2025-02-04T09:37:07.000000Z'
       tags:
-        - Endpoints
+        - 'General User Enpoints'
   /api/activities/filter:
     get:
-      summary: 'Filter activities by title, description, date, and location'
-      operationId: filterActivitiesByTitleDescriptionDateAndLocation
-      description: 'Retrieve activities based on specified filters.'
+      summary: "Filter activities by title, description, date, and location\n\nRetrieve activities based on specified filters."
+      operationId: filterActivitiesByTitleDescriptionDateAndLocationRetrieveActivitiesBasedOnSpecifiedFilters
+      description: ''
       parameters:
         -
           in: query
           name: title
           description: 'optional Filter by title.'
-          example: sed
+          example: sit
           required: false
           schema:
             type: string
             description: 'optional Filter by title.'
-            example: sed
+            example: sit
             nullable: false
         -
           in: query
           name: description
           description: 'optional Filter by description.'
-          example: 'Est unde atque eum aut aspernatur.'
+          example: 'Voluptatum sunt beatae asperiores quisquam.'
           required: false
           schema:
             type: string
             description: 'optional Filter by description.'
-            example: 'Est unde atque eum aut aspernatur.'
+            example: 'Voluptatum sunt beatae asperiores quisquam.'
             nullable: false
         -
           in: query
           name: date
           description: 'optional Filter by date (format: y-m-d).'
-          example: rerum
+          example: doloremque
           required: false
           schema:
             type: string
             description: 'optional Filter by date (format: y-m-d).'
-            example: rerum
+            example: doloremque
             nullable: false
         -
           in: query
           name: location
           description: 'optional Filter by location.'
-          example: sunt
+          example: est
           required: false
           schema:
             type: string
             description: 'optional Filter by location.'
-            example: sunt
+            example: est
             nullable: false
       responses:
         200:
@@ -1191,11 +1379,17 @@ paths:
                   type: object
                 example:
                   -
-                    id: 1
-                    title: 'Filtered Activity'
-                    description: 'Activity description'
-                    time: '2025-01-21T10:00:00'
-                    location: 'Location 1'
+                    id: 5
+                    user_id: 1
+                    title: 'Hiking go and hike with me'
+                    ActivityPhoto: activity_photos/QDEBUm8GSGbdAFob56QOh4EidyLtgFR5NckhQFBQ.jpg
+                    description: 'this is a good activity'
+                    link: https//wa.me/237672474539
+                    numberOfMembers: 10
+                    location: buea
+                    time: '2025-02-15 08:00:00'
+                    created_at: '2025-02-04T09:11:42.000000Z'
+                    updated_at: '2025-02-04T11:43:41.000000Z'
         400:
           description: ''
           content:
@@ -1209,7 +1403,7 @@ paths:
                     type: string
                     example: 'Invalid date format, please use a valid date'
       tags:
-        - Endpoints
+        - Searching
       requestBody:
         required: false
         content:
@@ -1220,12 +1414,12 @@ paths:
                 title:
                   type: string
                   description: ''
-                  example: voluptatum
+                  example: corrupti
                   nullable: true
                 description:
                   type: string
                   description: ''
-                  example: 'Eius rerum dolorum tempore minima ut magni.'
+                  example: 'Maxime eligendi expedita in corrupti nemo est natus.'
                   nullable: true
                 date:
                   type: string
@@ -1235,58 +1429,58 @@ paths:
                 location:
                   type: string
                   description: ''
-                  example: necessitatibus
+                  example: non
                   nullable: true
       security: []
   /api/activities/search:
     get:
-      summary: 'Search activities by title, description, location, or date'
-      operationId: searchActivitiesByTitleDescriptionLocationOrDate
-      description: 'Search for activities based on the provided parameters.'
+      summary: "Search activities by title, description, location, or date\n\nSearch for activities based on the provided parameters."
+      operationId: searchActivitiesByTitleDescriptionLocationOrDateSearchForActivitiesBasedOnTheProvidedParameters
+      description: ''
       parameters:
         -
           in: query
           name: title
           description: 'optional Filter by title.'
-          example: perspiciatis
+          example: qui
           required: false
           schema:
             type: string
             description: 'optional Filter by title.'
-            example: perspiciatis
+            example: qui
             nullable: false
         -
           in: query
           name: description
           description: 'optional Filter by description.'
-          example: 'Ducimus et eum necessitatibus aut quis eveniet.'
+          example: 'Occaecati maiores inventore sint laborum autem quaerat placeat.'
           required: false
           schema:
             type: string
             description: 'optional Filter by description.'
-            example: 'Ducimus et eum necessitatibus aut quis eveniet.'
+            example: 'Occaecati maiores inventore sint laborum autem quaerat placeat.'
             nullable: false
         -
           in: query
           name: location
           description: 'optional Filter by location.'
-          example: placeat
+          example: velit
           required: false
           schema:
             type: string
             description: 'optional Filter by location.'
-            example: placeat
+            example: velit
             nullable: false
         -
           in: query
           name: date
           description: 'optional Filter by date (format: y-m-d).'
-          example: quaerat
+          example: explicabo
           required: false
           schema:
             type: string
             description: 'optional Filter by date (format: y-m-d).'
-            example: quaerat
+            example: explicabo
             nullable: false
       responses:
         200:
@@ -1299,12 +1493,19 @@ paths:
                   type: object
                 example:
                   -
-                    id: 1
-                    title: 'Activity 1'
-                    time: '2025-01-21T10:00:00'
-                    location: 'Location 1'
+                    id: 5
+                    user_id: 1
+                    title: 'Hiking go and hike with me'
+                    ActivityPhoto: activity_photos/QDEBUm8GSGbdAFob56QOh4EidyLtgFR5NckhQFBQ.jpg
+                    description: 'this is a good activity'
+                    link: https//wa.me/237672474539
+                    numberOfMembers: 10
+                    location: buea
+                    time: '2025-02-15 08:00:00'
+                    created_at: '2025-02-04T09:11:42.000000Z'
+                    updated_at: '2025-02-04T11:43:41.000000Z'
       tags:
-        - Endpoints
+        - Searching
       requestBody:
         required: false
         content:
@@ -1315,237 +1516,43 @@ paths:
                 title:
                   type: string
                   description: ''
-                  example: voluptatem
+                  example: assumenda
                   nullable: true
                 description:
                   type: string
                   description: ''
-                  example: 'Facilis iure velit expedita et quia aperiam nesciunt dolor.'
+                  example: 'Soluta libero saepe sed odit aut.'
                   nullable: true
                 location:
                   type: string
                   description: ''
-                  example: animi
+                  example: earum
                   nullable: true
                 date:
                   type: string
                   description: ''
                   example: null
                   nullable: true
-      security: []
-  '/api/activities/{id}/joined-users':
-    get:
-      summary: 'Get users who joined a specific activity'
-      operationId: getUsersWhoJoinedASpecificActivity
-      description: 'Retrieve a list of users who have joined a particular activity.'
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                example:
-                  -
-                    id: 1
-                    name: 'User 1'
-                    email: user1@example.com
-        404:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'Activity not found'
-                properties:
-                  message:
-                    type: string
-                    example: 'Activity not found'
-      tags:
-        - Endpoints
-      security: []
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the activity.'
-        example: 1
-        required: true
-        schema:
-          type: integer
-      -
-        in: path
-        name: activityId
-        description: 'The ID of the activity.'
-        example: 18
-        required: true
-        schema:
-          type: integer
-  '/api/activity/{activity_id}/leave':
-    post:
-      summary: 'Request leave from an activity'
-      operationId: requestLeaveFromAnActivity
-      description: ''
-      parameters: []
-      responses:
-        201:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'Leave request sent successfully'
-                  leaveRequest:
-                    id: 1
-                    user_id: 1
-                    activity_id: 2
-                    status: pending
-                properties:
-                  message:
-                    type: string
-                    example: 'Leave request sent successfully'
-                  leaveRequest:
-                    type: object
-                    properties:
-                      id:
-                        type: integer
-                        example: 1
-                      user_id:
-                        type: integer
-                        example: 1
-                      activity_id:
-                        type: integer
-                        example: 2
-                      status:
-                        type: string
-                        example: pending
-        403:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'You are not a participant in this activity'
-                properties:
-                  message:
-                    type: string
-                    example: 'You are not a participant in this activity'
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                activity_id:
-                  type: integer
-                  description: 'The ID of the activity.'
-                  example: 18
-                  nullable: false
-              required:
-                - activity_id
-    parameters:
-      -
-        in: path
-        name: activity_id
-        description: 'The ID of the activity.'
-        example: 1
-        required: true
-        schema:
-          type: integer
-  '/api/leave-requests/{leaveRequest_id}/approve':
-    post:
-      summary: 'Approve a leave request'
-      operationId: approveALeaveRequest
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'The leave request has been approved'
-                properties:
-                  message:
-                    type: string
-                    example: 'The leave request has been approved'
-        403:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'You are not authorized to approve this request'
-                properties:
-                  message:
-                    type: string
-                    example: 'You are not authorized to approve this request'
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                leaveRequest_id:
-                  type: integer
-                  description: 'The ID of the leave request to approve.'
-                  example: 1
-                  nullable: false
-              required:
-                - leaveRequest_id
-    parameters:
-      -
-        in: path
-        name: leaveRequest_id
-        description: 'The ID of the leaveRequest.'
-        example: 19
-        required: true
-        schema:
-          type: integer
-  /api/user:
-    get:
-      summary: ''
-      operationId: getApiUser
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
       security: []
 tags:
   -
     name: Activities
     description: ''
   -
+    name: 'Activity Management'
+    description: ''
+  -
+    name: 'Activity Request'
+    description: ''
+  -
     name: Authentication
     description: "\nEndpoints for user registration, login, and logout."
   -
-    name: Endpoints
+    name: 'Geneneral User Endpoints'
+    description: ''
+  -
+    name: 'General User Enpoints'
+    description: ''
+  -
+    name: Searching
     description: ''

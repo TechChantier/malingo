@@ -94,7 +94,7 @@ class ActivityController extends Controller implements HasMiddleware
     /**
      * @group Activities
      * Get activity details
-     *
+     *@authenticated
      * Retrieve details of a specific activity.
      *
      * @urlParam activity int required The ID of the activity. Example: 1
@@ -121,17 +121,17 @@ class ActivityController extends Controller implements HasMiddleware
     /**
      * @group Activities
      * Update an activity
-     *
+     *@authenticated
      * Update the details of an existing activity.
      *
      * @urlParam activity int required The ID of the activity to update. Example: 1
-     * @bodyParam title string required: The title of the activity. Example: Morning Run
-     * @bodyParam ActivityPhoto file: required The photo of the activity. type: [png, jpeg]
-     * @bodyParam description string required:  The description of the activity. Example: A group run in the park.
-     * @bodyParam link string required: The link to the activity (if any). Example: https://zoom.com/meeting
+     * @bodyParam title string : The title of the activity. Example: Morning Run
+     * @bodyParam ActivityPhoto file:  The photo of the activity. type: [png, jpeg]
+     * @bodyParam description string:  The description of the activity. Example: A group run in the park.
+     * @bodyParam link string: The link to the activity (if any). Example: https://zoom.com/meeting
      * @bodyParam numberOfMembers integer the number of member to the activity is required
-     * @bodyParam location string required: The location of the activity. Example: Central Park
-     * @bodyParam time datetime required: The date and time of the activity. Format: Y-m-d H:i:s. Example: 2025-01-01 10:00:00
+     * @bodyParam location string: The location of the activity. Example: Central Park
+     * @bodyParam time datetime: The date and time of the activity. Format: Y-m-d H:i:s. Example: 2025-01-01 10:00:00
      * 
      * @response 200 {
      *"id": 5,
@@ -179,7 +179,7 @@ class ActivityController extends Controller implements HasMiddleware
     /**
      * @group Activities
      * Delete an activity
-     *
+     *@authenticated
      * Delete an activity created by the authenticated user.
      *
      * @urlParam activity int required The ID of the activity to delete. Example: 1
@@ -198,11 +198,6 @@ class ActivityController extends Controller implements HasMiddleware
 
     /**
      * @group Activity Management
-     * 
-     * Endpoints for managing activities, including joining, filtering, searching, and leave requests.
-     */
-
-    /**
      * Join an activity
      * 
      * @authenticated
@@ -213,14 +208,16 @@ class ActivityController extends Controller implements HasMiddleware
      * @bodyParam activity_id int required The ID of the activity to join.
      *
      * @response 201 {
-     *   "message": "Join request sent successfully.",
-     *   "join_request": {
-     *     "id": 1,
-     *     "user_id": 1,
-     *     "activity_id": 2,
-     *     "status": "pending"
-     *   }
-     * }
+     *"message": "Join request sent successfully.",
+     *"join_request": {
+     *    "user_id": 2,
+     *    "status": "pending",
+     *    "activity_id": 5,
+     *    "updated_at": "2025-02-04T12:16:50.000000Z",
+     *    "created_at": "2025-02-04T12:16:50.000000Z",
+     *    "id": 1
+     *}
+     *}
      * @response 400 {
      *   "message": "You have already requested to join this activity."
      * }
@@ -253,7 +250,7 @@ class ActivityController extends Controller implements HasMiddleware
     }
 
     /**
-     * Get user activities
+     * @group Activity Management
      * 
      * @authenticated
      * @header Authorization string required The authentication token. Example: Bearer {token}
@@ -261,36 +258,103 @@ class ActivityController extends Controller implements HasMiddleware
      * Retrieve a list of activities the user has created, joined (pending, accepted, declined), or is waiting to join.
      *
      * @response 200 {
-     *   "created_activities": [
-     *     {
-     *       "id": 1,
-     *       "title": "Activity 1",
-     *       "time": "2025-01-21T10:00:00",
-     *       "location": "Location 1"
-     *     }
-     *   ],
-     *   "pending_activities": [
-     *     {
-     *       "id": 2,
-     *       "title": "Activity 2",
-     *       "status": "pending"
-     *     }
-     *   ],
-     *   "accepted_activities": [
-     *     {
-     *       "id": 3,
-     *       "title": "Activity 3",
-     *       "status": "accepted"
-     *     }
-     *   ],
-     *   "declined_activities": [
-     *     {
-     *       "id": 4,
-     *       "title": "Activity 4",
-     *       "status": "declined"
-     *     }
-     *   ]
-     * }
+     *"created_activities": [
+     *    {
+     *        "id": 1,
+     *        "user_id": 1,
+     *        "title": "Hiking Adventure",
+     *        "ActivityPhoto": null,
+     *        "description": "A thrilling hike to the mountain peak.",
+     *        "link": "https://example.com/hiking-event",
+     *        "numberOfMembers": 10,
+     *        "location": "Mount Fako, Cameroon",
+     *        "time": "2025-02-15 08:00:00",
+     *        "created_at": "2025-02-04T08:19:02.000000Z",
+     *        "updated_at": "2025-02-04T08:19:02.000000Z"
+     * *    },
+     *    {
+     *        "id": 2,
+     *         "user_id": 1,
+     *        "title": "Hiking Adventure",
+     *         "ActivityPhoto": null,
+     *         "description": "A thrilling hike to the mountain peak.",
+     *      "link": "https://example.com/hiking-event",
+     *         "numberOfMembers": 10,
+     *         "location": "Mount Fako, Cameroon",
+     *        "time": "2025-02-15 08:00:00",
+     *        "created_at": "2025-02-04T08:25:56.000000Z",
+     *        "updated_at": "2025-02-04T08:25:56.000000Z"
+     *    },
+     *    {
+     *        "id": 3,
+     *        "user_id": 1,
+     *        "title": "Hiking Adventure",
+     *        "ActivityPhoto": null,
+     *        "description": "A thrilling hike to the mountain peak.",
+     *        "link": "https://example.com/hiking-event",
+     *        "numberOfMembers": 10,
+     *        "location": "Mount Fako, Cameroon",
+     *        "time": "2025-02-15 08:00:00",
+     *        "created_at": "2025-02-04T08:36:04.000000Z",
+     *        "updated_at": "2025-02-04T08:36:04.000000Z"
+     *    },
+     *    {
+     *        "id": 4,
+     *        "user_id": 1,
+     *        "title": "Hiking Adventure",
+     *        "ActivityPhoto": "activity_photos/rj6fjePPJweFYZf07s9dCtAjL84pKv12XGzWIW81.jpg",
+     *        "description": "A thrilling hike to the mountain peak.",
+     *        "link": "https://example.com/hiking-event",
+     *        "numberOfMembers": 10,
+     *        "location": "Mount Fako, Cameroon",
+     *        "time": "2025-02-15 08:00:00",
+     *        "created_at": "2025-02-04T09:07:10.000000Z",
+     *        "updated_at": "2025-02-04T09:07:10.000000Z"
+     *    },
+     *    {
+     *        "id": 5,
+     *        "user_id": 1,
+     *        "title": "Join me at Tech Chantier",
+     *        "ActivityPhoto": "activity_photos/2bAlnxzYIELlyfUW02fyNbLIobPMGzrUj8DLtchk.jpg",
+     *        "description": "A thrilling hike to the mountain peak.",
+     *        "link": "https://example.com/hiking-event",
+     *        "numberOfMembers": 10,
+     *        "location": "Mount Fako, Cameroon",
+     *        "time": "2025-02-15 08:00:00",
+     *        "created_at": "2025-02-04T09:11:42.000000Z",
+     *        "updated_at": "2025-02-04T09:11:42.000000Z"
+     *    },
+     *    {
+     *        "id": 6,
+     *        "user_id": 1,
+     *        "title": "Join me at Tech Chantier",
+     *         "ActivityPhoto": "activity_photos/OfdYJQsOrGOnYCKFtPDrhhv2Kp7PP5zZ40Q08Exk.jpg",
+     *         "description": "A thrilling hike to the mountain peak.",
+     *         "link": "https://example.com/hiking-event",
+     *        "numberOfMembers": 10,
+     *        "location": "Mount Fako, Cameroon",
+     *        "time": "2025-02-15 08:00:00",
+     *        "created_at": "2025-02-04T09:13:20.000000Z",
+     *        "updated_at": "2025-02-04T09:13:20.000000Z"
+     *    },
+     *    {
+     *        "id": 7,
+     *        "user_id": 1,
+     *        "title": "Join me at Tech Chantier",
+     *        "ActivityPhoto": "activity_photos/wvnmS2UuVkm1pfcNbhqcq6ouYonmj3G5Qd2KL69x.jpg",
+     *        "description": "A thrilling hike to the mountain peak.",
+     *        "link": "https://example.com/hiking-event",
+     *        "numberOfMembers": 40,
+     *        "location": "Mount Fako, Cameroon",
+     *        "time": "2025-02-15 08:00:00",
+     *        "created_at": "2025-02-04T09:18:46.000000Z",
+     *        "updated_at": "2025-02-04T09:18:46.000000Z"
+     *    }
+     *    ],
+     *    "pending_activities": [],
+     *    "accepted_activities": [],
+     *    "declined_activities": []
+     *}
      */
     public function getUserActivities(Request $request)
     {
@@ -319,6 +383,7 @@ class ActivityController extends Controller implements HasMiddleware
     }
 
     /**
+     * @group Searching
      * Filter activities by title, description, date, and location
      *
      * Retrieve activities based on specified filters.
@@ -329,14 +394,20 @@ class ActivityController extends Controller implements HasMiddleware
      * @queryParam location string optional Filter by location.
      *
      * @response 200 [
-     *   {
-     *     "id": 1,
-     *     "title": "Filtered Activity",
-     *     "description": "Activity description",
-     *     "time": "2025-01-21T10:00:00",
-     *     "location": "Location 1"
-     *   }
-     * ]
+     *{
+     *    "id": 5,
+     *    "user_id": 1,
+     *    "title": "Hiking go and hike with me",
+     *    "ActivityPhoto": "activity_photos/QDEBUm8GSGbdAFob56QOh4EidyLtgFR5NckhQFBQ.jpg",
+     *    "description": "this is a good activity",
+     *    "link": "https//wa.me/237672474539",
+     *    "numberOfMembers": 10,
+     *    "location": "buea",
+     *    "time": "2025-02-15 08:00:00",
+     *     "created_at": "2025-02-04T09:11:42.000000Z",
+     *     "updated_at": "2025-02-04T11:43:41.000000Z"
+     * }
+     *]
      * @response 400 {
      *   "message": "Invalid date format, please use a valid date"
      * }
@@ -406,7 +477,7 @@ class ActivityController extends Controller implements HasMiddleware
 
 
     /**
-     * Get users who joined a specific activity
+     * @group Activity Management
      *
      * Retrieve a list of users who have joined a particular activity.
      *
@@ -414,11 +485,19 @@ class ActivityController extends Controller implements HasMiddleware
      *
      * @response 200 [
      *   {
-     *     "id": 1,
-     *     "name": "User 1",
-     *     "email": "user1@example.com"
-     *   }
-     * ]
+     *       "id": 2,
+     *        "name": "Nkwi Cyril",
+     *        "email": "nkwicyril@gmail.com",
+     *        "email_verified_at": null,
+     *        "created_at": "2025-02-04T09:37:07.000000Z",
+     *        "updated_at": "2025-02-04T09:37:07.000000Z",
+     *        "pivot": {
+     *            "activity_id": 9,
+     *            "user_id": 2,
+     *            "status": "accepted"
+     *        }
+     *    }
+     *]
      * @response 404 {
      *   "message": "Activity not found"
      * }
@@ -441,6 +520,7 @@ class ActivityController extends Controller implements HasMiddleware
 
 
     /**
+     * @group Searching
      * Search activities by title, description, location, or date
      *
      * Search for activities based on the provided parameters.
@@ -451,13 +531,20 @@ class ActivityController extends Controller implements HasMiddleware
      * @queryParam date string optional Filter by date (format: y-m-d).
      *
      * @response 200 [
-     *   {
-     *     "id": 1,
-     *     "title": "Activity 1",
-     *     "time": "2025-01-21T10:00:00",
-     *     "location": "Location 1"
-     *   }
-     * ]
+     *    {
+     *        "id": 5,
+     *        "user_id": 1,
+     *        "title": "Hiking go and hike with me",
+     *        "ActivityPhoto": "activity_photos/QDEBUm8GSGbdAFob56QOh4EidyLtgFR5NckhQFBQ.jpg",
+     *        "description": "this is a good activity",
+     *        "link": "https//wa.me/237672474539",
+     *        "numberOfMembers": 10,
+     *        "location": "buea",
+     *        "time": "2025-02-15 08:00:00",
+     *        "created_at": "2025-02-04T09:11:42.000000Z",
+     *        "updated_at": "2025-02-04T11:43:41.000000Z"
+     *    }
+     *]
      */
     public function search(Request $request)
     {
@@ -494,6 +581,7 @@ class ActivityController extends Controller implements HasMiddleware
 
 
     /**
+     * @group Activity Request
      * Request leave from an activity
      * 
      * @authenticated
@@ -504,14 +592,16 @@ class ActivityController extends Controller implements HasMiddleware
      * @bodyParam activity_id int required The ID of the activity.
      *
      * @response 201 {
-     *   "message": "Leave request sent successfully",
-     *   "leaveRequest": {
-     *     "id": 1,
-     *     "user_id": 1,
-     *     "activity_id": 2,
-     *     "status": "pending"
+     *"message": "Leave request sent successfully",
+     *"leaveRequest": {
+     *    "user_id": 2,
+     *    "activity_id": 9,
+     *    "status": "pending",
+     *    "updated_at": "2025-02-04T13:16:58.000000Z",
+     *    "created_at": "2025-02-04T13:16:58.000000Z",
+     *    "id": 1
      *   }
-     * }
+     *}
      * @response 403 {
      *   "message": "You are not a participant in this activity"
      * }

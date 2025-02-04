@@ -74,7 +74,7 @@ endpoints:
         name: ActivityPhoto
         description: 'The photo of the activity. type: [png, jpeg]'
         required: true
-        example: accusamus
+        example: tempore
         type: 'file:'
         enumValues: []
         exampleWasSpecified: false
@@ -104,7 +104,7 @@ endpoints:
         name: numberOfMembers
         description: 'the number of member to the activity is required'
         required: false
-        example: 6
+        example: 20
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -132,10 +132,10 @@ endpoints:
         custom: []
     cleanBodyParameters:
       title: 'Morning Run'
-      ActivityPhoto: accusamus
+      ActivityPhoto: tempore
       description: 'A group run in the park.'
       link: 'https://zoom.com/meeting'
-      numberOfMembers: 6
+      numberOfMembers: 20
       location: 'Central Park'
       time: '2025-01-01 10:00:00'
     fileParameters: []
@@ -174,12 +174,9 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: |-
-        Get activity details
-
-        Retrieve details of a specific activity.
+      title: 'Get activity details'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -249,12 +246,9 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: |-
-        Update an activity
-
-        Update the details of an existing activity.
+      title: 'Update an activity'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -288,54 +282,100 @@ endpoints:
     bodyParameters:
       title:
         name: title
-        description: 'The updated title of the activity.'
-        required: true
-        example: 'Evening Walk'
+        description: ': The title of the activity.'
+        required: false
+        example: 'Morning Run'
         type: string
         enumValues: []
         exampleWasSpecified: true
+        nullable: false
+        custom: []
+      ActivityPhoto:
+        name: ActivityPhoto
+        description: 'The photo of the activity. type: [png, jpeg]'
+        required: false
+        example: voluptate
+        type: 'file:'
+        enumValues: []
+        exampleWasSpecified: false
         nullable: false
         custom: []
       description:
         name: description
-        description: 'The updated description.'
-        required: true
-        example: 'A peaceful evening walk.'
-        type: string
+        description: 'The description of the activity.'
+        required: false
+        example: 'A group run in the park.'
+        type: 'string:'
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         custom: []
+      link:
+        name: link
+        description: 'The link to the activity (if any).'
+        required: false
+        example: 'https://zoom.com/meeting'
+        type: 'string:'
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      numberOfMembers:
+        name: numberOfMembers
+        description: 'the number of member to the activity is required'
+        required: false
+        example: 14
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
       location:
         name: location
-        description: 'The updated location.'
-        required: true
-        example: 'Riverside Park'
-        type: string
+        description: 'The location of the activity.'
+        required: false
+        example: 'Central Park'
+        type: 'string:'
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         custom: []
       time:
         name: time
-        description: 'The updated date and time. Format: Y-m-d H:i:s.'
-        required: true
-        example: '2025-01-02 18:00:00'
-        type: datetime
+        description: 'The date and time of the activity. Format: Y-m-d H:i:s.'
+        required: false
+        example: '2025-01-01 10:00:00'
+        type: 'datetime:'
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      title: 'Evening Walk'
-      description: 'A peaceful evening walk.'
-      location: 'Riverside Park'
-      time: '2025-01-02 18:00:00'
+      title: 'Morning Run'
+      ActivityPhoto: voluptate
+      description: 'A group run in the park.'
+      link: 'https://zoom.com/meeting'
+      numberOfMembers: 14
+      location: 'Central Park'
+      time: '2025-01-01 10:00:00'
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"id": 1, "title": "Evening Walk", "description": "A peaceful evening walk.", "location": "Riverside Park", "time": "2025-01-02 18:00:00"}'
+        content: |-
+          {
+          "id": 5,
+          "user_id": 1,
+          "title": "Hiking go and hike with me",
+          "ActivityPhoto": "activity_photos/uNughpq7aXWNcUTYFOgFBFEFxqcr3DeY60PuOwNu.jpg",
+          "description": "this is a good activity",
+          "link": "https//wa.me/237672474539",
+          "numberOfMembers": "10",
+          "location": "buea",
+          "time": "2025-02-15 08:00:00",
+          "created_at": "2025-02-04T09:11:42.000000Z",
+          "updated_at": "2025-02-04T11:35:10.000000Z"
+          }
         headers: []
         description: ''
         custom: []
@@ -354,12 +394,9 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: |-
-        Delete an activity
-
-        Delete an activity created by the authenticated user.
+      title: 'Delete an activity'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json

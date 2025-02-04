@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Malingo api documentation",
-        "_postman_id": "32699eb5-2b66-44eb-b0a9-1bd2b264102e",
+        "_postman_id": "eae90a0b-5ae9-4c48-9543-cdee7e342f07",
         "description": "This api documentation contains all the endpoints for the malingo project. \n    a platform where you can effortlessly find companions for your next adventure, be it a travel buddy,\n     a dining partner, or someone to join you for a stroll or a random conversation. Malingo is a solution\n      that enables individuals to connect, share experiences, and foster new relationships while splitting\n       costs or covering expenses as agreed.\n    ",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -73,7 +73,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Morning Run\",\"ActivityPhoto\":\"accusamus\",\"description\":\"A group run in the park.\",\"link\":\"https:\\\/\\\/zoom.com\\\/meeting\",\"numberOfMembers\":6,\"location\":\"Central Park\",\"time\":\"2025-01-01 10:00:00\"}"
+                            "raw": "{\"title\":\"Morning Run\",\"ActivityPhoto\":\"tempore\",\"description\":\"A group run in the park.\",\"link\":\"https:\\\/\\\/zoom.com\\\/meeting\",\"numberOfMembers\":20,\"location\":\"Central Park\",\"time\":\"2025-01-01 10:00:00\"}"
                         },
                         "description": ""
                     },
@@ -87,7 +87,7 @@
                     ]
                 },
                 {
-                    "name": "Get activity details\n\nRetrieve details of a specific activity.",
+                    "name": "Get activity details",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -121,10 +121,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -136,7 +133,7 @@
                     ]
                 },
                 {
-                    "name": "Update an activity\n\nUpdate the details of an existing activity.",
+                    "name": "Update an activity",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -171,24 +168,21 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Evening Walk\",\"description\":\"A peaceful evening walk.\",\"location\":\"Riverside Park\",\"time\":\"2025-01-02 18:00:00\"}"
+                            "raw": "{\"title\":\"Morning Run\",\"ActivityPhoto\":\"voluptate\",\"description\":\"A group run in the park.\",\"link\":\"https:\\\/\\\/zoom.com\\\/meeting\",\"numberOfMembers\":14,\"location\":\"Central Park\",\"time\":\"2025-01-01 10:00:00\"}"
                         },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\": 1, \"title\": \"Evening Walk\", \"description\": \"A peaceful evening walk.\", \"location\": \"Riverside Park\", \"time\": \"2025-01-02 18:00:00\"}",
+                            "body": "{\n\"id\": 5,\n\"user_id\": 1,\n\"title\": \"Hiking go and hike with me\",\n\"ActivityPhoto\": \"activity_photos\/uNughpq7aXWNcUTYFOgFBFEFxqcr3DeY60PuOwNu.jpg\",\n\"description\": \"this is a good activity\",\n\"link\": \"https\/\/wa.me\/237672474539\",\n\"numberOfMembers\": \"10\",\n\"location\": \"buea\",\n\"time\": \"2025-02-15 08:00:00\",\n\"created_at\": \"2025-02-04T09:11:42.000000Z\",\n\"updated_at\": \"2025-02-04T11:35:10.000000Z\"\n}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Delete an activity\n\nDelete an activity created by the authenticated user.",
+                    "name": "Delete an activity",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -222,6 +216,147 @@
                             }
                         ],
                         "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"message\": \"Activity deleted successfully\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Activity Management",
+            "description": "",
+            "item": [
+                {
+                    "name": "Join an activity",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/activities\/:activity_id\/join",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/activities\/:activity_id\/join",
+                            "variable": [
+                                {
+                                    "id": "activity_id",
+                                    "key": "activity_id",
+                                    "value": "1",
+                                    "description": "The ID of the activity."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "string required The authentication token. Example: Bearer {token}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"activity_id\":9}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"message\": \"Join request sent successfully.\",\n\"join_request\": {\n   \"user_id\": 2,\n   \"status\": \"pending\",\n   \"activity_id\": 5,\n   \"updated_at\": \"2025-02-04T12:16:50.000000Z\",\n   \"created_at\": \"2025-02-04T12:16:50.000000Z\",\n   \"id\": 1\n}\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"You have already requested to join this activity.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/activities\/user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/activities\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/activities\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "string required The authentication token. Example: Bearer {token}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"created_activities\": [\n   {\n       \"id\": 1,\n       \"user_id\": 1,\n       \"title\": \"Hiking Adventure\",\n       \"ActivityPhoto\": null,\n       \"description\": \"A thrilling hike to the mountain peak.\",\n       \"link\": \"https:\/\/example.com\/hiking-event\",\n       \"numberOfMembers\": 10,\n       \"location\": \"Mount Fako, Cameroon\",\n       \"time\": \"2025-02-15 08:00:00\",\n       \"created_at\": \"2025-02-04T08:19:02.000000Z\",\n       \"updated_at\": \"2025-02-04T08:19:02.000000Z\"\n*    },\n   {\n       \"id\": 2,\n        \"user_id\": 1,\n       \"title\": \"Hiking Adventure\",\n        \"ActivityPhoto\": null,\n        \"description\": \"A thrilling hike to the mountain peak.\",\n     \"link\": \"https:\/\/example.com\/hiking-event\",\n        \"numberOfMembers\": 10,\n        \"location\": \"Mount Fako, Cameroon\",\n       \"time\": \"2025-02-15 08:00:00\",\n       \"created_at\": \"2025-02-04T08:25:56.000000Z\",\n       \"updated_at\": \"2025-02-04T08:25:56.000000Z\"\n   },\n   {\n       \"id\": 3,\n       \"user_id\": 1,\n       \"title\": \"Hiking Adventure\",\n       \"ActivityPhoto\": null,\n       \"description\": \"A thrilling hike to the mountain peak.\",\n       \"link\": \"https:\/\/example.com\/hiking-event\",\n       \"numberOfMembers\": 10,\n       \"location\": \"Mount Fako, Cameroon\",\n       \"time\": \"2025-02-15 08:00:00\",\n       \"created_at\": \"2025-02-04T08:36:04.000000Z\",\n       \"updated_at\": \"2025-02-04T08:36:04.000000Z\"\n   },\n   {\n       \"id\": 4,\n       \"user_id\": 1,\n       \"title\": \"Hiking Adventure\",\n       \"ActivityPhoto\": \"activity_photos\/rj6fjePPJweFYZf07s9dCtAjL84pKv12XGzWIW81.jpg\",\n       \"description\": \"A thrilling hike to the mountain peak.\",\n       \"link\": \"https:\/\/example.com\/hiking-event\",\n       \"numberOfMembers\": 10,\n       \"location\": \"Mount Fako, Cameroon\",\n       \"time\": \"2025-02-15 08:00:00\",\n       \"created_at\": \"2025-02-04T09:07:10.000000Z\",\n       \"updated_at\": \"2025-02-04T09:07:10.000000Z\"\n   },\n   {\n       \"id\": 5,\n       \"user_id\": 1,\n       \"title\": \"Join me at Tech Chantier\",\n       \"ActivityPhoto\": \"activity_photos\/2bAlnxzYIELlyfUW02fyNbLIobPMGzrUj8DLtchk.jpg\",\n       \"description\": \"A thrilling hike to the mountain peak.\",\n       \"link\": \"https:\/\/example.com\/hiking-event\",\n       \"numberOfMembers\": 10,\n       \"location\": \"Mount Fako, Cameroon\",\n       \"time\": \"2025-02-15 08:00:00\",\n       \"created_at\": \"2025-02-04T09:11:42.000000Z\",\n       \"updated_at\": \"2025-02-04T09:11:42.000000Z\"\n   },\n   {\n       \"id\": 6,\n       \"user_id\": 1,\n       \"title\": \"Join me at Tech Chantier\",\n        \"ActivityPhoto\": \"activity_photos\/OfdYJQsOrGOnYCKFtPDrhhv2Kp7PP5zZ40Q08Exk.jpg\",\n        \"description\": \"A thrilling hike to the mountain peak.\",\n        \"link\": \"https:\/\/example.com\/hiking-event\",\n       \"numberOfMembers\": 10,\n       \"location\": \"Mount Fako, Cameroon\",\n       \"time\": \"2025-02-15 08:00:00\",\n       \"created_at\": \"2025-02-04T09:13:20.000000Z\",\n       \"updated_at\": \"2025-02-04T09:13:20.000000Z\"\n   },\n   {\n       \"id\": 7,\n       \"user_id\": 1,\n       \"title\": \"Join me at Tech Chantier\",\n       \"ActivityPhoto\": \"activity_photos\/wvnmS2UuVkm1pfcNbhqcq6ouYonmj3G5Qd2KL69x.jpg\",\n       \"description\": \"A thrilling hike to the mountain peak.\",\n       \"link\": \"https:\/\/example.com\/hiking-event\",\n       \"numberOfMembers\": 40,\n       \"location\": \"Mount Fako, Cameroon\",\n       \"time\": \"2025-02-15 08:00:00\",\n       \"created_at\": \"2025-02-04T09:18:46.000000Z\",\n       \"updated_at\": \"2025-02-04T09:18:46.000000Z\"\n   }\n   ],\n   \"pending_activities\": [],\n   \"accepted_activities\": [],\n   \"declined_activities\": []\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Retrieve a list of users who have joined a particular activity.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/activities\/:id\/joined-users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/activities\/:id\/joined-users",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the activity."
+                                },
+                                {
+                                    "id": "activityId",
+                                    "key": "activityId",
+                                    "value": "11",
+                                    "description": "The ID of the activity."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
                         "description": "",
                         "auth": {
                             "type": "noauth"
@@ -231,7 +366,231 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"message\": \"Activity deleted successfully\"}",
+                            "body": "[\n  {\n      \"id\": 2,\n       \"name\": \"Nkwi Cyril\",\n       \"email\": \"nkwicyril@gmail.com\",\n       \"email_verified_at\": null,\n       \"created_at\": \"2025-02-04T09:37:07.000000Z\",\n       \"updated_at\": \"2025-02-04T09:37:07.000000Z\",\n       \"pivot\": {\n           \"activity_id\": 9,\n           \"user_id\": 2,\n           \"status\": \"accepted\"\n       }\n   }\n]",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"message\": \"Activity not found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Activity Request",
+            "description": "",
+            "item": [
+                {
+                    "name": "Accept a join request",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/join-request\/:joinRequest_id\/accept",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/join-request\/:joinRequest_id\/accept",
+                            "variable": [
+                                {
+                                    "id": "joinRequest_id",
+                                    "key": "joinRequest_id",
+                                    "value": "1",
+                                    "description": "The ID of the joinRequest."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "string required The authentication token. Example: Bearer {token}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"joinRequest_id\":1}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Join request accepted\",\n  \"whatsapp_link\": \"https:\/\/wa.me\/1234567890\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n  \"message\": \"Unauthorized\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Decline a join request",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/join-request\/:joinRequest_id\/decline",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/join-request\/:joinRequest_id\/decline",
+                            "variable": [
+                                {
+                                    "id": "joinRequest_id",
+                                    "key": "joinRequest_id",
+                                    "value": "1",
+                                    "description": "The ID of the joinRequest."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "string required The authentication token. Example: Bearer {token}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"joinRequest_id\":1}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Your request to join this activity has been declined\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n  \"message\": \"Unauthorized\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Request leave from an activity",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/activity\/:activity_id\/leave",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/activity\/:activity_id\/leave",
+                            "variable": [
+                                {
+                                    "id": "activity_id",
+                                    "key": "activity_id",
+                                    "value": "1",
+                                    "description": "The ID of the activity."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "string required The authentication token. Example: Bearer {token}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"activity_id\":4}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"message\": \"Leave request sent successfully\",\n\"leaveRequest\": {\n   \"user_id\": 2,\n   \"activity_id\": 9,\n   \"status\": \"pending\",\n   \"updated_at\": \"2025-02-04T13:16:58.000000Z\",\n   \"created_at\": \"2025-02-04T13:16:58.000000Z\",\n   \"id\": 1\n  }\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n  \"message\": \"You are not a participant in this activity\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Approve a leave request",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/leave-requests\/:leaveRequest_id\/approve",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/leave-requests\/:leaveRequest_id\/approve",
+                            "variable": [
+                                {
+                                    "id": "leaveRequest_id",
+                                    "key": "leaveRequest_id",
+                                    "value": "1",
+                                    "description": "The ID of the leaveRequest."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "string required The authentication token. Example: Bearer {token}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"leaveRequest_id\":1}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"The leave request has been approved\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n  \"message\": \"You are not authorized to approve this request\"\n}",
                             "name": ""
                         }
                     ]
@@ -337,7 +696,7 @@
                     ]
                 },
                 {
-                    "name": "Log out the current user",
+                    "name": "Log out the current user\n\nRevoke all of the user's tokens to log them out.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -357,7 +716,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "Revoke all of the user's tokens to log them out."
+                        "description": ""
                     },
                     "response": [
                         {
@@ -377,11 +736,11 @@
             ]
         },
         {
-            "name": "Endpoints",
+            "name": "Geneneral User Endpoints",
             "description": "",
             "item": [
                 {
-                    "name": "Show user details by ID",
+                    "name": "get single user details by ID",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -419,7 +778,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n  \"id\": 1,\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"created_at\": \"2021-01-01T00:00:00Z\",\n  \"updated_at\": \"2021-01-01T00:00:00Z\"\n}",
+                            "body": "{\n\"id\": 1,\n\"name\": \"Nkuma Confident\",\n\"email\": \"nsem@gmail.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2025-02-04T08:18:33.000000Z\",\n\"updated_at\": \"2025-02-04T08:18:33.000000Z\"\n}",
                             "name": ""
                         },
                         {
@@ -429,495 +788,13 @@
                             "name": ""
                         }
                     ]
-                },
-                {
-                    "name": "Join an activity",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/activities\/:activity_id\/join",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/activities\/:activity_id\/join",
-                            "variable": [
-                                {
-                                    "id": "activity_id",
-                                    "key": "activity_id",
-                                    "value": "1",
-                                    "description": "The ID of the activity."
-                                }
-                            ]
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "string required The authentication token. Example: Bearer {token}"
-                            },
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"activity_id\":9}"
-                        },
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 201,
-                            "body": "{\n  \"message\": \"Join request sent successfully.\",\n  \"join_request\": {\n    \"id\": 1,\n    \"user_id\": 1,\n    \"activity_id\": 2,\n    \"status\": \"pending\"\n  }\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 400,
-                            "body": "{\n  \"message\": \"You have already requested to join this activity.\"\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Accept a join request",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/join-request\/:joinRequest_id\/accept",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/join-request\/:joinRequest_id\/accept",
-                            "variable": [
-                                {
-                                    "id": "joinRequest_id",
-                                    "key": "joinRequest_id",
-                                    "value": "8",
-                                    "description": "The ID of the joinRequest."
-                                }
-                            ]
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "string required The authentication token. Example: Bearer {token}"
-                            },
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"joinRequest_id\":1}"
-                        },
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n  \"message\": \"Join request accepted\",\n  \"whatsapp_link\": \"https:\/\/wa.me\/1234567890\"\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 403,
-                            "body": "{\n  \"message\": \"Unauthorized\"\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Decline a join request",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/join-request\/:joinRequest_id\/decline",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/join-request\/:joinRequest_id\/decline",
-                            "variable": [
-                                {
-                                    "id": "joinRequest_id",
-                                    "key": "joinRequest_id",
-                                    "value": "20",
-                                    "description": "The ID of the joinRequest."
-                                }
-                            ]
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "string required The authentication token. Example: Bearer {token}"
-                            },
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"joinRequest_id\":1}"
-                        },
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n  \"message\": \"Your request to join this activity has been declined\"\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 403,
-                            "body": "{\n  \"message\": \"Unauthorized\"\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Get user activities",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/activities\/user",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/activities\/user"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "string required The authentication token. Example: Bearer {token}"
-                            },
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n  \"created_activities\": [\n    {\n      \"id\": 1,\n      \"title\": \"Activity 1\",\n      \"time\": \"2025-01-21T10:00:00\",\n      \"location\": \"Location 1\"\n    }\n  ],\n  \"pending_activities\": [\n    {\n      \"id\": 2,\n      \"title\": \"Activity 2\",\n      \"status\": \"pending\"\n    }\n  ],\n  \"accepted_activities\": [\n    {\n      \"id\": 3,\n      \"title\": \"Activity 3\",\n      \"status\": \"accepted\"\n    }\n  ],\n  \"declined_activities\": [\n    {\n      \"id\": 4,\n      \"title\": \"Activity 4\",\n      \"status\": \"declined\"\n    }\n  ]\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Filter activities by title, description, date, and location",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/activities\/filter",
-                            "query": [
-                                {
-                                    "key": "title",
-                                    "value": "sed",
-                                    "description": "optional Filter by title.",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "description",
-                                    "value": "Est+unde+atque+eum+aut+aspernatur.",
-                                    "description": "optional Filter by description.",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "date",
-                                    "value": "rerum",
-                                    "description": "optional Filter by date (format: y-m-d).",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "location",
-                                    "value": "sunt",
-                                    "description": "optional Filter by location.",
-                                    "disabled": false
-                                }
-                            ],
-                            "raw": "{{baseUrl}}\/api\/activities\/filter?title=sed&description=Est+unde+atque+eum+aut+aspernatur.&date=rerum&location=sunt"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"title\":\"voluptatum\",\"description\":\"Eius rerum dolorum tempore minima ut magni.\",\"location\":\"necessitatibus\"}"
-                        },
-                        "description": "Retrieve activities based on specified filters.",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "[\n  {\n    \"id\": 1,\n    \"title\": \"Filtered Activity\",\n    \"description\": \"Activity description\",\n    \"time\": \"2025-01-21T10:00:00\",\n    \"location\": \"Location 1\"\n  }\n]",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 400,
-                            "body": "{\n  \"message\": \"Invalid date format, please use a valid date\"\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Search activities by title, description, location, or date",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/activities\/search",
-                            "query": [
-                                {
-                                    "key": "title",
-                                    "value": "perspiciatis",
-                                    "description": "optional Filter by title.",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "description",
-                                    "value": "Ducimus+et+eum+necessitatibus+aut+quis+eveniet.",
-                                    "description": "optional Filter by description.",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "location",
-                                    "value": "placeat",
-                                    "description": "optional Filter by location.",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "date",
-                                    "value": "quaerat",
-                                    "description": "optional Filter by date (format: y-m-d).",
-                                    "disabled": false
-                                }
-                            ],
-                            "raw": "{{baseUrl}}\/api\/activities\/search?title=perspiciatis&description=Ducimus+et+eum+necessitatibus+aut+quis+eveniet.&location=placeat&date=quaerat"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"title\":\"voluptatem\",\"description\":\"Facilis iure velit expedita et quia aperiam nesciunt dolor.\",\"location\":\"animi\"}"
-                        },
-                        "description": "Search for activities based on the provided parameters.",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "[\n  {\n    \"id\": 1,\n    \"title\": \"Activity 1\",\n    \"time\": \"2025-01-21T10:00:00\",\n    \"location\": \"Location 1\"\n  }\n]",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Get users who joined a specific activity",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/activities\/:id\/joined-users",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/activities\/:id\/joined-users",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the activity."
-                                },
-                                {
-                                    "id": "activityId",
-                                    "key": "activityId",
-                                    "value": "18",
-                                    "description": "The ID of the activity."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "Retrieve a list of users who have joined a particular activity.",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "[\n  {\n    \"id\": 1,\n    \"name\": \"User 1\",\n    \"email\": \"user1@example.com\"\n  }\n]",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 404,
-                            "body": "{\n  \"message\": \"Activity not found\"\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Request leave from an activity",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/activity\/:activity_id\/leave",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/activity\/:activity_id\/leave",
-                            "variable": [
-                                {
-                                    "id": "activity_id",
-                                    "key": "activity_id",
-                                    "value": "1",
-                                    "description": "The ID of the activity."
-                                }
-                            ]
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "string required The authentication token. Example: Bearer {token}"
-                            },
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"activity_id\":18}"
-                        },
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 201,
-                            "body": "{\n  \"message\": \"Leave request sent successfully\",\n  \"leaveRequest\": {\n    \"id\": 1,\n    \"user_id\": 1,\n    \"activity_id\": 2,\n    \"status\": \"pending\"\n  }\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 403,
-                            "body": "{\n  \"message\": \"You are not a participant in this activity\"\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Approve a leave request",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/leave-requests\/:leaveRequest_id\/approve",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/leave-requests\/:leaveRequest_id\/approve",
-                            "variable": [
-                                {
-                                    "id": "leaveRequest_id",
-                                    "key": "leaveRequest_id",
-                                    "value": "19",
-                                    "description": "The ID of the leaveRequest."
-                                }
-                            ]
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "string required The authentication token. Example: Bearer {token}"
-                            },
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"leaveRequest_id\":1}"
-                        },
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n  \"message\": \"The leave request has been approved\"\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 403,
-                            "body": "{\n  \"message\": \"You are not authorized to approve this request\"\n}",
-                            "name": ""
-                        }
-                    ]
-                },
+                }
+            ]
+        },
+        {
+            "name": "General User Enpoints",
+            "description": "",
+            "item": [
                 {
                     "name": "GET api\/user",
                     "request": {
@@ -930,6 +807,10 @@
                         "method": "GET",
                         "header": [
                             {
+                                "key": "reguires",
+                                "value": "a toke"
+                            },
+                            {
                                 "key": "Content-Type",
                                 "value": "application\/json"
                             },
@@ -939,6 +820,72 @@
                             }
                         ],
                         "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"id\": 2,\n\"name\": \"Nkwi Cyril\",\n\"email\": \"nkwicyril@gmail.com\",\n\"email_verified_at\": null,\n  \"created_at\": \"2025-02-04T09:37:07.000000Z\",\n  \"updated_at\": \"2025-02-04T09:37:07.000000Z\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Searching",
+            "description": "",
+            "item": [
+                {
+                    "name": "Filter activities by title, description, date, and location\n\nRetrieve activities based on specified filters.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/activities\/filter",
+                            "query": [
+                                {
+                                    "key": "title",
+                                    "value": "sit",
+                                    "description": "optional Filter by title.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "Voluptatum+sunt+beatae+asperiores+quisquam.",
+                                    "description": "optional Filter by description.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "date",
+                                    "value": "doloremque",
+                                    "description": "optional Filter by date (format: y-m-d).",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "location",
+                                    "value": "est",
+                                    "description": "optional Filter by location.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/activities\/filter?title=sit&description=Voluptatum+sunt+beatae+asperiores+quisquam.&date=doloremque&location=est"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"corrupti\",\"description\":\"Maxime eligendi expedita in corrupti nemo est natus.\",\"location\":\"non\"}"
+                        },
                         "description": "",
                         "auth": {
                             "type": "noauth"
@@ -946,22 +893,78 @@
                     },
                     "response": [
                         {
-                            "header": [
+                            "header": [],
+                            "code": 200,
+                            "body": "[\n{\n   \"id\": 5,\n   \"user_id\": 1,\n   \"title\": \"Hiking go and hike with me\",\n   \"ActivityPhoto\": \"activity_photos\/QDEBUm8GSGbdAFob56QOh4EidyLtgFR5NckhQFBQ.jpg\",\n   \"description\": \"this is a good activity\",\n   \"link\": \"https\/\/wa.me\/237672474539\",\n   \"numberOfMembers\": 10,\n   \"location\": \"buea\",\n   \"time\": \"2025-02-15 08:00:00\",\n    \"created_at\": \"2025-02-04T09:11:42.000000Z\",\n    \"updated_at\": \"2025-02-04T11:43:41.000000Z\"\n}\n]",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"message\": \"Invalid date format, please use a valid date\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Search activities by title, description, location, or date\n\nSearch for activities based on the provided parameters.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/activities\/search",
+                            "query": [
                                 {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
+                                    "key": "title",
+                                    "value": "qui",
+                                    "description": "optional Filter by title.",
+                                    "disabled": false
                                 },
                                 {
-                                    "key": "content-type",
-                                    "value": "application\/json"
+                                    "key": "description",
+                                    "value": "Occaecati+maiores+inventore+sint+laborum+autem+quaerat+placeat.",
+                                    "description": "optional Filter by description.",
+                                    "disabled": false
                                 },
                                 {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
+                                    "key": "location",
+                                    "value": "velit",
+                                    "description": "optional Filter by location.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "date",
+                                    "value": "explicabo",
+                                    "description": "optional Filter by date (format: y-m-d).",
+                                    "disabled": false
                                 }
                             ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "raw": "{{baseUrl}}\/api\/activities\/search?title=qui&description=Occaecati+maiores+inventore+sint+laborum+autem+quaerat+placeat.&location=velit&date=explicabo"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"assumenda\",\"description\":\"Soluta libero saepe sed odit aut.\",\"location\":\"earum\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "[\n   {\n       \"id\": 5,\n       \"user_id\": 1,\n       \"title\": \"Hiking go and hike with me\",\n       \"ActivityPhoto\": \"activity_photos\/QDEBUm8GSGbdAFob56QOh4EidyLtgFR5NckhQFBQ.jpg\",\n       \"description\": \"this is a good activity\",\n       \"link\": \"https\/\/wa.me\/237672474539\",\n       \"numberOfMembers\": 10,\n       \"location\": \"buea\",\n       \"time\": \"2025-02-15 08:00:00\",\n       \"created_at\": \"2025-02-04T09:11:42.000000Z\",\n       \"updated_at\": \"2025-02-04T11:43:41.000000Z\"\n   }\n]",
                             "name": ""
                         }
                     ]

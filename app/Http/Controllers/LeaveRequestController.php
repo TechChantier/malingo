@@ -9,13 +9,9 @@ use Symfony\Component\HttpKernel\Event\ResponseEvent;
 
 class LeaveRequestController extends Controller
 {
-    /**
-     * @group Leave Requests
-     *
-     * Endpoints for approving leave requests for activities.
-     */
 
     /**
+     * @group Activity Request
      * Approve a leave request
      * 
      * @authenticated

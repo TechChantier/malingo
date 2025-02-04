@@ -16,6 +16,7 @@ class JoinRequestController extends Controller
      */
 
     /**
+     * @group Activity Request
      * Accept a join request
      *
      * @authenticated
@@ -54,6 +55,7 @@ class JoinRequestController extends Controller
     }
 
     /**
+     * @group Activity Request
      * Decline a join request
      * 
      * @authenticated

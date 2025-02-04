@@ -211,13 +211,14 @@ endpoints:
     uri: api/logout
     metadata:
       groupName: Authentication
-      groupDescription: |-
-
-        Endpoints for user registration, login, and logout.
+      groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Log out the current user'
-      description: "Revoke all of the user's tokens to log them out."
+      title: |-
+        Log out the current user
+
+        Revoke all of the user's tokens to log them out.
+      description: ''
       authenticated: true
       custom: []
     headers:

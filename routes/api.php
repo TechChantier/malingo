@@ -35,6 +35,4 @@ Route::get('/activities/{id}/joined-users', [ActivityController::class, 'getJoin
 Route::post('/activity/{activity}/leave', [ActivityController::class, 'requestLeave'])->middleware('auth:sanctum');
 Route::post('/leave-requests/{leaveRequest}/approve', [LeaveRequestController::class, 'approveLeave'])->middleware('auth:sanctum');
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::get('/user', [AuthController::class, 'getUser'])->middleware('auth:sanctum');
