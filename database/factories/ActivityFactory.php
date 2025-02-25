@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,15 @@ class ActivityFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            // 'user_id' => fake()->randomNumber(User::count()),
+            'user_id' => 1,
+            'title' => fake()->name(),
+            'ActivityPhoto' => '',
+            'description' => fake()->paragraph(),
+            'link' => fake()->url(),
+            'numberOfMembers' => fake()->numberBetween(0, 50),
+            'location' => fake()->text(20),
+            'time' => fake()->dateTime(),
         ];
     }
 }
