@@ -319,7 +319,7 @@ paths:
                 ActivityPhoto:
                   type: 'file:'
                   description: 'The photo of the activity. type: [png, jpeg]'
-                  example: voluptatem
+                  example: quibusdam
                   nullable: false
                 description:
                   type: string
@@ -334,7 +334,7 @@ paths:
                 numberOfMembers:
                   type: integer
                   description: 'the number of member to the activity is required'
-                  example: 1
+                  example: 16
                   nullable: false
                 location:
                   type: string
@@ -484,7 +484,7 @@ paths:
                 ActivityPhoto:
                   type: 'file:'
                   description: 'The photo of the activity. type: [png, jpeg]'
-                  example: aut
+                  example: omnis
                   nullable: false
                 description:
                   type: 'string:'
@@ -499,7 +499,7 @@ paths:
                 numberOfMembers:
                   type: integer
                   description: 'the number of member to the activity is required'
-                  example: 5
+                  example: 17
                   nullable: false
                 location:
                   type: 'string:'
@@ -619,7 +619,7 @@ paths:
                 activity_id:
                   type: integer
                   description: 'The ID of the activity to join.'
-                  example: 8
+                  example: 3
                   nullable: false
               required:
                 - activity_id
@@ -703,7 +703,7 @@ paths:
         in: path
         name: activityId
         description: 'The ID of the activity.'
-        example: 5
+        example: 2
         required: true
         schema:
           type: integer
@@ -894,7 +894,7 @@ paths:
                 activity_id:
                   type: integer
                   description: 'The ID of the activity.'
-                  example: 14
+                  example: 20
                   nullable: false
               required:
                 - activity_id
@@ -1328,34 +1328,34 @@ paths:
           in: query
           name: title
           description: 'optional Filter by title.'
-          example: suscipit
+          example: soluta
           required: false
           schema:
             type: string
             description: 'optional Filter by title.'
-            example: suscipit
+            example: soluta
             nullable: false
         -
           in: query
           name: description
           description: 'optional Filter by description.'
-          example: 'Et eligendi mollitia fuga distinctio quod ut.'
+          example: 'Aliquid veritatis voluptas harum praesentium minus consequatur.'
           required: false
           schema:
             type: string
             description: 'optional Filter by description.'
-            example: 'Et eligendi mollitia fuga distinctio quod ut.'
+            example: 'Aliquid veritatis voluptas harum praesentium minus consequatur.'
             nullable: false
         -
           in: query
           name: date
           description: 'optional Filter by date (format: y-m-d).'
-          example: excepturi
+          example: optio
           required: false
           schema:
             type: string
             description: 'optional Filter by date (format: y-m-d).'
-            example: excepturi
+            example: optio
             nullable: false
         -
           in: query
@@ -1414,12 +1414,12 @@ paths:
                 title:
                   type: string
                   description: ''
-                  example: nihil
+                  example: similique
                   nullable: true
                 description:
                   type: string
                   description: ''
-                  example: 'Ut asperiores sed et cupiditate dolor quisquam et.'
+                  example: 'Qui similique excepturi veniam quidem.'
                   nullable: true
                 date:
                   type: string
@@ -1429,7 +1429,7 @@ paths:
                 location:
                   type: string
                   description: ''
-                  example: dolorem
+                  example: natus
                   nullable: true
       security: []
   /api/activities/search:
@@ -1442,45 +1442,45 @@ paths:
           in: query
           name: title
           description: 'optional Filter by title.'
-          example: repellendus
+          example: tempora
           required: false
           schema:
             type: string
             description: 'optional Filter by title.'
-            example: repellendus
+            example: tempora
             nullable: false
         -
           in: query
           name: description
           description: 'optional Filter by description.'
-          example: 'Quibusdam ut explicabo et est natus repudiandae.'
+          example: 'Neque dolorem est dolorem quos.'
           required: false
           schema:
             type: string
             description: 'optional Filter by description.'
-            example: 'Quibusdam ut explicabo et est natus repudiandae.'
+            example: 'Neque dolorem est dolorem quos.'
             nullable: false
         -
           in: query
           name: location
           description: 'optional Filter by location.'
-          example: consequatur
+          example: eveniet
           required: false
           schema:
             type: string
             description: 'optional Filter by location.'
-            example: consequatur
+            example: eveniet
             nullable: false
         -
           in: query
           name: date
           description: 'optional Filter by date (format: y-m-d).'
-          example: at
+          example: sint
           required: false
           schema:
             type: string
             description: 'optional Filter by date (format: y-m-d).'
-            example: at
+            example: sint
             nullable: false
       responses:
         200:
@@ -1516,17 +1516,17 @@ paths:
                 title:
                   type: string
                   description: ''
-                  example: non
+                  example: qui
                   nullable: true
                 description:
                   type: string
                   description: ''
-                  example: 'Eligendi dicta excepturi esse doloremque.'
+                  example: 'Inventore nisi voluptatem et.'
                   nullable: true
                 location:
                   type: string
                   description: ''
-                  example: illo
+                  example: id
                   nullable: true
                 date:
                   type: string

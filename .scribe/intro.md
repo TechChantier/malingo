@@ -8,7 +8,7 @@ This api documentation contains all the endpoints for the malingo project.
     
 
 <aside>
-    <strong>Base URL</strong>: <code>http://localhost</code>
+    <strong>Base URL</strong>: <code>https://rrn24.techchantier.site/malingo/public/api/</code>
 </aside>
 
 This documentation aims to provide all the information you need to work with our API.

@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Malingo api documentation",
-        "_postman_id": "54d28f09-c2f0-4754-b708-ec571a58d295",
+        "_postman_id": "61bf822e-cead-4007-bb06-c42ff67dff77",
         "description": "This api documentation contains all the endpoints for the malingo project. \n    a platform where you can effortlessly find companions for your next adventure, be it a travel buddy,\n     a dining partner, or someone to join you for a stroll or a random conversation. Malingo is a solution\n      that enables individuals to connect, share experiences, and foster new relationships while splitting\n       costs or covering expenses as agreed.\n    ",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -73,7 +73,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Morning Run\",\"ActivityPhoto\":\"voluptatem\",\"description\":\"A group run in the park.\",\"link\":\"https:\\\/\\\/zoom.com\\\/meeting\",\"numberOfMembers\":1,\"location\":\"Central Park\",\"time\":\"2025-01-01 10:00:00\"}"
+                            "raw": "{\"title\":\"Morning Run\",\"ActivityPhoto\":\"quibusdam\",\"description\":\"A group run in the park.\",\"link\":\"https:\\\/\\\/zoom.com\\\/meeting\",\"numberOfMembers\":16,\"location\":\"Central Park\",\"time\":\"2025-01-01 10:00:00\"}"
                         },
                         "description": ""
                     },
@@ -168,7 +168,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Morning Run\",\"ActivityPhoto\":\"aut\",\"description\":\"A group run in the park.\",\"link\":\"https:\\\/\\\/zoom.com\\\/meeting\",\"numberOfMembers\":5,\"location\":\"Central Park\",\"time\":\"2025-01-01 10:00:00\"}"
+                            "raw": "{\"title\":\"Morning Run\",\"ActivityPhoto\":\"omnis\",\"description\":\"A group run in the park.\",\"link\":\"https:\\\/\\\/zoom.com\\\/meeting\",\"numberOfMembers\":17,\"location\":\"Central Park\",\"time\":\"2025-01-01 10:00:00\"}"
                         },
                         "description": ""
                     },
@@ -267,7 +267,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"activity_id\":8}"
+                            "raw": "{\"activity_id\":3}"
                         },
                         "description": ""
                     },
@@ -340,7 +340,7 @@
                                 {
                                     "id": "activityId",
                                     "key": "activityId",
-                                    "value": "5",
+                                    "value": "2",
                                     "description": "The ID of the activity."
                                 }
                             ]
@@ -523,7 +523,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"activity_id\":14}"
+                            "raw": "{\"activity_id\":20}"
                         },
                         "description": ""
                     },
@@ -846,19 +846,19 @@
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "suscipit",
+                                    "value": "soluta",
                                     "description": "optional Filter by title.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "Et+eligendi+mollitia+fuga+distinctio+quod+ut.",
+                                    "value": "Aliquid+veritatis+voluptas+harum+praesentium+minus+consequatur.",
                                     "description": "optional Filter by description.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "date",
-                                    "value": "excepturi",
+                                    "value": "optio",
                                     "description": "optional Filter by date (format: y-m-d).",
                                     "disabled": false
                                 },
@@ -869,7 +869,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/activities\/filter?title=suscipit&description=Et+eligendi+mollitia+fuga+distinctio+quod+ut.&date=excepturi&location=et"
+                            "raw": "{{baseUrl}}\/api\/activities\/filter?title=soluta&description=Aliquid+veritatis+voluptas+harum+praesentium+minus+consequatur.&date=optio&location=et"
                         },
                         "method": "GET",
                         "header": [
@@ -884,7 +884,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"nihil\",\"description\":\"Ut asperiores sed et cupiditate dolor quisquam et.\",\"location\":\"dolorem\"}"
+                            "raw": "{\"title\":\"similique\",\"description\":\"Qui similique excepturi veniam quidem.\",\"location\":\"natus\"}"
                         },
                         "description": "",
                         "auth": {
@@ -915,30 +915,30 @@
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "repellendus",
+                                    "value": "tempora",
                                     "description": "optional Filter by title.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "Quibusdam+ut+explicabo+et+est+natus+repudiandae.",
+                                    "value": "Neque+dolorem+est+dolorem+quos.",
                                     "description": "optional Filter by description.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "location",
-                                    "value": "consequatur",
+                                    "value": "eveniet",
                                     "description": "optional Filter by location.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "date",
-                                    "value": "at",
+                                    "value": "sint",
                                     "description": "optional Filter by date (format: y-m-d).",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/activities\/search?title=repellendus&description=Quibusdam+ut+explicabo+et+est+natus+repudiandae.&location=consequatur&date=at"
+                            "raw": "{{baseUrl}}\/api\/activities\/search?title=tempora&description=Neque+dolorem+est+dolorem+quos.&location=eveniet&date=sint"
                         },
                         "method": "GET",
                         "header": [
@@ -953,7 +953,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"non\",\"description\":\"Eligendi dicta excepturi esse doloremque.\",\"location\":\"illo\"}"
+                            "raw": "{\"title\":\"qui\",\"description\":\"Inventore nisi voluptatem et.\",\"location\":\"id\"}"
                         },
                         "description": "",
                         "auth": {
