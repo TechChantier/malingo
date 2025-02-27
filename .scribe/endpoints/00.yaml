@@ -72,7 +72,7 @@ endpoints:
         name: ActivityPhoto
         description: 'The photo of the activity. type: [png, jpeg]'
         required: true
-        example: quibusdam
+        example: consectetur
         type: 'file:'
         enumValues: []
         exampleWasSpecified: false
@@ -102,7 +102,7 @@ endpoints:
         name: numberOfMembers
         description: 'the number of member to the activity is required'
         required: false
-        example: 16
+        example: 17
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -130,10 +130,10 @@ endpoints:
         custom: []
     cleanBodyParameters:
       title: 'Morning Run'
-      ActivityPhoto: quibusdam
+      ActivityPhoto: consectetur
       description: 'A group run in the park.'
       link: 'https://zoom.com/meeting'
-      numberOfMembers: 16
+      numberOfMembers: 17
       location: 'Central Park'
       time: '2025-01-01 10:00:00'
     fileParameters: []
@@ -292,7 +292,7 @@ endpoints:
         name: ActivityPhoto
         description: 'The photo of the activity. type: [png, jpeg]'
         required: false
-        example: omnis
+        example: distinctio
         type: 'file:'
         enumValues: []
         exampleWasSpecified: false
@@ -322,7 +322,7 @@ endpoints:
         name: numberOfMembers
         description: 'the number of member to the activity is required'
         required: false
-        example: 17
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -350,10 +350,10 @@ endpoints:
         custom: []
     cleanBodyParameters:
       title: 'Morning Run'
-      ActivityPhoto: omnis
+      ActivityPhoto: distinctio
       description: 'A group run in the park.'
       link: 'https://zoom.com/meeting'
-      numberOfMembers: 17
+      numberOfMembers: 11
       location: 'Central Park'
       time: '2025-01-01 10:00:00'
     fileParameters: []

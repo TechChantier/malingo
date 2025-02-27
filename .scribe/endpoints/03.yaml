@@ -38,14 +38,14 @@ endpoints:
         name: activity_id
         description: 'The ID of the activity to join.'
         required: true
-        example: 3
+        example: 20
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      activity_id: 3
+      activity_id: 20
     fileParameters: []
     responses:
       -
@@ -246,7 +246,7 @@ endpoints:
         name: activityId
         description: 'The ID of the activity.'
         required: true
-        example: 2
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -254,7 +254,7 @@ endpoints:
         custom: []
     cleanUrlParameters:
       id: 1
-      activityId: 2
+      activityId: 11
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

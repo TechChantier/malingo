@@ -183,14 +183,14 @@ endpoints:
         name: activity_id
         description: 'The ID of the activity.'
         required: true
-        example: 20
+        example: 19
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      activity_id: 20
+      activity_id: 19
     fileParameters: []
     responses:
       -
