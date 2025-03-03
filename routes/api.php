@@ -14,7 +14,7 @@ Route::apiResource('activity', ActivityController::class);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
-Route::get('users/{id}', [UserController::class, 'show'])->middleware('auth:sanctum');
+Route::get('users/{id}', [UserController::class, 'show']);
 
 //manage the joining of an activity
 Route::post('/activities/{activity}/join', [ActivityController::class, 'joinActivity'])->middleware('auth:sanctum');
