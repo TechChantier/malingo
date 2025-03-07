@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "http:\/\/localhost"
+            "value": "https:\/\/rrn24.techchantier.site\/malingo\/public\/api\/"
         }
     ],
     "info": {
         "name": "Malingo api documentation",
-        "_postman_id": "1a5081a7-ace8-4acb-989d-7371b3864aed",
+        "_postman_id": "492072f0-e3e5-4518-b28c-bea16b0a7884",
         "description": "This api documentation contains all the endpoints for the malingo project. \n    a platform where you can effortlessly find companions for your next adventure, be it a travel buddy,\n     a dining partner, or someone to join you for a stroll or a random conversation. Malingo is a solution\n      that enables individuals to connect, share experiences, and foster new relationships while splitting\n       costs or covering expenses as agreed.\n    ",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -73,7 +73,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Morning Run\",\"ActivityPhoto\":\"consectetur\",\"description\":\"A group run in the park.\",\"link\":\"https:\\\/\\\/zoom.com\\\/meeting\",\"numberOfMembers\":17,\"location\":\"Central Park\",\"time\":\"2025-01-01 10:00:00\"}"
+                            "raw": "{\"title\":\"Morning Run\",\"ActivityPhoto\":\"quis\",\"description\":\"A group run in the park.\",\"link\":\"https:\\\/\\\/zoom.com\\\/meeting\",\"numberOfMembers\":3,\"location\":\"Central Park\",\"time\":\"2025-01-01 10:00:00\"}"
                         },
                         "description": ""
                     },
@@ -98,7 +98,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "10",
                                     "description": "The ID of the activity."
                                 },
                                 {
@@ -144,7 +144,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "4",
                                     "description": "The ID of the activity."
                                 },
                                 {
@@ -168,7 +168,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Morning Run\",\"ActivityPhoto\":\"distinctio\",\"description\":\"A group run in the park.\",\"link\":\"https:\\\/\\\/zoom.com\\\/meeting\",\"numberOfMembers\":11,\"location\":\"Central Park\",\"time\":\"2025-01-01 10:00:00\"}"
+                            "raw": "{\"title\":\"Morning Run\",\"ActivityPhoto\":\"sit\",\"description\":\"A group run in the park.\",\"link\":\"https:\\\/\\\/zoom.com\\\/meeting\",\"numberOfMembers\":16,\"location\":\"Central Park\",\"time\":\"2025-01-01 10:00:00\"}"
                         },
                         "description": ""
                     },
@@ -245,7 +245,7 @@
                                 {
                                     "id": "activity_id",
                                     "key": "activity_id",
-                                    "value": "1",
+                                    "value": "13",
                                     "description": "The ID of the activity."
                                 }
                             ]
@@ -267,7 +267,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"activity_id\":20}"
+                            "raw": "{\"activity_id\":16}"
                         },
                         "description": ""
                     },
@@ -334,13 +334,13 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "17",
                                     "description": "The ID of the activity."
                                 },
                                 {
                                     "id": "activityId",
                                     "key": "activityId",
-                                    "value": "11",
+                                    "value": "4",
                                     "description": "The ID of the activity."
                                 }
                             ]
@@ -395,7 +395,7 @@
                                 {
                                     "id": "joinRequest_id",
                                     "key": "joinRequest_id",
-                                    "value": "1",
+                                    "value": "11",
                                     "description": "The ID of the joinRequest."
                                 }
                             ]
@@ -501,7 +501,7 @@
                                 {
                                     "id": "activity_id",
                                     "key": "activity_id",
-                                    "value": "1",
+                                    "value": "8",
                                     "description": "The ID of the activity."
                                 }
                             ]
@@ -523,7 +523,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"activity_id\":19}"
+                            "raw": "{\"activity_id\":14}"
                         },
                         "description": ""
                     },
@@ -554,7 +554,7 @@
                                 {
                                     "id": "leaveRequest_id",
                                     "key": "leaveRequest_id",
-                                    "value": "1",
+                                    "value": "20",
                                     "description": "The ID of the leaveRequest."
                                 }
                             ]
@@ -846,30 +846,30 @@
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "nisi",
+                                    "value": "sint",
                                     "description": "optional Filter by title.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "Autem+repellendus+inventore+maiores+voluptatem+ut+qui+fuga.",
+                                    "value": "Ullam+quisquam+accusantium+excepturi+pariatur+est+ut+reprehenderit+minus.",
                                     "description": "optional Filter by description.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "date",
-                                    "value": "voluptates",
+                                    "value": "ex",
                                     "description": "optional Filter by date (format: y-m-d).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "location",
-                                    "value": "tempore",
+                                    "value": "qui",
                                     "description": "optional Filter by location.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/activities\/filter?title=nisi&description=Autem+repellendus+inventore+maiores+voluptatem+ut+qui+fuga.&date=voluptates&location=tempore"
+                            "raw": "{{baseUrl}}\/api\/activities\/filter?title=sint&description=Ullam+quisquam+accusantium+excepturi+pariatur+est+ut+reprehenderit+minus.&date=ex&location=qui"
                         },
                         "method": "GET",
                         "header": [
@@ -884,7 +884,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"voluptatem\",\"description\":\"Voluptate quia et odio blanditiis velit perspiciatis.\",\"location\":\"dolor\"}"
+                            "raw": "{\"title\":\"quod\",\"description\":\"Deserunt vitae nihil earum maxime magnam.\",\"location\":\"fugiat\"}"
                         },
                         "description": "",
                         "auth": {
@@ -915,30 +915,30 @@
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "reprehenderit",
+                                    "value": "ea",
                                     "description": "optional Filter by title.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "Molestiae+qui+velit+nihil+provident.",
+                                    "value": "Saepe+doloremque+neque+consequatur+laudantium+temporibus+dicta.",
                                     "description": "optional Filter by description.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "location",
-                                    "value": "accusamus",
+                                    "value": "neque",
                                     "description": "optional Filter by location.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "date",
-                                    "value": "eos",
+                                    "value": "eum",
                                     "description": "optional Filter by date (format: y-m-d).",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/activities\/search?title=reprehenderit&description=Molestiae+qui+velit+nihil+provident.&location=accusamus&date=eos"
+                            "raw": "{{baseUrl}}\/api\/activities\/search?title=ea&description=Saepe+doloremque+neque+consequatur+laudantium+temporibus+dicta.&location=neque&date=eum"
                         },
                         "method": "GET",
                         "header": [
@@ -953,7 +953,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"ratione\",\"description\":\"Suscipit itaque odit fuga optio magni non et tenetur.\",\"location\":\"voluptas\"}"
+                            "raw": "{\"title\":\"quibusdam\",\"description\":\"Aut qui incidunt aliquam.\",\"location\":\"neque\"}"
                         },
                         "description": "",
                         "auth": {
