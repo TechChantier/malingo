@@ -72,7 +72,7 @@ endpoints:
         name: ActivityPhoto
         description: 'The photo of the activity. type: [png, jpeg]'
         required: true
-        example: quis
+        example: voluptas
         type: 'file:'
         enumValues: []
         exampleWasSpecified: false
@@ -102,7 +102,7 @@ endpoints:
         name: numberOfMembers
         description: 'the number of member to the activity is required'
         required: false
-        example: 3
+        example: 7
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -130,10 +130,10 @@ endpoints:
         custom: []
     cleanBodyParameters:
       title: 'Morning Run'
-      ActivityPhoto: quis
+      ActivityPhoto: voluptas
       description: 'A group run in the park.'
       link: 'https://zoom.com/meeting'
-      numberOfMembers: 3
+      numberOfMembers: 7
       location: 'Central Park'
       time: '2025-01-01 10:00:00'
     fileParameters: []
@@ -184,7 +184,7 @@ endpoints:
         name: id
         description: 'The ID of the activity.'
         required: true
-        example: 10
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -201,7 +201,7 @@ endpoints:
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 10
+      id: 1
       activity: 1
     queryParameters: []
     cleanQueryParameters: []
@@ -256,7 +256,7 @@ endpoints:
         name: id
         description: 'The ID of the activity.'
         required: true
-        example: 4
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -273,7 +273,7 @@ endpoints:
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 4
+      id: 1
       activity: 1
     queryParameters: []
     cleanQueryParameters: []
@@ -292,7 +292,7 @@ endpoints:
         name: ActivityPhoto
         description: 'The photo of the activity. type: [png, jpeg]'
         required: false
-        example: sit
+        example: qui
         type: 'file:'
         enumValues: []
         exampleWasSpecified: false
@@ -322,7 +322,7 @@ endpoints:
         name: numberOfMembers
         description: 'the number of member to the activity is required'
         required: false
-        example: 16
+        example: 4
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -350,10 +350,10 @@ endpoints:
         custom: []
     cleanBodyParameters:
       title: 'Morning Run'
-      ActivityPhoto: sit
+      ActivityPhoto: qui
       description: 'A group run in the park.'
       link: 'https://zoom.com/meeting'
-      numberOfMembers: 16
+      numberOfMembers: 4
       location: 'Central Park'
       time: '2025-01-01 10:00:00'
     fileParameters: []

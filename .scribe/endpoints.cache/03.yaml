@@ -25,14 +25,14 @@ endpoints:
         name: activity_id
         description: 'The ID of the activity.'
         required: true
-        example: 13
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      activity_id: 13
+      activity_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -40,14 +40,14 @@ endpoints:
         name: activity_id
         description: 'The ID of the activity to join.'
         required: true
-        example: 16
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      activity_id: 16
+      activity_id: 8
     fileParameters: []
     responses:
       -
@@ -238,7 +238,7 @@ endpoints:
         name: id
         description: 'The ID of the activity.'
         required: true
-        example: 17
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -248,15 +248,15 @@ endpoints:
         name: activityId
         description: 'The ID of the activity.'
         required: true
-        example: 4
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 17
-      activityId: 4
+      id: 1
+      activityId: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

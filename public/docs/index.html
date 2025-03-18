@@ -26,7 +26,7 @@
             </style>
 
     <script>
-        var tryItOutBaseUrl = "https://rrn24.techchantier.site/malingo/public/api/";
+        var tryItOutBaseUrl = "https://rrn24.techchantier.com/malingo/public/api/";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
@@ -187,7 +187,7 @@ Search for activities based on the provided parameters.</a>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: March 7, 2025</li>
+        <li>Last updated: March 18, 2025</li>
     </ul>
 </div>
 
@@ -201,7 +201,7 @@ a dining partner, or someone to join you for a stroll or a random conversation. 
 that enables individuals to connect, share experiences, and foster new relationships while splitting
 costs or covering expenses as agreed.</p>
 <aside>
-    <strong>Base URL</strong>: <code>https://rrn24.techchantier.site/malingo/public/api/</code>
+    <strong>Base URL</strong>: <code>https://rrn24.techchantier.com/malingo/public/api/</code>
 </aside>
 <p>This documentation aims to provide all the information you need to work with our API.</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
@@ -228,14 +228,14 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/malingo/public/api/api/activity" \
+    --get "https://rrn24.techchantier.com/malingo/public/api/api/activity" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/activity"
+    "https://rrn24.techchantier.com/malingo/public/api/api/activity"
 );
 
 const headers = {
@@ -441,15 +441,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.site/malingo/public/api/api/activity" \
+    "https://rrn24.techchantier.com/malingo/public/api/api/activity" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"title\": \"Morning Run\",
-    \"ActivityPhoto\": \"quis\",
+    \"ActivityPhoto\": \"voluptas\",
     \"description\": \"A group run in the park.\",
     \"link\": \"https:\\/\\/zoom.com\\/meeting\",
-    \"numberOfMembers\": 3,
+    \"numberOfMembers\": 7,
     \"location\": \"Central Park\",
     \"time\": \"2025-01-01 10:00:00\"
 }"
@@ -458,7 +458,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/activity"
+    "https://rrn24.techchantier.com/malingo/public/api/api/activity"
 );
 
 const headers = {
@@ -468,10 +468,10 @@ const headers = {
 
 let body = {
     "title": "Morning Run",
-    "ActivityPhoto": "quis",
+    "ActivityPhoto": "voluptas",
     "description": "A group run in the park.",
     "link": "https:\/\/zoom.com\/meeting",
-    "numberOfMembers": 3,
+    "numberOfMembers": 7,
     "location": "Central Park",
     "time": "2025-01-01 10:00:00"
 };
@@ -592,10 +592,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="ActivityPhoto"                data-endpoint="POSTapi-activity"
-               value="quis"
+               value="voluptas"
                data-component="body">
     <br>
-<p>The photo of the activity. type: [png, jpeg] Example: <code>quis</code></p>
+<p>The photo of the activity. type: [png, jpeg] Example: <code>voluptas</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -625,10 +625,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="numberOfMembers"                data-endpoint="POSTapi-activity"
-               value="3"
+               value="7"
                data-component="body">
     <br>
-<p>the number of member to the activity is required Example: <code>3</code></p>
+<p>the number of member to the activity is required Example: <code>7</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>location</code></b>&nbsp;&nbsp;
@@ -668,14 +668,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/malingo/public/api/api/activity/10" \
+    --get "https://rrn24.techchantier.com/malingo/public/api/api/activity/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/activity/10"
+    "https://rrn24.techchantier.com/malingo/public/api/api/activity/1"
 );
 
 const headers = {
@@ -787,10 +787,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-activity--id-"
-               value="10"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the activity. Example: <code>10</code></p>
+<p>The ID of the activity. Example: <code>1</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>activity</code></b>&nbsp;&nbsp;
@@ -819,15 +819,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://rrn24.techchantier.site/malingo/public/api/api/activity/4" \
+    "https://rrn24.techchantier.com/malingo/public/api/api/activity/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"title\": \"Morning Run\",
-    \"ActivityPhoto\": \"sit\",
+    \"ActivityPhoto\": \"qui\",
     \"description\": \"A group run in the park.\",
     \"link\": \"https:\\/\\/zoom.com\\/meeting\",
-    \"numberOfMembers\": 16,
+    \"numberOfMembers\": 4,
     \"location\": \"Central Park\",
     \"time\": \"2025-01-01 10:00:00\"
 }"
@@ -836,7 +836,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/activity/4"
+    "https://rrn24.techchantier.com/malingo/public/api/api/activity/1"
 );
 
 const headers = {
@@ -846,10 +846,10 @@ const headers = {
 
 let body = {
     "title": "Morning Run",
-    "ActivityPhoto": "sit",
+    "ActivityPhoto": "qui",
     "description": "A group run in the park.",
     "link": "https:\/\/zoom.com\/meeting",
-    "numberOfMembers": 16,
+    "numberOfMembers": 4,
     "location": "Central Park",
     "time": "2025-01-01 10:00:00"
 };
@@ -963,10 +963,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-activity--id-"
-               value="4"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the activity. Example: <code>4</code></p>
+<p>The ID of the activity. Example: <code>1</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>activity</code></b>&nbsp;&nbsp;
@@ -997,10 +997,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="ActivityPhoto"                data-endpoint="PUTapi-activity--id-"
-               value="sit"
+               value="qui"
                data-component="body">
     <br>
-<p>The photo of the activity. type: [png, jpeg] Example: <code>sit</code></p>
+<p>The photo of the activity. type: [png, jpeg] Example: <code>qui</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -1030,10 +1030,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="numberOfMembers"                data-endpoint="PUTapi-activity--id-"
-               value="16"
+               value="4"
                data-component="body">
     <br>
-<p>the number of member to the activity is required Example: <code>16</code></p>
+<p>the number of member to the activity is required Example: <code>4</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>location</code></b>&nbsp;&nbsp;
@@ -1073,14 +1073,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://rrn24.techchantier.site/malingo/public/api/api/activity/1" \
+    "https://rrn24.techchantier.com/malingo/public/api/api/activity/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/activity/1"
+    "https://rrn24.techchantier.com/malingo/public/api/api/activity/1"
 );
 
 const headers = {
@@ -1218,19 +1218,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.site/malingo/public/api/api/activities/13/join" \
+    "https://rrn24.techchantier.com/malingo/public/api/api/activities/1/join" \
     --header "Authorization: string required The authentication token. Example: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"activity_id\": 16
+    \"activity_id\": 8
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/activities/13/join"
+    "https://rrn24.techchantier.com/malingo/public/api/api/activities/1/join"
 );
 
 const headers = {
@@ -1240,7 +1240,7 @@ const headers = {
 };
 
 let body = {
-    "activity_id": 16
+    "activity_id": 8
 };
 
 fetch(url, {
@@ -1366,10 +1366,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="activity_id"                data-endpoint="POSTapi-activities--activity_id--join"
-               value="13"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the activity. Example: <code>13</code></p>
+<p>The ID of the activity. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1378,10 +1378,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="activity_id"                data-endpoint="POSTapi-activities--activity_id--join"
-               value="16"
+               value="8"
                data-component="body">
     <br>
-<p>The ID of the activity to join. Example: <code>16</code></p>
+<p>The ID of the activity to join. Example: <code>8</code></p>
         </div>
         </form>
 
@@ -1399,7 +1399,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/malingo/public/api/api/activities/user" \
+    --get "https://rrn24.techchantier.com/malingo/public/api/api/activities/user" \
     --header "Authorization: string required The authentication token. Example: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1407,7 +1407,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/activities/user"
+    "https://rrn24.techchantier.com/malingo/public/api/api/activities/user"
 );
 
 const headers = {
@@ -1624,14 +1624,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/malingo/public/api/api/activities/17/joined-users" \
+    --get "https://rrn24.techchantier.com/malingo/public/api/api/activities/1/joined-users" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/activities/17/joined-users"
+    "https://rrn24.techchantier.com/malingo/public/api/api/activities/1/joined-users"
 );
 
 const headers = {
@@ -1754,10 +1754,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-activities--id--joined-users"
-               value="17"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the activity. Example: <code>17</code></p>
+<p>The ID of the activity. Example: <code>1</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>activityId</code></b>&nbsp;&nbsp;
@@ -1765,10 +1765,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="activityId"                data-endpoint="GETapi-activities--id--joined-users"
-               value="4"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the activity. Example: <code>4</code></p>
+<p>The ID of the activity. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -1790,7 +1790,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.site/malingo/public/api/api/join-request/11/accept" \
+    "https://rrn24.techchantier.com/malingo/public/api/api/join-request/1/accept" \
     --header "Authorization: string required The authentication token. Example: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -1802,7 +1802,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/join-request/11/accept"
+    "https://rrn24.techchantier.com/malingo/public/api/api/join-request/1/accept"
 );
 
 const headers = {
@@ -1931,10 +1931,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="joinRequest_id"                data-endpoint="POSTapi-join-request--joinRequest_id--accept"
-               value="11"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the joinRequest. Example: <code>11</code></p>
+<p>The ID of the joinRequest. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1964,7 +1964,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.site/malingo/public/api/api/join-request/1/decline" \
+    "https://rrn24.techchantier.com/malingo/public/api/api/join-request/1/decline" \
     --header "Authorization: string required The authentication token. Example: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -1976,7 +1976,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/join-request/1/decline"
+    "https://rrn24.techchantier.com/malingo/public/api/api/join-request/1/decline"
 );
 
 const headers = {
@@ -2137,19 +2137,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.site/malingo/public/api/api/activity/8/leave" \
+    "https://rrn24.techchantier.com/malingo/public/api/api/activity/1/leave" \
     --header "Authorization: string required The authentication token. Example: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"activity_id\": 14
+    \"activity_id\": 17
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/activity/8/leave"
+    "https://rrn24.techchantier.com/malingo/public/api/api/activity/1/leave"
 );
 
 const headers = {
@@ -2159,7 +2159,7 @@ const headers = {
 };
 
 let body = {
-    "activity_id": 14
+    "activity_id": 17
 };
 
 fetch(url, {
@@ -2285,10 +2285,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="activity_id"                data-endpoint="POSTapi-activity--activity_id--leave"
-               value="8"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the activity. Example: <code>8</code></p>
+<p>The ID of the activity. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2297,10 +2297,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="activity_id"                data-endpoint="POSTapi-activity--activity_id--leave"
-               value="14"
+               value="17"
                data-component="body">
     <br>
-<p>The ID of the activity. Example: <code>14</code></p>
+<p>The ID of the activity. Example: <code>17</code></p>
         </div>
         </form>
 
@@ -2318,7 +2318,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.site/malingo/public/api/api/leave-requests/20/approve" \
+    "https://rrn24.techchantier.com/malingo/public/api/api/leave-requests/1/approve" \
     --header "Authorization: string required The authentication token. Example: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -2330,7 +2330,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/leave-requests/20/approve"
+    "https://rrn24.techchantier.com/malingo/public/api/api/leave-requests/1/approve"
 );
 
 const headers = {
@@ -2458,10 +2458,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="leaveRequest_id"                data-endpoint="POSTapi-leave-requests--leaveRequest_id--approve"
-               value="20"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the leaveRequest. Example: <code>20</code></p>
+<p>The ID of the leaveRequest. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2494,7 +2494,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.site/malingo/public/api/api/register" \
+    "https://rrn24.techchantier.com/malingo/public/api/api/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -2508,7 +2508,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/register"
+    "https://rrn24.techchantier.com/malingo/public/api/api/register"
 );
 
 const headers = {
@@ -2695,7 +2695,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.site/malingo/public/api/api/login" \
+    "https://rrn24.techchantier.com/malingo/public/api/api/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -2707,7 +2707,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/login"
+    "https://rrn24.techchantier.com/malingo/public/api/api/login"
 );
 
 const headers = {
@@ -2879,14 +2879,14 @@ Revoke all of the user&#039;s tokens to log them out.</h2>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.site/malingo/public/api/api/logout" \
+    "https://rrn24.techchantier.com/malingo/public/api/api/logout" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/logout"
+    "https://rrn24.techchantier.com/malingo/public/api/api/logout"
 );
 
 const headers = {
@@ -3010,7 +3010,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/malingo/public/api/api/users/1" \
+    --get "https://rrn24.techchantier.com/malingo/public/api/api/users/1" \
     --header "Authorization: string required The authentication token. Example: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3018,7 +3018,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/users/1"
+    "https://rrn24.techchantier.com/malingo/public/api/api/users/1"
 );
 
 const headers = {
@@ -3171,7 +3171,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/malingo/public/api/api/user" \
+    --get "https://rrn24.techchantier.com/malingo/public/api/api/user" \
     --header "reguires: a toke" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3179,7 +3179,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/user"
+    "https://rrn24.techchantier.com/malingo/public/api/api/user"
 );
 
 const headers = {
@@ -3312,27 +3312,27 @@ Retrieve activities based on specified filters.</h2>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/malingo/public/api/api/activities/filter?title=sint&amp;description=Ullam+quisquam+accusantium+excepturi+pariatur+est+ut+reprehenderit+minus.&amp;date=ex&amp;location=qui" \
+    --get "https://rrn24.techchantier.com/malingo/public/api/api/activities/filter?title=et&amp;description=Fuga+error+hic+tempora+excepturi+aliquid+qui.&amp;date=architecto&amp;location=perferendis" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"quod\",
-    \"description\": \"Deserunt vitae nihil earum maxime magnam.\",
-    \"location\": \"fugiat\"
+    \"title\": \"veritatis\",
+    \"description\": \"Praesentium expedita rerum error et architecto modi beatae.\",
+    \"location\": \"perspiciatis\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/activities/filter"
+    "https://rrn24.techchantier.com/malingo/public/api/api/activities/filter"
 );
 
 const params = {
-    "title": "sint",
-    "description": "Ullam quisquam accusantium excepturi pariatur est ut reprehenderit minus.",
-    "date": "ex",
-    "location": "qui",
+    "title": "et",
+    "description": "Fuga error hic tempora excepturi aliquid qui.",
+    "date": "architecto",
+    "location": "perferendis",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -3343,9 +3343,9 @@ const headers = {
 };
 
 let body = {
-    "title": "quod",
-    "description": "Deserunt vitae nihil earum maxime magnam.",
-    "location": "fugiat"
+    "title": "veritatis",
+    "description": "Praesentium expedita rerum error et architecto modi beatae.",
+    "location": "perspiciatis"
 };
 
 fetch(url, {
@@ -3464,10 +3464,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="GETapi-activities-filter"
-               value="sint"
+               value="et"
                data-component="query">
     <br>
-<p>optional Filter by title. Example: <code>sint</code></p>
+<p>optional Filter by title. Example: <code>et</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -3475,10 +3475,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="GETapi-activities-filter"
-               value="Ullam quisquam accusantium excepturi pariatur est ut reprehenderit minus."
+               value="Fuga error hic tempora excepturi aliquid qui."
                data-component="query">
     <br>
-<p>optional Filter by description. Example: <code>Ullam quisquam accusantium excepturi pariatur est ut reprehenderit minus.</code></p>
+<p>optional Filter by description. Example: <code>Fuga error hic tempora excepturi aliquid qui.</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -3486,10 +3486,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="GETapi-activities-filter"
-               value="ex"
+               value="architecto"
                data-component="query">
     <br>
-<p>optional Filter by date (format: y-m-d). Example: <code>ex</code></p>
+<p>optional Filter by date (format: y-m-d). Example: <code>architecto</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>location</code></b>&nbsp;&nbsp;
@@ -3497,10 +3497,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="location"                data-endpoint="GETapi-activities-filter"
-               value="qui"
+               value="perferendis"
                data-component="query">
     <br>
-<p>optional Filter by location. Example: <code>qui</code></p>
+<p>optional Filter by location. Example: <code>perferendis</code></p>
             </div>
                         <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3509,10 +3509,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="GETapi-activities-filter"
-               value="quod"
+               value="veritatis"
                data-component="body">
     <br>
-<p>Example: <code>quod</code></p>
+<p>Example: <code>veritatis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -3520,10 +3520,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="GETapi-activities-filter"
-               value="Deserunt vitae nihil earum maxime magnam."
+               value="Praesentium expedita rerum error et architecto modi beatae."
                data-component="body">
     <br>
-<p>Example: <code>Deserunt vitae nihil earum maxime magnam.</code></p>
+<p>Example: <code>Praesentium expedita rerum error et architecto modi beatae.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -3542,10 +3542,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="location"                data-endpoint="GETapi-activities-filter"
-               value="fugiat"
+               value="perspiciatis"
                data-component="body">
     <br>
-<p>Example: <code>fugiat</code></p>
+<p>Example: <code>perspiciatis</code></p>
         </div>
         </form>
 
@@ -3564,27 +3564,27 @@ Search for activities based on the provided parameters.</h2>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.site/malingo/public/api/api/activities/search?title=ea&amp;description=Saepe+doloremque+neque+consequatur+laudantium+temporibus+dicta.&amp;location=neque&amp;date=eum" \
+    --get "https://rrn24.techchantier.com/malingo/public/api/api/activities/search?title=atque&amp;description=Debitis+qui+magni+voluptatum+quidem+quia+placeat+excepturi.&amp;location=odit&amp;date=sint" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"quibusdam\",
-    \"description\": \"Aut qui incidunt aliquam.\",
-    \"location\": \"neque\"
+    \"title\": \"quis\",
+    \"description\": \"Est natus sit voluptas animi.\",
+    \"location\": \"culpa\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.site/malingo/public/api/api/activities/search"
+    "https://rrn24.techchantier.com/malingo/public/api/api/activities/search"
 );
 
 const params = {
-    "title": "ea",
-    "description": "Saepe doloremque neque consequatur laudantium temporibus dicta.",
-    "location": "neque",
-    "date": "eum",
+    "title": "atque",
+    "description": "Debitis qui magni voluptatum quidem quia placeat excepturi.",
+    "location": "odit",
+    "date": "sint",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -3595,9 +3595,9 @@ const headers = {
 };
 
 let body = {
-    "title": "quibusdam",
-    "description": "Aut qui incidunt aliquam.",
-    "location": "neque"
+    "title": "quis",
+    "description": "Est natus sit voluptas animi.",
+    "location": "culpa"
 };
 
 fetch(url, {
@@ -3707,10 +3707,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="GETapi-activities-search"
-               value="ea"
+               value="atque"
                data-component="query">
     <br>
-<p>optional Filter by title. Example: <code>ea</code></p>
+<p>optional Filter by title. Example: <code>atque</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -3718,10 +3718,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="GETapi-activities-search"
-               value="Saepe doloremque neque consequatur laudantium temporibus dicta."
+               value="Debitis qui magni voluptatum quidem quia placeat excepturi."
                data-component="query">
     <br>
-<p>optional Filter by description. Example: <code>Saepe doloremque neque consequatur laudantium temporibus dicta.</code></p>
+<p>optional Filter by description. Example: <code>Debitis qui magni voluptatum quidem quia placeat excepturi.</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>location</code></b>&nbsp;&nbsp;
@@ -3729,10 +3729,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="location"                data-endpoint="GETapi-activities-search"
-               value="neque"
+               value="odit"
                data-component="query">
     <br>
-<p>optional Filter by location. Example: <code>neque</code></p>
+<p>optional Filter by location. Example: <code>odit</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -3740,10 +3740,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="GETapi-activities-search"
-               value="eum"
+               value="sint"
                data-component="query">
     <br>
-<p>optional Filter by date (format: y-m-d). Example: <code>eum</code></p>
+<p>optional Filter by date (format: y-m-d). Example: <code>sint</code></p>
             </div>
                         <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3752,10 +3752,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="GETapi-activities-search"
-               value="quibusdam"
+               value="quis"
                data-component="body">
     <br>
-<p>Example: <code>quibusdam</code></p>
+<p>Example: <code>quis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -3763,10 +3763,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="GETapi-activities-search"
-               value="Aut qui incidunt aliquam."
+               value="Est natus sit voluptas animi."
                data-component="body">
     <br>
-<p>Example: <code>Aut qui incidunt aliquam.</code></p>
+<p>Example: <code>Est natus sit voluptas animi.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>location</code></b>&nbsp;&nbsp;
@@ -3774,10 +3774,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="location"                data-endpoint="GETapi-activities-search"
-               value="neque"
+               value="culpa"
                data-component="body">
     <br>
-<p>Example: <code>neque</code></p>
+<p>Example: <code>culpa</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;

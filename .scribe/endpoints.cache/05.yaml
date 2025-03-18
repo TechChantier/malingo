@@ -29,7 +29,7 @@ endpoints:
         name: title
         description: 'optional Filter by title.'
         required: false
-        example: sint
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -39,7 +39,7 @@ endpoints:
         name: description
         description: 'optional Filter by description.'
         required: false
-        example: 'Ullam quisquam accusantium excepturi pariatur est ut reprehenderit minus.'
+        example: 'Fuga error hic tempora excepturi aliquid qui.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -49,7 +49,7 @@ endpoints:
         name: date
         description: 'optional Filter by date (format: y-m-d).'
         required: false
-        example: ex
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -59,23 +59,23 @@ endpoints:
         name: location
         description: 'optional Filter by location.'
         required: false
-        example: qui
+        example: perferendis
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanQueryParameters:
-      title: sint
-      description: 'Ullam quisquam accusantium excepturi pariatur est ut reprehenderit minus.'
-      date: ex
-      location: qui
+      title: et
+      description: 'Fuga error hic tempora excepturi aliquid qui.'
+      date: architecto
+      location: perferendis
     bodyParameters:
       title:
         name: title
         description: ''
         required: false
-        example: quod
+        example: veritatis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -85,7 +85,7 @@ endpoints:
         name: description
         description: ''
         required: false
-        example: 'Deserunt vitae nihil earum maxime magnam.'
+        example: 'Praesentium expedita rerum error et architecto modi beatae.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -105,16 +105,16 @@ endpoints:
         name: location
         description: ''
         required: false
-        example: fugiat
+        example: perspiciatis
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      title: quod
-      description: 'Deserunt vitae nihil earum maxime magnam.'
-      location: fugiat
+      title: veritatis
+      description: 'Praesentium expedita rerum error et architecto modi beatae.'
+      location: perspiciatis
     fileParameters: []
     responses:
       -
@@ -179,7 +179,7 @@ endpoints:
         name: title
         description: 'optional Filter by title.'
         required: false
-        example: ea
+        example: atque
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -189,7 +189,7 @@ endpoints:
         name: description
         description: 'optional Filter by description.'
         required: false
-        example: 'Saepe doloremque neque consequatur laudantium temporibus dicta.'
+        example: 'Debitis qui magni voluptatum quidem quia placeat excepturi.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -199,7 +199,7 @@ endpoints:
         name: location
         description: 'optional Filter by location.'
         required: false
-        example: neque
+        example: odit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -209,23 +209,23 @@ endpoints:
         name: date
         description: 'optional Filter by date (format: y-m-d).'
         required: false
-        example: eum
+        example: sint
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanQueryParameters:
-      title: ea
-      description: 'Saepe doloremque neque consequatur laudantium temporibus dicta.'
-      location: neque
-      date: eum
+      title: atque
+      description: 'Debitis qui magni voluptatum quidem quia placeat excepturi.'
+      location: odit
+      date: sint
     bodyParameters:
       title:
         name: title
         description: ''
         required: false
-        example: quibusdam
+        example: quis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -235,7 +235,7 @@ endpoints:
         name: description
         description: ''
         required: false
-        example: 'Aut qui incidunt aliquam.'
+        example: 'Est natus sit voluptas animi.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -245,7 +245,7 @@ endpoints:
         name: location
         description: ''
         required: false
-        example: neque
+        example: culpa
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -262,9 +262,9 @@ endpoints:
         nullable: true
         custom: []
     cleanBodyParameters:
-      title: quibusdam
-      description: 'Aut qui incidunt aliquam.'
-      location: neque
+      title: quis
+      description: 'Est natus sit voluptas animi.'
+      location: culpa
     fileParameters: []
     responses:
       -

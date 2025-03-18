@@ -23,14 +23,14 @@ endpoints:
         name: joinRequest_id
         description: 'The ID of the joinRequest.'
         required: true
-        example: 11
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      joinRequest_id: 11
+      joinRequest_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -166,14 +166,14 @@ endpoints:
         name: activity_id
         description: 'The ID of the activity.'
         required: true
-        example: 8
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      activity_id: 8
+      activity_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -181,14 +181,14 @@ endpoints:
         name: activity_id
         description: 'The ID of the activity.'
         required: true
-        example: 14
+        example: 17
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      activity_id: 14
+      activity_id: 17
     fileParameters: []
     responses:
       -
@@ -245,14 +245,14 @@ endpoints:
         name: leaveRequest_id
         description: 'The ID of the leaveRequest.'
         required: true
-        example: 20
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      leaveRequest_id: 20
+      leaveRequest_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
