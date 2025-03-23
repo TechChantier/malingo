@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Malingo api documentation",
-        "_postman_id": "3e0a76ac-f1b7-41f4-a586-1b10af92a87a",
+        "_postman_id": "bdc9db6d-a54c-4a90-b832-91b7e6fb34d2",
         "description": "This api documentation contains all the endpoints for the malingo project. \n    a platform where you can effortlessly find companions for your next adventure, be it a travel buddy,\n     a dining partner, or someone to join you for a stroll or a random conversation. Malingo is a solution\n      that enables individuals to connect, share experiences, and foster new relationships while splitting\n       costs or covering expenses as agreed.\n    ",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
