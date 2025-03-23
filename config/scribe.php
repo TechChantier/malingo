@@ -16,14 +16,16 @@ return [
 
     // The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url') at generation time.
     // If you're using `laravel` type, you can set this to a dynamic string, like '{{ config("app.tenant_url") }}' to get a dynamic base URL.
-    'base_url' => null,
+    'base_url' => 'https://rrn24.techchantier.com/malingo/public/api',
 
     'routes' => [
         [
             // Routes that match these conditions will be included in the docs
             'match' => [
                 // Match only routes whose paths match this pattern (use * as a wildcard to match any characters). Example: 'users/*'.
-                'prefixes' => ['api/*'],
+                'prefixes' => [
+                    // No prefix
+                ],
 
                 // Match only routes whose domains match this pattern (use * as a wildcard to match any characters). Example: 'api.*'.
                 'domains' => ['*'],

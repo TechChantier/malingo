@@ -26,7 +26,7 @@ Route::get('/activities/user', [ActivityController::class, 'getUserActivities'])
 
 //  filter route and search route
 Route::get('/activities/filter', [ActivityController::class, 'filterActivities']);
-Route::get('/activities/search', [ActivityController::class, 'search']);
+Route::get('/search/{parameter?}', [ActivityController::class, 'search']);
 
 //get number of users who joined an activity
 Route::get('/activities/{id}/joined-users', [ActivityController::class, 'getJoinedUsers']);

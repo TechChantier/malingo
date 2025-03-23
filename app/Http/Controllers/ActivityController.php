@@ -524,65 +524,66 @@ class ActivityController extends Controller implements HasMiddleware
 
 
     /**
-     * @group Searching
-     * Search activities by title, description, location, or date
-     *
-     * Search for activities based on the provided parameters.
-     *
-     * @queryParam title string optional Filter by title.
-     * @queryParam description string optional Filter by description.
-     * @queryParam location string optional Filter by location.
-     * @queryParam date string optional Filter by date (format: y-m-d).
-     *
-     * @response 200 [
-     *    {
-     *        "id": 5,
-     *        "user_id": 1,
-     *        "title": "Hiking go and hike with me",
-     *        "ActivityPhoto": "activity_photos/QDEBUm8GSGbdAFob56QOh4EidyLtgFR5NckhQFBQ.jpg",
-     *        "description": "this is a good activity",
-     *        "link": "https//wa.me/237672474539",
-     *        "numberOfMembers": 10,
-     *        "location": "buea",
-     *        "time": "2025-02-15 08:00:00",
-     *        "created_at": "2025-02-04T09:11:42.000000Z",
-     *        "updated_at": "2025-02-04T11:43:41.000000Z"
-     *    }
-     *]
-     */
-    public function search(Request $request)
-    {
+ * @group Searching
+ * Search activities by parameter or specific fields
+ *
+ * Search for activities using a general parameter or specific field filters.
+ *
+ * @urlParam parameter string optional General search term to find across title, description, and location.
+ * @queryParam title string optional Filter by title.
+ * @queryParam description string optional Filter by description.
+ * @queryParam location string optional Filter by location.
+ * @queryParam date string optional Filter by date (format: y-m-d).
+ *
+ * @response 200 [
+ *    {
+ *        "id": 5,
+ *        "user_id": 1,
+ *        "title": "Hiking go and hike with me",
+ *        "ActivityPhoto": "activity_photos/QDEBUm8GSGbdAFob56QOh4EidyLtgFR5NckhQFBQ.jpg",
+ *        "description": "this is a good activity",
+ *        "link": "https//wa.me/237672474539",
+ *        "numberOfMembers": 10,
+ *        "location": "buea",
+ *        "time": "2025-02-15 08:00:00",
+ *        "created_at": "2025-02-04T09:11:42.000000Z",
+ *        "updated_at": "2025-02-04T11:43:41.000000Z"
+ *    }
+ *]
+ */
+public function search(Request $request, $parameter = null)
+{
+    // Start with a base query
+    $query = Activity::query();
 
-        $request->validate([
-            'title' => 'nullable|string',
-            'description' => 'nullable|string',
-            'location' => 'nullable|string',
-            'date' => 'nullable'
-        ]);
-
-        //define the searc parameters
-        $query = Activity::query();
-
-        //filter the search parameters
-        if ($request->has('title')) {
-            $query->where('title', 'LIKE', '%' . $request->title . '%');
-        }
-        if ($request->has('description')) {
-            $query->where('description', 'LIKE', '%' . $request->description . '%');
-        }
-        if ($request->has('location')) {
-            $query->where('location', 'LIKE', '%' . $request->location . '%');
-        }
-        if ($request->has('date')) {
-            $query->whereDate('time', $request->date); //assuming time is store as date time field
-        }
-
-        //order by date in descending order
-        $activity = $query->orderBy('time', 'desc')->get();
-
-        return response()->json($activity);
+    // If a path parameter is provided, search across all searchable fields
+    if ($parameter) {
+        $query->where(function($q) use ($parameter) {
+            $q->where('title', 'LIKE', "%{$parameter}%")
+              ->orWhere('description', 'LIKE', "%{$parameter}%")
+              ->orWhere('location', 'LIKE', "%{$parameter}%");
+        });
     }
 
+    // Handle additional query parameters as before
+    if ($request->has('title')) {
+        $query->where('title', 'LIKE', '%' . $request->title . '%');
+    }
+    if ($request->has('description')) {
+        $query->where('description', 'LIKE', '%' . $request->description . '%');
+    }
+    if ($request->has('location')) {
+        $query->where('location', 'LIKE', '%' . $request->location . '%');
+    }
+    if ($request->has('date')) {
+        $query->whereDate('time', $request->date);
+    }
+
+    // Order by date in descending order
+    $activity = $query->orderBy('time', 'desc')->get();
+
+    return response()->json($activity);
+}
 
     /**
      * @group Activity Request
