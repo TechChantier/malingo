@@ -5,6 +5,6 @@ info:
   version: 1.0.0
 servers:
   -
-    url: 'https://rrn24.techchantier.com/malingo/public/api'
+    url: 'https://rrn24.techchantier.com/malingo/public'
 paths: []
 tags: []

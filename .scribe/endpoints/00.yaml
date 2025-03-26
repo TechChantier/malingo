@@ -1,0 +1,443 @@
+name: Activities
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/activity
+    metadata:
+      groupName: Activities
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get all activities'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"created_activities":[{"id":1,"user_id":1,"title":"Hiking Adventure","ActivityPhoto":null,"description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":10,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T08:19:02.000000Z","updated_at":"2025-02-04T08:19:02.000000Z"},{"id":2,"user_id":1,"title":"Hiking Adventure","ActivityPhoto":null,"description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":10,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T08:25:56.000000Z","updated_at":"2025-02-04T08:25:56.000000Z"},{"id":3,"user_id":1,"title":"Hiking Adventure","ActivityPhoto":null,"description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":10,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T08:36:04.000000Z","updated_at":"2025-02-04T08:36:04.000000Z"},{"id":4,"user_id":1,"title":"Hiking Adventure","ActivityPhoto":"activity_photos\/rj6fjePPJweFYZf07s9dCtAjL84pKv12XGzWIW81.jpg","description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":10,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T09:07:10.000000Z","updated_at":"2025-02-04T09:07:10.000000Z"},{"id":5,"user_id":1,"title":"Join me at Tech Chantier","ActivityPhoto":"activity_photos\/2bAlnxzYIELlyfUW02fyNbLIobPMGzrUj8DLtchk.jpg","description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":10,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T09:11:42.000000Z","updated_at":"2025-02-04T09:11:42.000000Z"},{"id":6,"user_id":1,"title":"Join me at Tech Chantier","ActivityPhoto":"activity_photos\/OfdYJQsOrGOnYCKFtPDrhhv2Kp7PP5zZ40Q08Exk.jpg","description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":10,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T09:13:20.000000Z","updated_at":"2025-02-04T09:13:20.000000Z"},{"id":7,"user_id":1,"title":"Join me at Tech Chantier","ActivityPhoto":"activity_photos\/wvnmS2UuVkm1pfcNbhqcq6ouYonmj3G5Qd2KL69x.jpg","description":"A thrilling hike to the mountain peak.","link":"https:\/\/example.com\/hiking-event","numberOfMembers":40,"location":"Mount Fako, Cameroon","time":"2025-02-15 08:00:00","created_at":"2025-02-04T09:18:46.000000Z","updated_at":"2025-02-04T09:18:46.000000Z"}],"pending_activities":[],"accepted_activities":[],"declined_activities":[]}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/activity
+    metadata:
+      groupName: Activities
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create a new activity'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: 'required: The title of the activity.'
+        required: false
+        example: 'Morning Run'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      ActivityPhoto:
+        name: ActivityPhoto
+        description: 'The photo of the activity. type: [png, jpeg]'
+        required: true
+        example: consequatur
+        type: 'file:'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: 'required:  The description of the activity.'
+        required: false
+        example: 'A group run in the park.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      link:
+        name: link
+        description: 'required: The link to the activity (if any).'
+        required: false
+        example: 'https://zoom.com/meeting'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      numberOfMembers:
+        name: numberOfMembers
+        description: 'the number of member to the activity is required'
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      location:
+        name: location
+        description: 'required: The location of the activity.'
+        required: false
+        example: 'Central Park'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      time:
+        name: time
+        description: 'required: The date and time of the activity. Format: Y-m-d H:i:s.'
+        required: false
+        example: '2025-01-01 10:00:00'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      title: 'Morning Run'
+      ActivityPhoto: consequatur
+      description: 'A group run in the park.'
+      link: 'https://zoom.com/meeting'
+      numberOfMembers: 17
+      location: 'Central Park'
+      time: '2025-01-01 10:00:00'
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+          "title": "Join me at Tech Chantier",
+          "ActivityPhoto": "activity_photos/wvnmS2UuVkm1pfcNbhqcq6ouYonmj3G5Qd2KL69x.jpg",
+          "description": "A thrilling hike to the mountain peak.",
+          "link": "https://example.com/hiking-event",
+          "numberOfMembers": "40",
+          "location": "Mount Fako, Cameroon",
+          "time": "2025-02-15 08:00:00",
+          "user_id": 1,
+          "updated_at": "2025-02-04T09:18:46.000000Z",
+          "created_at": "2025-02-04T09:18:46.000000Z",
+          "id": 7
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/activity/{id}'
+    metadata:
+      groupName: Activities
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get activity details'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the activity.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      activity:
+        name: activity
+        description: 'The ID of the activity.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+      activity: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "id": 5,
+          "user_id": 1,
+          "title": "Join me at Tech Chantier",
+          "ActivityPhoto": "activity_photos/2bAlnxzYIELlyfUW02fyNbLIobPMGzrUj8DLtchk.jpg",
+          "description": "A thrilling hike to the mountain peak.",
+          "link": "https://example.com/hiking-event",
+          "numberOfMembers": 10,
+          "location": "Mount Fako, Cameroon",
+          "time": "2025-02-15 08:00:00",
+          "created_at": "2025-02-04T09:11:42.000000Z",
+          "updated_at": "2025-02-04T09:11:42.000000Z"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/activity/{id}'
+    metadata:
+      groupName: Activities
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update an activity'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the activity.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      activity:
+        name: activity
+        description: 'The ID of the activity to update.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+      activity: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: ': The title of the activity.'
+        required: false
+        example: 'Morning Run'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      ActivityPhoto:
+        name: ActivityPhoto
+        description: 'The photo of the activity. type: [png, jpeg]'
+        required: false
+        example: consequatur
+        type: 'file:'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: 'The description of the activity.'
+        required: false
+        example: 'A group run in the park.'
+        type: 'string:'
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      link:
+        name: link
+        description: 'The link to the activity (if any).'
+        required: false
+        example: 'https://zoom.com/meeting'
+        type: 'string:'
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      numberOfMembers:
+        name: numberOfMembers
+        description: 'the number of member to the activity is required'
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      location:
+        name: location
+        description: 'The location of the activity.'
+        required: false
+        example: 'Central Park'
+        type: 'string:'
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      time:
+        name: time
+        description: 'The date and time of the activity. Format: Y-m-d H:i:s.'
+        required: false
+        example: '2025-01-01 10:00:00'
+        type: 'datetime:'
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      title: 'Morning Run'
+      ActivityPhoto: consequatur
+      description: 'A group run in the park.'
+      link: 'https://zoom.com/meeting'
+      numberOfMembers: 17
+      location: 'Central Park'
+      time: '2025-01-01 10:00:00'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "id": 5,
+          "user_id": 1,
+          "title": "Hiking go and hike with me",
+          "ActivityPhoto": "activity_photos/uNughpq7aXWNcUTYFOgFBFEFxqcr3DeY60PuOwNu.jpg",
+          "description": "this is a good activity",
+          "link": "https//wa.me/237672474539",
+          "numberOfMembers": "10",
+          "location": "buea",
+          "time": "2025-02-15 08:00:00",
+          "created_at": "2025-02-04T09:11:42.000000Z",
+          "updated_at": "2025-02-04T11:35:10.000000Z"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/activity/{id}'
+    metadata:
+      groupName: Activities
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete an activity'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the activity.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      activity:
+        name: activity
+        description: 'The ID of the activity to delete.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+      activity: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"message": "Activity deleted successfully"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
