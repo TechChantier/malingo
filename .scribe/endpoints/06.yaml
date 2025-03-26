@@ -1,27 +1,234 @@
-name: 'General User Enpoints'
+name: Searching
 description: ''
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/user
+    uri: api/activities/filter
     metadata:
-      groupName: 'General User Enpoints'
+      groupName: Searching
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: |-
+        Filter activities by title, description, date, and location
+
+        Retrieve activities based on specified filters.
       description: ''
-      authenticated: true
+      authenticated: false
       custom: []
     headers:
-      reguires: 'a toke'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
+    queryParameters:
+      title:
+        name: title
+        description: 'optional Filter by title.'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: 'optional Filter by description.'
+        required: false
+        example: 'Dolores dolorum amet iste laborum eius est dolor.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      date:
+        name: date
+        description: 'optional Filter by date (format: y-m-d).'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      location:
+        name: location
+        description: 'optional Filter by location.'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanQueryParameters:
+      title: consequatur
+      description: 'Dolores dolorum amet iste laborum eius est dolor.'
+      date: consequatur
+      location: consequatur
+    bodyParameters:
+      title:
+        name: title
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Dolores dolorum amet iste laborum eius est dolor.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      date:
+        name: date
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      location:
+        name: location
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      title: consequatur
+      description: 'Dolores dolorum amet iste laborum eius est dolor.'
+      location: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          [
+          {
+             "id": 5,
+             "user_id": 1,
+             "title": "Hiking go and hike with me",
+             "ActivityPhoto": "activity_photos/QDEBUm8GSGbdAFob56QOh4EidyLtgFR5NckhQFBQ.jpg",
+             "description": "this is a good activity",
+             "link": "https//wa.me/237672474539",
+             "numberOfMembers": 10,
+             "location": "buea",
+             "time": "2025-02-15 08:00:00",
+              "created_at": "2025-02-04T09:11:42.000000Z",
+              "updated_at": "2025-02-04T11:43:41.000000Z"
+          }
+          ]
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+            "message": "Invalid date format, please use a valid date"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/search/{parameter?}'
+    metadata:
+      groupName: Searching
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        Search activities by parameter or specific fields
+
+        Search for activities using a general parameter or specific field filters.
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      parameter:
+        name: parameter
+        description: 'optional General search term to find across title, description, and location.'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      parameter: consequatur
+    queryParameters:
+      title:
+        name: title
+        description: 'optional Filter by title.'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: 'optional Filter by description.'
+        required: false
+        example: 'Dolores dolorum amet iste laborum eius est dolor.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      location:
+        name: location
+        description: 'optional Filter by location.'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      date:
+        name: date
+        description: 'optional Filter by date (format: y-m-d).'
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanQueryParameters:
+      title: consequatur
+      description: 'Dolores dolorum amet iste laborum eius est dolor.'
+      location: consequatur
+      date: consequatur
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -29,14 +236,21 @@ endpoints:
       -
         status: 200
         content: |-
-          {
-          "id": 2,
-          "name": "Nkwi Cyril",
-          "email": "nkwicyril@gmail.com",
-          "email_verified_at": null,
-            "created_at": "2025-02-04T09:37:07.000000Z",
-            "updated_at": "2025-02-04T09:37:07.000000Z"
-          }
+          [
+             {
+                 "id": 5,
+                 "user_id": 1,
+                 "title": "Hiking go and hike with me",
+                 "ActivityPhoto": "activity_photos/QDEBUm8GSGbdAFob56QOh4EidyLtgFR5NckhQFBQ.jpg",
+                 "description": "this is a good activity",
+                 "link": "https//wa.me/237672474539",
+                 "numberOfMembers": 10,
+                 "location": "buea",
+                 "time": "2025-02-15 08:00:00",
+                 "created_at": "2025-02-04T09:11:42.000000Z",
+                 "updated_at": "2025-02-04T11:43:41.000000Z"
+             }
+          ]
         headers: []
         description: ''
         custom: []

@@ -16,6 +16,12 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 Route::get('users/{id}', [UserController::class, 'show']);
 
+// Profile management 
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/user/edit-profile', [UserController::class, 'editProfile']);
+    Route::get('/user/profile', [UserController::class, 'getCurrentUserProfile']);
+});
+
 //manage the joining of an activity
 Route::post('/activities/{activity}/join', [ActivityController::class, 'joinActivity'])->middleware('auth:sanctum');
 Route::post('/join-request/{joinRequest}/accept', [JoinRequestController::class, 'acceptRequest'])->middleware('auth:sanctum');

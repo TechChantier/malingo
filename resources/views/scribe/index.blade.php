@@ -141,13 +141,13 @@ Revoke all of the user's tokens to log them out.</a>
                             </li>
                                                                         </ul>
                             </ul>
-                    <ul id="tocify-header-geneneral-user-endpoints" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="geneneral-user-endpoints">
-                    <a href="#geneneral-user-endpoints">Geneneral User Endpoints</a>
+                    <ul id="tocify-header-endpoints" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="endpoints">
+                    <a href="#endpoints">Endpoints</a>
                 </li>
-                                    <ul id="tocify-subheader-geneneral-user-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="geneneral-user-endpoints-GETapi-users--id-">
-                                <a href="#geneneral-user-endpoints-GETapi-users--id-">get single user details by ID</a>
+                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-users--id-">
+                                <a href="#endpoints-GETapi-users--id-">Get a single user's public profile</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -158,6 +158,19 @@ Revoke all of the user's tokens to log them out.</a>
                                     <ul id="tocify-subheader-general-user-enpoints" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="general-user-enpoints-GETapi-user">
                                 <a href="#general-user-enpoints-GETapi-user">GET api/user</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-profile-management" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="profile-management">
+                    <a href="#profile-management">Profile Management</a>
+                </li>
+                                    <ul id="tocify-subheader-profile-management" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="profile-management-POSTapi-user-edit-profile">
+                                <a href="#profile-management-POSTapi-user-edit-profile">Edit User Profile</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="profile-management-GETapi-user-profile">
+                                <a href="#profile-management-GETapi-user-profile">Get Current User Profile</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -187,7 +200,7 @@ Search for activities using a general parameter or specific field filters.</a>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: March 23, 2025</li>
+        <li>Last updated: March 26, 2025</li>
     </ul>
 </div>
 
@@ -668,14 +681,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.com/malingo/public/api/api/activity/1" \
+    --get "https://rrn24.techchantier.com/malingo/public/api/api/activity/17" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.com/malingo/public/api/api/activity/1"
+    "https://rrn24.techchantier.com/malingo/public/api/api/activity/17"
 );
 
 const headers = {
@@ -787,10 +800,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-activity--id-"
-               value="1"
+               value="17"
                data-component="url">
     <br>
-<p>The ID of the activity. Example: <code>1</code></p>
+<p>The ID of the activity. Example: <code>17</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>activity</code></b>&nbsp;&nbsp;
@@ -819,7 +832,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://rrn24.techchantier.com/malingo/public/api/api/activity/1" \
+    "https://rrn24.techchantier.com/malingo/public/api/api/activity/17" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -836,7 +849,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.com/malingo/public/api/api/activity/1"
+    "https://rrn24.techchantier.com/malingo/public/api/api/activity/17"
 );
 
 const headers = {
@@ -963,10 +976,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-activity--id-"
-               value="1"
+               value="17"
                data-component="url">
     <br>
-<p>The ID of the activity. Example: <code>1</code></p>
+<p>The ID of the activity. Example: <code>17</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>activity</code></b>&nbsp;&nbsp;
@@ -1073,14 +1086,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://rrn24.techchantier.com/malingo/public/api/api/activity/1" \
+    "https://rrn24.techchantier.com/malingo/public/api/api/activity/17" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.com/malingo/public/api/api/activity/1"
+    "https://rrn24.techchantier.com/malingo/public/api/api/activity/17"
 );
 
 const headers = {
@@ -1182,10 +1195,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-activity--id-"
-               value="1"
+               value="17"
                data-component="url">
     <br>
-<p>The ID of the activity. Example: <code>1</code></p>
+<p>The ID of the activity. Example: <code>17</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>activity</code></b>&nbsp;&nbsp;
@@ -1218,7 +1231,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.com/malingo/public/api/api/activities/1/join" \
+    "https://rrn24.techchantier.com/malingo/public/api/api/activities/17/join" \
     --header "Authorization: string required The authentication token. Example: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -1230,7 +1243,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.com/malingo/public/api/api/activities/1/join"
+    "https://rrn24.techchantier.com/malingo/public/api/api/activities/17/join"
 );
 
 const headers = {
@@ -1366,10 +1379,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="activity_id"                data-endpoint="POSTapi-activities--activity_id--join"
-               value="1"
+               value="17"
                data-component="url">
     <br>
-<p>The ID of the activity. Example: <code>1</code></p>
+<p>The ID of the activity. Example: <code>17</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1624,14 +1637,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.com/malingo/public/api/api/activities/1/joined-users" \
+    --get "https://rrn24.techchantier.com/malingo/public/api/api/activities/17/joined-users" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.com/malingo/public/api/api/activities/1/joined-users"
+    "https://rrn24.techchantier.com/malingo/public/api/api/activities/17/joined-users"
 );
 
 const headers = {
@@ -1754,10 +1767,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-activities--id--joined-users"
-               value="1"
+               value="17"
                data-component="url">
     <br>
-<p>The ID of the activity. Example: <code>1</code></p>
+<p>The ID of the activity. Example: <code>17</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>activityId</code></b>&nbsp;&nbsp;
@@ -1790,7 +1803,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.com/malingo/public/api/api/join-request/1/accept" \
+    "https://rrn24.techchantier.com/malingo/public/api/api/join-request/17/accept" \
     --header "Authorization: string required The authentication token. Example: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -1802,7 +1815,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.com/malingo/public/api/api/join-request/1/accept"
+    "https://rrn24.techchantier.com/malingo/public/api/api/join-request/17/accept"
 );
 
 const headers = {
@@ -1931,10 +1944,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="joinRequest_id"                data-endpoint="POSTapi-join-request--joinRequest_id--accept"
-               value="1"
+               value="17"
                data-component="url">
     <br>
-<p>The ID of the joinRequest. Example: <code>1</code></p>
+<p>The ID of the joinRequest. Example: <code>17</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1964,7 +1977,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.com/malingo/public/api/api/join-request/1/decline" \
+    "https://rrn24.techchantier.com/malingo/public/api/api/join-request/17/decline" \
     --header "Authorization: string required The authentication token. Example: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -1976,7 +1989,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.com/malingo/public/api/api/join-request/1/decline"
+    "https://rrn24.techchantier.com/malingo/public/api/api/join-request/17/decline"
 );
 
 const headers = {
@@ -2104,10 +2117,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="joinRequest_id"                data-endpoint="POSTapi-join-request--joinRequest_id--decline"
-               value="1"
+               value="17"
                data-component="url">
     <br>
-<p>The ID of the joinRequest. Example: <code>1</code></p>
+<p>The ID of the joinRequest. Example: <code>17</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2137,7 +2150,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.com/malingo/public/api/api/activity/1/leave" \
+    "https://rrn24.techchantier.com/malingo/public/api/api/activity/17/leave" \
     --header "Authorization: string required The authentication token. Example: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -2149,7 +2162,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.com/malingo/public/api/api/activity/1/leave"
+    "https://rrn24.techchantier.com/malingo/public/api/api/activity/17/leave"
 );
 
 const headers = {
@@ -2285,10 +2298,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="activity_id"                data-endpoint="POSTapi-activity--activity_id--leave"
-               value="1"
+               value="17"
                data-component="url">
     <br>
-<p>The ID of the activity. Example: <code>1</code></p>
+<p>The ID of the activity. Example: <code>17</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2318,7 +2331,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://rrn24.techchantier.com/malingo/public/api/api/leave-requests/1/approve" \
+    "https://rrn24.techchantier.com/malingo/public/api/api/leave-requests/17/approve" \
     --header "Authorization: string required The authentication token. Example: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -2330,7 +2343,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.com/malingo/public/api/api/leave-requests/1/approve"
+    "https://rrn24.techchantier.com/malingo/public/api/api/leave-requests/17/approve"
 );
 
 const headers = {
@@ -2458,10 +2471,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="leaveRequest_id"                data-endpoint="POSTapi-leave-requests--leaveRequest_id--approve"
-               value="1"
+               value="17"
                data-component="url">
     <br>
-<p>The ID of the leaveRequest. Example: <code>1</code></p>
+<p>The ID of the leaveRequest. Example: <code>17</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2992,14 +3005,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                <h1 id="geneneral-user-endpoints">Geneneral User Endpoints</h1>
+                <h1 id="endpoints">Endpoints</h1>
 
     
 
-                                <h2 id="geneneral-user-endpoints-GETapi-users--id-">get single user details by ID</h2>
+                                <h2 id="endpoints-GETapi-users--id-">Get a single user&#039;s public profile</h2>
 
 <p>
-<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -3010,19 +3022,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://rrn24.techchantier.com/malingo/public/api/api/users/1" \
-    --header "Authorization: string required The authentication token. Example: Bearer {token}" \
+    --get "https://rrn24.techchantier.com/malingo/public/api/api/users/consequatur" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://rrn24.techchantier.com/malingo/public/api/api/users/1"
+    "https://rrn24.techchantier.com/malingo/public/api/api/users/consequatur"
 );
 
 const headers = {
-    "Authorization": "string required The authentication token. Example: Bearer {token}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -3036,26 +3046,18 @@ fetch(url, {
 
 <span id="example-responses-GETapi-users--id-">
             <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 1,
-    &quot;name&quot;: &quot;Nkuma Confident&quot;,
-    &quot;email&quot;: &quot;nsem@gmail.com&quot;,
-    &quot;email_verified_at&quot;: null,
-    &quot;created_at&quot;: &quot;2025-02-04T08:18:33.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2025-02-04T08:18:33.000000Z&quot;
-}</code>
- </pre>
-            <blockquote>
             <p>Example response (404):</p>
         </blockquote>
-                <pre>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;User not found&quot;
+    &quot;message&quot;: &quot;The route malingo/public/api//api/users/consequatur could not be found.&quot;
 }</code>
  </pre>
     </span>
@@ -3076,7 +3078,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-GETapi-users--id-" data-method="GET"
       data-path="api/users/{id}"
-      data-authed="1"
+      data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -3107,17 +3109,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-users--id-"
-               value="string required The authentication token. Example: Bearer {token}"
-               data-component="header">
-    <br>
-<p>Example: <code>string required The authentication token. Example: Bearer {token}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
  &nbsp;
@@ -3142,14 +3133,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+<small>string</small>&nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="GETapi-users--id-"
-               value="1"
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="GETapi-users--id-"
+               value="consequatur"
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>1</code></p>
+<p>The ID of the user. Example: <code>consequatur</code></p>
             </div>
                     </form>
 
@@ -3286,6 +3277,313 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Accept"                data-endpoint="GETapi-user"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                <h1 id="profile-management">Profile Management</h1>
+
+    
+
+                                <h2 id="profile-management-POSTapi-user-edit-profile">Edit User Profile</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-user-edit-profile">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://rrn24.techchantier.com/malingo/public/api/api/user/edit-profile" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "age=17"\
+    --form "mobile_number=consequatur"\
+    --form "profile_picture=@C:\Users\NSEM CONFIDENT NJOCK\AppData\Local\Temp\php1F07.tmp" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://rrn24.techchantier.com/malingo/public/api/api/user/edit-profile"
+);
+
+const headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('age', '17');
+body.append('mobile_number', 'consequatur');
+body.append('profile_picture', document.querySelector('input[name="profile_picture"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-user-edit-profile">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;John Doe&quot;,
+    &quot;email&quot;: &quot;john@example.com&quot;,
+    &quot;age&quot;: 30,
+    &quot;mobile_number&quot;: &quot;+1234567890&quot;,
+    &quot;profile_picture&quot;: &quot;path/to/profile/picture.jpg&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Validation failed&quot;,
+    &quot;errors&quot;: {
+        &quot;mobile_number&quot;: [
+            &quot;The mobile number format is invalid&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-user-edit-profile" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-user-edit-profile"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-user-edit-profile"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-user-edit-profile" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-user-edit-profile">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-user-edit-profile" data-method="POST"
+      data-path="api/user/edit-profile"
+      data-authed="1"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-user-edit-profile', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-user-edit-profile"
+                    onclick="tryItOut('POSTapi-user-edit-profile');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-user-edit-profile"
+                    onclick="cancelTryOut('POSTapi-user-edit-profile');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-user-edit-profile"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/user/edit-profile</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-user-edit-profile"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-user-edit-profile"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>age</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="age"                data-endpoint="POSTapi-user-edit-profile"
+               value="17"
+               data-component="body">
+    <br>
+<p>optional User's age Example: <code>17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>mobile_number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="mobile_number"                data-endpoint="POSTapi-user-edit-profile"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>optional User's mobile number Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>profile_picture</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="file" style="display: none"
+                              name="profile_picture"                data-endpoint="POSTapi-user-edit-profile"
+               value=""
+               data-component="body">
+    <br>
+<p>optional User's profile picture Example: <code>C:\Users\NSEM CONFIDENT NJOCK\AppData\Local\Temp\php1F07.tmp</code></p>
+        </div>
+        </form>
+
+                    <h2 id="profile-management-GETapi-user-profile">Get Current User Profile</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-user-profile">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://rrn24.techchantier.com/malingo/public/api/api/user/profile" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://rrn24.techchantier.com/malingo/public/api/api/user/profile"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-user-profile">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;John Doe&quot;,
+    &quot;email&quot;: &quot;john@example.com&quot;,
+    &quot;age&quot;: 30,
+    &quot;mobile_number&quot;: &quot;+1234567890&quot;,
+    &quot;profile_picture&quot;: &quot;path/to/profile/picture.jpg&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-user-profile" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-user-profile"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-user-profile"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-user-profile" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-user-profile">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-user-profile" data-method="GET"
+      data-path="api/user/profile"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-user-profile', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-user-profile"
+                    onclick="tryItOut('GETapi-user-profile');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-user-profile"
+                    onclick="cancelTryOut('GETapi-user-profile');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-user-profile"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/user/profile</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-user-profile"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-user-profile"
                value="application/json"
                data-component="header">
     <br>

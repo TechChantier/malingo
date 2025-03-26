@@ -22,6 +22,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'age',
+        'mobile_number',
+        'profile_picture'
     ];
 
     /**
@@ -47,23 +50,28 @@ class User extends Authenticatable
         ];
     }
 
-    public function activities(){
+    public function activities()
+    {
         return $this->hasMany(Activity::class);
     }
 
-    public function sentJoinRequest(){
+    public function sentJoinRequest()
+    {
         return $this->hasMany(JoinRequest::class, 'user_id');
     }
-    public function recievedJoinRequest(){
+    public function recievedJoinRequest()
+    {
         return $this->hasManyThrough(JoinRequest::class, Activity::class, 'user_id', 'activity_id');
     }
-    
-    public function joinedActivities(){
+
+    public function joinedActivities()
+    {
         return $this->belongsToMany(Activity::class, 'join_requests')
-                    ->withPivot('status');
+            ->withPivot('status');
     }
 
-    public function leaveRequest(){
+    public function leaveRequest()
+    {
         return $this->hasMany(LeaveRequest::class);
     }
 }
