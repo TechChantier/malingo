@@ -26,6 +26,7 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::post('/activities/{activity}/join', [ActivityController::class, 'joinActivity'])->middleware('auth:sanctum');
 Route::post('/join-request/{joinRequest}/accept', [JoinRequestController::class, 'acceptRequest'])->middleware('auth:sanctum');
 Route::post('/join-request/{joinRequest}/decline', [JoinRequestController::class, 'declineRequest'])->middleware('auth:sanctum');
+Route::get('/activities/join-requests', [ActivityController::class, 'getActivityJoinRequests'])->middleware('auth:sanctum');
 
 //  route to return user created, pending, accepted, declined activity
 Route::get('/activities/user', [ActivityController::class, 'getUserActivities'])->middleware('auth:sanctum');

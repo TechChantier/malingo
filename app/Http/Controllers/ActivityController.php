@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
+use App\Models\JoinRequest;
 use App\Models\LeaveRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -478,7 +479,55 @@ class ActivityController extends Controller implements HasMiddleware
         return response()->json($activities);
     }
 
-
+    /**
+ * @group Activity Management
+ * Get join requests for user's activities
+ * 
+ * @authenticated
+ * @header Authorization string required The authentication token. Example: Bearer {token}
+ *
+ * Retrieve all join requests for activities created by the authenticated user.
+ *
+ * @response 200 {
+ *   "join_requests": [
+ *     {
+ *       "id": 1,
+ *       "activity_id": 5,
+ *       "user_id": 2,
+ *       "status": "pending",
+ *       "created_at": "2025-02-04T12:16:50.000000Z",
+ *       "updated_at": "2025-02-04T12:16:50.000000Z",
+ *       "activity": {
+ *         "id": 5,
+ *         "title": "Join me at Tech Chantier",
+ *         "location": "Mount Fako, Cameroon",
+ *         "time": "2025-02-15 08:00:00"
+ *       },
+ *       "user": {
+ *         "id": 2,
+ *         "name": "Nkwi Cyril",
+ *         "email": "nkwicyril@gmail.com"
+ *       }
+ *     }
+ *   ]
+ * }
+ */
+public function getActivityJoinRequests(Request $request)
+{
+    $user = $request->user();
+    
+    // Get IDs of all activities created by the user
+    $activityIds = $user->activities()->pluck('id');
+    
+    // Get all join requests for these activities with related activity and user data
+    $joinRequests = JoinRequest::whereIn('activity_id', $activityIds)
+        ->with(['activity:id,title,location,time', 'user:id,name,email'])
+        ->get();
+    
+    return response()->json([
+        'join_requests' => $joinRequests
+    ]);
+}
 
     /**
      * @group Activity Management
