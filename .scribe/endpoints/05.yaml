@@ -23,14 +23,14 @@ endpoints:
         name: joinRequest_id
         description: 'The ID of the joinRequest.'
         required: true
-        example: 17
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      joinRequest_id: 17
+      joinRequest_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -95,14 +95,14 @@ endpoints:
         name: joinRequest_id
         description: 'The ID of the joinRequest.'
         required: true
-        example: 17
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      joinRequest_id: 17
+      joinRequest_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -146,6 +146,66 @@ endpoints:
     custom: []
   -
     httpMethods:
+      - GET
+    uri: api/activities/join-requests
+    metadata:
+      groupName: 'Activity Request'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Get join requests for user's activities"
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'string required The authentication token. Example: Bearer {token}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "join_requests": [
+              {
+                "id": 1,
+                "activity_id": 5,
+                "user_id": 2,
+                "status": "pending",
+                "created_at": "2025-02-04T12:16:50.000000Z",
+                "updated_at": "2025-02-04T12:16:50.000000Z",
+                "activity": {
+                  "id": 5,
+                  "title": "Join me at Tech Chantier",
+                  "location": "Mount Fako, Cameroon",
+                  "time": "2025-02-15 08:00:00"
+                },
+                "user": {
+                  "id": 2,
+                  "name": "Nkwi Cyril",
+                  "email": "nkwicyril@gmail.com"
+                }
+              }
+            ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
       - POST
     uri: 'api/activity/{activity_id}/leave'
     metadata:
@@ -166,14 +226,14 @@ endpoints:
         name: activity_id
         description: 'The ID of the activity.'
         required: true
-        example: 17
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      activity_id: 17
+      activity_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:

@@ -39,6 +39,58 @@ class ActivityController extends Controller implements HasMiddleware
         return Activity::all();
     }
 
+
+    /**
+     * @group Activity Request
+     * Get join requests for user's activities
+     * 
+     * @authenticated
+     * @header Authorization string required The authentication token. Example: Bearer {token}
+     *
+     * Retrieve all join requests for activities created by the authenticated user.
+     *
+     * @response 200 {
+     *   "join_requests": [
+     *     {
+     *       "id": 1,
+     *       "activity_id": 5,
+     *       "user_id": 2,
+     *       "status": "pending",
+     *       "created_at": "2025-02-04T12:16:50.000000Z",
+     *       "updated_at": "2025-02-04T12:16:50.000000Z",
+     *       "activity": {
+     *         "id": 5,
+     *         "title": "Join me at Tech Chantier",
+     *         "location": "Mount Fako, Cameroon",
+     *         "time": "2025-02-15 08:00:00"
+     *       },
+     *       "user": {
+     *         "id": 2,
+     *         "name": "Nkwi Cyril",
+     *         "email": "nkwicyril@gmail.com"
+     *       }
+     *     }
+     *   ]
+     * }
+     */
+    public function getActivityJoinRequests(Request $request)
+    {
+        $user = $request->user();
+
+        // Get IDs of all activities created by the user
+        $activityIds = $user->activities()->pluck('id');
+
+        // Get all join requests for these activities with related activity and user data
+        $joinRequests = JoinRequest::whereIn('activity_id', $activityIds)
+            ->with(['activity:id,title,location,time', 'user:id,name,email'])
+            ->get();
+
+        return response()->json([
+            'join_requests' => $joinRequests
+        ]);
+    }
+
+
     /**
      * @group Activities
      * Create a new activity
@@ -479,78 +531,36 @@ class ActivityController extends Controller implements HasMiddleware
         return response()->json($activities);
     }
 
-    /**
- * @group Activity Management
- * Get join requests for user's activities
- * 
- * @authenticated
- * @header Authorization string required The authentication token. Example: Bearer {token}
- *
- * Retrieve all join requests for activities created by the authenticated user.
- *
- * @response 200 {
- *   "join_requests": [
- *     {
- *       "id": 1,
- *       "activity_id": 5,
- *       "user_id": 2,
- *       "status": "pending",
- *       "created_at": "2025-02-04T12:16:50.000000Z",
- *       "updated_at": "2025-02-04T12:16:50.000000Z",
- *       "activity": {
- *         "id": 5,
- *         "title": "Join me at Tech Chantier",
- *         "location": "Mount Fako, Cameroon",
- *         "time": "2025-02-15 08:00:00"
- *       },
- *       "user": {
- *         "id": 2,
- *         "name": "Nkwi Cyril",
- *         "email": "nkwicyril@gmail.com"
- *       }
- *     }
- *   ]
- * }
- */
-public function getActivityJoinRequests(Request $request)
-{
-    $user = $request->user();
-    
-    // Get IDs of all activities created by the user
-    $activityIds = $user->activities()->pluck('id');
-    
-    // Get all join requests for these activities with related activity and user data
-    $joinRequests = JoinRequest::whereIn('activity_id', $activityIds)
-        ->with(['activity:id,title,location,time', 'user:id,name,email'])
-        ->get();
-    
-    return response()->json([
-        'join_requests' => $joinRequests
-    ]);
-}
 
     /**
-     * @group Activity Management
+     * @group Activity
      *
      * Retrieve a list of users who have joined a particular activity.
      *
      * @urlParam activityId int required The ID of the activity.
      *
-     * @response 200 [
-     *   {
-     *       "id": 2,
-     *        "name": "Nkwi Cyril",
-     *        "email": "nkwicyril@gmail.com",
-     *        "email_verified_at": null,
-     *        "created_at": "2025-02-04T09:37:07.000000Z",
-     *        "updated_at": "2025-02-04T09:37:07.000000Z",
-     *        "pivot": {
-     *            "activity_id": 9,
+     * @response 200 "join_requests": [
+     *        {
+     *            "id": 3,
+     *            "activity_id": 6,
      *            "user_id": 2,
-     *            "status": "accepted"
+     *            "status": "pending",
+     *            "created_at": "2025-04-06T10:16:03.000000Z",
+     *            "updated_at": "2025-04-06T10:16:03.000000Z",
+     *            "activity": {
+     *                "id": 6,
+     *                "title": "React and React Native Bootcamp Conference",
+     *                "location": "buea, Cameroon",
+     *                "time": "2025-02-15 08:00:00"
+     *            },
+     *            "user": {
+     *                "id": 2,
+     *                "name": "Ambo Njock",
+     *                "email": "ambo@gmail.com"
+     *            }
      *        }
-     *    }
-     *]
+     *    ]
+     *}
      * @response 404 {
      *   "message": "Activity not found"
      * }
@@ -573,66 +583,66 @@ public function getActivityJoinRequests(Request $request)
 
 
     /**
- * @group Searching
- * Search activities by parameter or specific fields
- *
- * Search for activities using a general parameter or specific field filters.
- *
- * @urlParam parameter string optional General search term to find across title, description, and location.
- * @queryParam title string optional Filter by title.
- * @queryParam description string optional Filter by description.
- * @queryParam location string optional Filter by location.
- * @queryParam date string optional Filter by date (format: y-m-d).
- *
- * @response 200 [
- *    {
- *        "id": 5,
- *        "user_id": 1,
- *        "title": "Hiking go and hike with me",
- *        "ActivityPhoto": "activity_photos/QDEBUm8GSGbdAFob56QOh4EidyLtgFR5NckhQFBQ.jpg",
- *        "description": "this is a good activity",
- *        "link": "https//wa.me/237672474539",
- *        "numberOfMembers": 10,
- *        "location": "buea",
- *        "time": "2025-02-15 08:00:00",
- *        "created_at": "2025-02-04T09:11:42.000000Z",
- *        "updated_at": "2025-02-04T11:43:41.000000Z"
- *    }
- *]
- */
-public function search(Request $request, $parameter = null)
-{
-    // Start with a base query
-    $query = Activity::query();
+     * @group Searching
+     * Search activities by parameter or specific fields
+     *
+     * Search for activities using a general parameter or specific field filters.
+     *
+     * @urlParam parameter string optional General search term to find across title, description, and location.
+     * @queryParam title string optional Filter by title.
+     * @queryParam description string optional Filter by description.
+     * @queryParam location string optional Filter by location.
+     * @queryParam date string optional Filter by date (format: y-m-d).
+     *
+     * @response 200 [
+     *    {
+     *        "id": 5,
+     *        "user_id": 1,
+     *        "title": "Hiking go and hike with me",
+     *        "ActivityPhoto": "activity_photos/QDEBUm8GSGbdAFob56QOh4EidyLtgFR5NckhQFBQ.jpg",
+     *        "description": "this is a good activity",
+     *        "link": "https//wa.me/237672474539",
+     *        "numberOfMembers": 10,
+     *        "location": "buea",
+     *        "time": "2025-02-15 08:00:00",
+     *        "created_at": "2025-02-04T09:11:42.000000Z",
+     *        "updated_at": "2025-02-04T11:43:41.000000Z"
+     *    }
+     *]
+     */
+    public function search(Request $request, $parameter = null)
+    {
+        // Start with a base query
+        $query = Activity::query();
 
-    // If a path parameter is provided, search across all searchable fields
-    if ($parameter) {
-        $query->where(function($q) use ($parameter) {
-            $q->where('title', 'LIKE', "%{$parameter}%")
-              ->orWhere('description', 'LIKE', "%{$parameter}%")
-              ->orWhere('location', 'LIKE', "%{$parameter}%");
-        });
-    }
+        // If a path parameter is provided, search across all searchable fields
+        if ($parameter) {
+            $query->where(function ($q) use ($parameter) {
+                $q->where('title', 'LIKE', "%{$parameter}%")
+                    ->orWhere('description', 'LIKE', "%{$parameter}%")
+                    ->orWhere('location', 'LIKE', "%{$parameter}%");
+            });
+        }
 
-    // Handle additional query parameters as before
-    if ($request->has('title')) {
-        $query->where('title', 'LIKE', '%' . $request->title . '%');
-    }
-    if ($request->has('description')) {
-        $query->where('description', 'LIKE', '%' . $request->description . '%');
-    }
-    if ($request->has('location')) {
-        $query->where('location', 'LIKE', '%' . $request->location . '%');
-    }
-    if ($request->has('date')) {
-        $query->whereDate('time', $request->date);
-    }
+        // Handle additional query parameters as before
+        if ($request->has('title')) {
+            $query->where('title', 'LIKE', '%' . $request->title . '%');
+        }
+        if ($request->has('description')) {
+            $query->where('description', 'LIKE', '%' . $request->description . '%');
+        }
+        if ($request->has('location')) {
+            $query->where('location', 'LIKE', '%' . $request->location . '%');
+        }
+        if ($request->has('date')) {
+            $query->whereDate('time', $request->date);
+        }
 
-    // Order by date in descending order
-    $activity = $query->orderBy('time', 'desc')->get();
+        // Order by date in descending order
+        $activity = $query->orderBy('time', 'desc')->get();
 
-    return response()->json($activity);
-}
+        return response()->json($activity);
+    }
 
     /**
      * @group Activity Request
